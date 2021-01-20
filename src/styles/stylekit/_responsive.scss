@@ -1,0 +1,93 @@
+@media screen and (max-width: 1025px) {
+    @for $i from 1 through 25 {
+        .t-pt-#{$i*4}  {
+            padding-top:#{$i*4}px;
+        }
+        .t-pb-#{$i*4}  {
+            padding-bottom:#{$i*4}px;
+        }
+        .t-pl-#{$i*4}  {
+            padding-left:#{$i*4}px;
+        }
+        .t-pr-#{$i*4}  {
+            padding-right:#{$i*4}px;
+        }
+    }
+    
+    @for $i from 1 through 20 {
+        .t-pt-#{100 + $i*50}  {
+            padding-top:#{100 + $i*50}px;
+        }
+        .t-pb-#{100 + $i*50}  {
+            padding-bottom:#{100 + $i*50}px;
+        }
+        .t-pl-#{100 + $i*50}  {
+            padding-left:#{100 + $i*50}px;
+        }
+        .t-pr-#{100 + $i*50}  {
+            padding-right:#{100 + $i*50}px;
+        }
+    }
+
+    .t-l-75 {
+        left: 75px;
+    }
+    .t-ml--75 {
+        margin-left: -75px
+    }
+    .table-wrapper {
+        width: calc(100vw - 100px);
+        overflow: auto;
+    }
+}
+@media screen and (min-width: 1026px) {
+    @for $i from 1 through 25 {
+        .d-pt-#{$i*4}  {
+            padding-top:#{$i*4}px;
+        }
+        .d-pb-#{$i*4}  {
+            padding-bottom:#{$i*4}px;
+        }
+        .d-pl-#{$i*4}  {
+            padding-left:#{$i*4}px;
+        }
+        .d-pr-#{$i*4}  {
+            padding-right:#{$i*4}px;
+        }
+    }
+    
+    @for $i from 1 through 20 {
+        .d-pt-#{100 + $i*50}  {
+            padding-top:#{100 + $i*50}px;
+        }
+        .d-pb-#{100 + $i*50}  {
+            padding-bottom:#{100 + $i*50}px;
+        }
+        .d-pl-#{100 + $i*50}  {
+            padding-left:#{100 + $i*50}px;
+        }
+        .d-pr-#{100 + $i*50}  {
+            padding-right:#{100 + $i*50}px;
+        }
+    }
+    .d-l-250 {
+        left: 250px;
+    }
+    .d-ml--275 {
+        margin-left: -275px
+    }
+    .table-wrapper {
+        width: calc(100vw - 285px);
+        overflow: auto;
+    }
+}
+.t-hide {
+    @media screen and (max-width: 1025px) {
+        display: none;
+    }
+}
+.d-hide {
+    @media screen and (min-width: 1026px) {
+        display: none;
+    }
+}

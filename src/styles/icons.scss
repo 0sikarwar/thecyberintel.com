@@ -1,0 +1,25 @@
+    .cross {
+      background: black;
+      height: 20px;
+      position: relative;
+      width: 3px;
+      transform: rotate(45deg);
+      background: #ffffff;
+
+      &:after {
+        background: #ffffff;
+        content: "";
+        height: 3px;
+        left: -8px;
+        position: absolute;
+        top: 9px;
+        width: 20px;
+      }
+    }
+
+    .bars div {
+      width: 35px;
+      height: 3px;
+      background-color: #ffffff;
+      margin: 6px 0;
+    }

@@ -1,0 +1,26 @@
+@for $i from 0 through 25 {
+    .t-#{$i*4}  {
+        top:#{$i*4}px;
+    }
+    .b-#{$i*4}  {
+        bottom:#{$i*4}px;
+    }
+    .l-#{$i*4}  {
+        left:#{$i*4}px;
+    }
+    .r-#{$i*4}  {
+        right:#{$i*4}px;
+    }
+}
+.t-2 {
+    top: 2px;
+}
+.l-250 {
+    left: 250px;
+}
+.t-26 {
+    top: 26px;
+}
+.t--8 {
+    top: -8px;
+}

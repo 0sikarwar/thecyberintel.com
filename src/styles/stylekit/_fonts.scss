@@ -1,0 +1,16 @@
+@for $i from 8 through 40 {
+    .fs-#{$i}  {
+        font-size:#{$i}px;
+    }
+}
+.fw-bold {
+    font-weight: 500;
+}
+
+.fw-bolder {
+    font-weight: 700;
+}
+
+.lh-16 {
+    line-height: 16px;
+}

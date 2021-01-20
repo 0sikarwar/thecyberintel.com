@@ -1,0 +1,42 @@
+.col {
+  padding: 20px;
+  flex: 1;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.home-image {
+  max-width: 500px;
+}
+
+.App {
+  box-sizing: border-box;
+  width: auto;
+  margin: auto;
+  max-width: 1040px;
+  padding: 96px 32px;
+}
+
+@media screen and (max-width: $max-width-for-mobile) {
+  .col {
+    width: 100%;
+    flex: initial;
+  }
+
+  .home-image {
+    max-width: 100%;
+  }
+
+  .App {
+    padding: 20px 10px;
+  }
+}
+
+.fake {
+  position: relative;
+  visibility: hidden;
+}

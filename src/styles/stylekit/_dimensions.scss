@@ -1,0 +1,91 @@
+@for $i from 1 through 250 {
+    .wt-#{$i*5}  {
+        width:#{$i*5}px;
+    }
+    .min-wt-#{$i*5}  {
+        min-width:#{$i*5}px;
+    }
+    .max-wt-#{$i*5}  {
+        max-width:#{$i*5}px;
+    }
+    .ht-#{$i*5}  {
+        height:#{$i*5}px;
+    }
+}
+.wt-20p{
+    width: 20%;
+}
+.wt-33p {
+    width: 25% !important;
+    margin-bottom: 15px;
+}
+.wt-25p {
+    width: 25%;
+}
+.wt-30p{
+    width:30%;
+}
+.wt-40p {
+    width: 40%;
+}
+.wt-48p {
+    width: 48%;
+}
+.wt-49p {
+    width: 49%;
+}
+.wt-50p {
+    width: 50%;
+}
+.wt-60p {
+    width: 60%;
+}
+.wt-70p {
+    width: 70%;
+}
+.wt-90p {
+    width: 90%;
+}
+.wt-95p {
+    width: 95%;
+}
+.wt-100p {
+    width: 100%;
+}
+.ht-100p {
+    height: 100%;
+}
+.wt-40vw{
+    width: 40vw;
+}
+.wt-80vw{
+    width: 80vw;
+}
+.wt-90vw{
+    width: 90vw;
+}
+.wt-100vw{
+    width: 100vw;
+}
+.ht-100vh{
+    height: 100vh;
+}
+.bb-1 {
+    border-bottom-width: 1px;
+    border-style: solid;
+}
+.searchImageHover:hover {
+    z-index: 5;
+    width: 250px;
+    height: 225px;
+    position: absolute;
+    transition: all 0.3s ease-out;
+    background: white;
+    padding: 10px;
+    box-shadow: 9px 9px 7px rgba(0, 0, 0, 0.25);
+}
+
+.bt-1 {
+    border-top-width: 1px;
+    border-style: solid;
+}

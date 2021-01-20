@@ -1,0 +1,278 @@
+.p-fixed {
+    position: fixed;
+}
+.p-absolute {
+    position: absolute;
+}
+.p-relative {
+    position: relative;
+}
+.decoration-none {
+    text-decoration: none;
+}
+
+.c-pointer {
+    cursor: pointer;
+    &:hover{
+        text-decoration: underline;
+    }
+}
+.c-not-allowed {
+    cursor: not-allowed;
+}
+.z-1 {
+    z-index: 1;
+}
+.z-50 {
+    z-index: 50;
+}
+.t-center {
+    text-align: center;;
+}
+.t-right {
+    text-align: right;;
+}
+.page-center {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.container-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.login-page-center {
+    position: fixed;
+    top: 50%;
+    right: 0;
+    height: 100vh;
+    transform: translate(0%, -50%);
+}
+.overlay {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, .5);
+    z-index: 25;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.sidebar-icon {
+    fill: #FFF;
+}
+.bg-active-sidebar {
+    .sidebar-icon {
+        fill: #00cbcd;
+    }
+}
+.sidebar-icon.active {
+    display: none;
+}
+.active-sidebar {
+    .active {
+        display: block;
+    }
+    .inactive {
+        display: none;
+    }
+}
+
+.rotate-90 {
+    transform: rotate(90deg);
+}
+.rotate--90 {
+    transform: rotate(-90deg);
+}
+.op-2 {
+    opacity: 0.2;
+}
+.op-5 {
+    opacity: 0.5;
+}
+.op-7 {
+    opacity: 0.7;
+}
+.op-9 {
+    opacity: 0.9;
+}
+.toast {
+    bottom: -100px;
+    transition: 0.6s bottom ease-in;
+    z-index: 9999999999;
+    &.active {
+        bottom: 120px;
+        transition: 0.6s bottom ease-out;
+    }
+}
+.modal-overflow {
+    max-height: calc(100vh);
+    overflow: auto;
+}
+ 
+.selectListDiv:hover{
+    background-color: rgb(201, 195, 195);
+}
+
+select {
+    background: #fff;
+    border: none;
+    outline: none;
+    padding: 5px 20px 5px 10px;
+    width: 100%;
+    border-top: 1px solid #F1F1F1;
+    border-bottom: 1px solid #F1F1F1;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    text-indent: 1px;
+    // padding-bottom: 13px;   
+    
+    // Add icon: svg triangle with fill #B1B1B1
+    background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23B1B1B1%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E');
+    background-repeat: no-repeat;
+    background-position: right 10px top 50%;
+    background-size: 10px auto;
+
+    // &.glow {
+    //     border-radius: 15px;
+    //     padding: 16px 20px;
+    //     min-width: 200px;
+    //     color: $cement;
+    //     background-color: $lightCement;
+    //     box-shadow:  4px 4px 6px 0 rgba(171, 194, 212, 0.6), -4px -4px 6px 0 rgba(255, 255, 255, 0.5);
+    //     background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%20version%3D%221.1%22%20id%3D%22Capa_1%22%20x%3D%220px%22%20y%3D%220px%22%20width%3D%22960px%22%20height%3D%22560px%22%20viewBox%3D%220%200%20960%20560%22%20enable-background%3D%22new%200%200%20960%20560%22%20xml%3Aspace%3D%22preserve%22%3E%3Cg%20id%3D%22Rounded_Rectangle_33_copy_4_1_%22%3E%3Cpath%20fill%3D%22%2350a1df%22%20d%3D%22M480%2C344.181L268.869%2C131.889c-15.756-15.859-41.3-15.859-57.054%2C0c-15.754%2C15.857-15.754%2C41.57%2C0%2C57.431l237.632%2C238.937%20%20%20c8.395%2C8.451%2C19.562%2C12.254%2C30.553%2C11.698c10.993%2C0.556%2C22.159-3.247%2C30.555-11.698l237.631-238.937%20%20%20c15.756-15.86%2C15.756-41.571%2C0-57.431s-41.299-15.859-57.051%2C0L480%2C344.181z%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E');
+
+    //     background-position: right 18px top 50%;
+    //     background-size: 20px auto;
+    // }
+
+}
+.hideSpinner  input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 2; 
+}
+.t-initial {
+    text-transform: initial;
+}
+// #agora_local {
+//     width: 100px !important;
+//     height: 100px !important;
+//     position: relative !important;
+//     top: 400px !important;
+//     left: 300px !important;
+//     z-index: 1 !important;
+// }
+.table-wrapper * {
+    overflow-wrap: break-word ;
+    word-wrap: break-word;
+    overflow: hidden;
+}
+.sc-chat-window {
+    height: calc(100% - 180px) !important;
+    * {
+        text-transform: initial;
+    }
+    .sc-header {
+        background: #C82534;
+    }
+    .sc-message--content.sent .sc-message--text {
+        background: #C82534;
+    }
+    .sc-message--text {
+        font-weight: 500;
+        padding: 8px 20px;
+    }
+}
+@media all and (max-width: 1025px) {
+    .sidebar-logo {
+        width: 50px;
+    }
+    .sidebar-container {
+        padding: 0 4px;
+    }
+    .sidebar-main {
+        width: 60px;
+    }
+    .sidebar-link {
+        padding: 16px 4px;
+        justify-content: center;
+        img {
+            margin-right: 0;
+        }
+        span {
+            display: none;
+        }
+    }
+}
+.agora_remote div:last-child {
+    display: block !important;
+}
+.agora_remote div:first-child {
+    display: none;
+}
+.react-draggable {
+    z-index: 1;
+}
+
+.o-70{
+    opacity: 70%;
+}
+.l-0{
+    left:0;
+} 
+.r-0{
+    right: 0;
+} 
+.b-0{
+    bottom: 0;
+} 
+.t-0{
+    top: 0;
+}
+.z-10{
+    z-index: 10;
+}
+
+.br-4 {
+    border-radius: 4px;
+}
+
+.br-100 {
+    border-radius: 100px;
+}
+
+.elevation-3 {
+    box-shadow: 0 10px 15px -3px rgba(191,180,180,.1), 0 4px 6px -2px rgba(191,180,180,.05);
+}
+
+.o-hidden {
+    overflow: hidden;
+}
+
+.ws-nowrap {
+    white-space: nowrap;
+}
+
+.to-ellipsis {
+    text-overflow: ellipsis;
+}
+
+.float-r{
+    float:right;
+}
+
+.slide-up{
+    position: relative;
+    animation: slideup .5s ;
+}
+
+@keyframes slideup{
+    0% {top: 500px;}
+    100% {top: 0px}
+}
