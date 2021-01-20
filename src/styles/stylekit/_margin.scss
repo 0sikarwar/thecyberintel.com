@@ -1,0 +1,24 @@
+@for $i from 1 through 25 {
+    .mt-#{$i*4}  {
+        margin-top:#{$i*4}px;
+    }
+    .mb-#{$i*4}  {
+        margin-bottom:#{$i*4}px;
+    }
+    .ml-#{$i*4}  {
+        margin-left:#{$i*4}px;
+    }
+    .mr-#{$i*4}  {
+        margin-right:#{$i*4}px;
+    }
+}
+.mt--74 {
+    margin-top: -74px;
+}
+.mt--80 {
+    margin-top: -80px;
+}
+
+.m-auto {
+    margin: auto;
+}
