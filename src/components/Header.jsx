@@ -1,9 +1,10 @@
 import { useState } from "react";
 import Bars from "./Bars";
-import { navTextArray } from "../assets/messages/servicesMsgs";
+import { getMsgJson } from "../utils";
 import { ReactComponent as Icon } from "../assets/icons/CiLogo.svg";
 
 function Header() {
+  const { navTextArray } = getMsgJson();
   const [isBarClicked, setIsBarClicked] = useState(false);
   const [activeNav, setActiveNav] = useState(navTextArray[0]);
   return (

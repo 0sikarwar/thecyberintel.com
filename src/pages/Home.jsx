@@ -1,6 +1,7 @@
 import image1 from "../assets/images/logo.jpeg";
-import { address, homeSummary, serviceProvided } from "../assets/messages/servicesMsgs";
+import { getMsgJson } from "../utils";
 function Home() {
+  const { address, homeSummary, serviceProvided } = getMsgJson();
   return (
     <div className="">
       <div className="row">
