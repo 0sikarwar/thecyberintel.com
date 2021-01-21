@@ -1,3 +1,4 @@
+console.log(process);
 export const serviceProvided = [
   "Internet access",
   "Black & White Print & Copy",
