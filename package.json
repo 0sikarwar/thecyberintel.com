@@ -16,7 +16,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts PUBLIC_URL=https://thecyberintel.com/ build",
+    "build": "PUBLIC_URL=https://thecyberintel.com/  react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy": "yarn run build",
