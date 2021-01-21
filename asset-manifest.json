@@ -1,24 +1,24 @@
 {
   "files": {
     "main.css": "https://thecyberintel.com/static/css/main.affbbc39.chunk.css",
-    "main.js": "https://thecyberintel.com/static/js/main.e90ae96e.chunk.js",
-    "main.js.map": "https://thecyberintel.com/static/js/main.e90ae96e.chunk.js.map",
-    "runtime-main.js": "https://thecyberintel.com/static/js/runtime-main.df3ef9f0.js",
-    "runtime-main.js.map": "https://thecyberintel.com/static/js/runtime-main.df3ef9f0.js.map",
-    "static/js/2.f59159f0.chunk.js": "https://thecyberintel.com/static/js/2.f59159f0.chunk.js",
-    "static/js/2.f59159f0.chunk.js.map": "https://thecyberintel.com/static/js/2.f59159f0.chunk.js.map",
-    "static/js/3.85d5c869.chunk.js": "https://thecyberintel.com/static/js/3.85d5c869.chunk.js",
-    "static/js/3.85d5c869.chunk.js.map": "https://thecyberintel.com/static/js/3.85d5c869.chunk.js.map",
+    "main.js": "https://thecyberintel.com/static/js/main.764ef495.chunk.js",
+    "main.js.map": "https://thecyberintel.com/static/js/main.764ef495.chunk.js.map",
+    "runtime-main.js": "https://thecyberintel.com/static/js/runtime-main.8553de8c.js",
+    "runtime-main.js.map": "https://thecyberintel.com/static/js/runtime-main.8553de8c.js.map",
+    "static/js/2.a32e35da.chunk.js": "https://thecyberintel.com/static/js/2.a32e35da.chunk.js",
+    "static/js/2.a32e35da.chunk.js.map": "https://thecyberintel.com/static/js/2.a32e35da.chunk.js.map",
+    "static/js/3.39168193.chunk.js": "https://thecyberintel.com/static/js/3.39168193.chunk.js",
+    "static/js/3.39168193.chunk.js.map": "https://thecyberintel.com/static/js/3.39168193.chunk.js.map",
     "index.html": "https://thecyberintel.com/index.html",
     "static/css/main.affbbc39.chunk.css.map": "https://thecyberintel.com/static/css/main.affbbc39.chunk.css.map",
-    "static/js/2.f59159f0.chunk.js.LICENSE.txt": "https://thecyberintel.com/static/js/2.f59159f0.chunk.js.LICENSE.txt",
+    "static/js/2.a32e35da.chunk.js.LICENSE.txt": "https://thecyberintel.com/static/js/2.a32e35da.chunk.js.LICENSE.txt",
     "static/media/CiLogo.f4bfd8b1.svg": "https://thecyberintel.com/static/media/CiLogo.f4bfd8b1.svg",
     "static/media/logo.318c8575.jpeg": "https://thecyberintel.com/static/media/logo.318c8575.jpeg"
   },
   "entrypoints": [
-    "static/js/runtime-main.df3ef9f0.js",
-    "static/js/2.f59159f0.chunk.js",
+    "static/js/runtime-main.8553de8c.js",
+    "static/js/2.a32e35da.chunk.js",
     "static/css/main.affbbc39.chunk.css",
-    "static/js/main.e90ae96e.chunk.js"
+    "static/js/main.764ef495.chunk.js"
   ]
 }
