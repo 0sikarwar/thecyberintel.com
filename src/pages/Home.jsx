@@ -2,7 +2,9 @@ import { useState } from "react";
 import RenderToast from "../components/Toast";
 import { getMsgJson } from "../utils";
 import { ReactComponent as Icon } from "../assets/CiLogo.svg";
-
+import Shimmer from "../components/Shimmer";
+import { ReactComponent as AboutIcon } from "../assets/About.svg";
+import { ReactComponent as ServicesIcon } from "../assets/Sevices.svg";
 function Home() {
   const { address, homeSummary, serviceProvided } = getMsgJson();
   const [showToast, setShowToast] = useState(false);
@@ -16,15 +18,15 @@ function Home() {
       />
       <Header />
       <Card
-        className="section"
-        img="./Capture1.PNG"
+        className="section mb-24"
+        icon={<AboutIcon width="120px" height="125px" />}
         title="About the Us"
         description={<p dangerouslySetInnerHTML={{ __html: homeSummary }} />}
       />
 
       <Card
-        className="section bg-grey"
-        img="./Capture3.PNG"
+        className="section bg-grey mb-16"
+        icon={<ServicesIcon width="160px" height="165px" />}
         title="Our Sevices"
         description={
           <ul type="disk">
@@ -56,12 +58,9 @@ const Header = () => {
 const Card = (props) => {
   return (
     <div className={props.className}>
-      <div className="small-div">
-        <i className={props.className}></i>
-        <img src={props.img} alt="" />
-      </div>
+      <div className="small-div flex flex-center">{props.icon}</div>
 
-      <div className="big-div">
+      <div className="big-div p-16">
         <span className="div-title">{props.title}</span>
         <br />
         <span>{props.description}</span>

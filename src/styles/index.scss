@@ -7,6 +7,8 @@
 @import './stylekit/utils';
 @import './stylekit/responsive';
 @import "~bootstrap/scss/bootstrap";
+@import './pageloader.scss';
+@import './Shimmer.scss';
 
 * {
 	margin: 0;
@@ -55,9 +57,6 @@
 	justify-content: center;
 }
 
-.section>div {
-	padding: 30px;
-}
 
 .small-div {
 	width: 20%;
