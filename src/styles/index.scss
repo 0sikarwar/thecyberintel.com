@@ -6,6 +6,7 @@
 @import './stylekit/fonts';
 @import './stylekit/utils';
 @import './stylekit/responsive';
+@import "~bootstrap/scss/bootstrap";
 
 * {
 	margin: 0;
@@ -35,7 +36,6 @@
 	width: 100%;
 	text-align: center;
 	height: 170px;
-	padding: 30px;
 }
 
 .header-title {

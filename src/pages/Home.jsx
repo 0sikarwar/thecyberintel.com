@@ -1,9 +1,11 @@
 import { useState } from "react";
 import RenderToast from "../components/Toast";
 import { getMsgJson } from "../utils";
+import { ReactComponent as Icon } from "../assets/CiLogo.svg";
+
 function Home() {
   const { address, homeSummary, serviceProvided } = getMsgJson();
-  const [showToast, setShowToast] = useState(true);
+  const [showToast, setShowToast] = useState(false);
   return (
     <div id="body">
       <RenderToast
@@ -39,9 +41,13 @@ function Home() {
 
 const Header = () => {
   return (
-    <div className="header">
-      <span className="header-title">The Cyberintel</span>
-      <br />
+    <div className="header flex flex-column flex-center flex-middle">
+      <div className="flex flex-middle">
+        <div className="bg-white ht-max-content in-block mr-2 br-5">
+          <Icon width="48px" height="48px" />
+        </div>
+        <span className="header-title">The Cyberintel</span>
+      </div>
       <span className="header-text">We specialise in IT solutions</span>
     </div>
   );

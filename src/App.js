@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import "./styles/index.scss";
-import "bootstrap/dist/css/bootstrap.min.css";
 import { setMsgJson } from "./utils";
 import Pageloader from "./components/Pageloader";
 import Home from "./pages/Home";
