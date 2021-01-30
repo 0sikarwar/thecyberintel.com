@@ -48,7 +48,7 @@ const Header = () => {
         </div>
         <span className="header-title">The Cyberintel</span>
       </div>
-      <span className="header-text">We specialise in IT solutions</span>
+      <span className="header-text">Providing affordable IT solutions</span>
     </div>
   );
 };
