@@ -1,25 +1,14 @@
-import { useEffect, useState } from "react";
-import Header from "./components/Header";
+import React, { useEffect, useState } from "react";
+import "./styles/index.scss";
+import "bootstrap/dist/css/bootstrap.min.css";
+import { setMsgJson } from "./utils";
 import Pageloader from "./components/Pageloader";
 import Home from "./pages/Home";
-import "./styles/index.scss";
-import { setMsgJson } from "./utils";
 
-function App() {
+export default function App() {
   const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
     setMsgJson(setIsLoading);
   }, []);
-  return isLoading ? (
-    <Pageloader />
-  ) : (
-    <>
-      <Header />
-      <main className="App">
-        <Home />
-      </main>
-    </>
-  );
+  return isLoading ? <Pageloader /> : <Home />;
 }
-
-export default App;
