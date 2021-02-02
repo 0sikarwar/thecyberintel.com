@@ -2,9 +2,9 @@ import { useState } from "react";
 import RenderToast from "../components/Toast";
 import { getMsgJson } from "../utils";
 import { ReactComponent as Icon } from "../assets/CiLogo.svg";
-import Shimmer from "../components/Shimmer";
 import { ReactComponent as AboutIcon } from "../assets/About.svg";
 import { ReactComponent as ServicesIcon } from "../assets/Sevices.svg";
+import { ReactComponent as ContactUsIcon } from "../assets/ContactUs.svg";
 function Home() {
   const { address, homeSummary, serviceProvided } = getMsgJson();
   const [showToast, setShowToast] = useState(false);
@@ -72,7 +72,10 @@ const Card = (props) => {
 const ContactContainer = ({ address, setShowToast }) => {
   return (
     <div className="contact-container">
-      <span className="div-title">Contact us</span>
+      <div className="flex flex-center flex-middle">
+        <ContactUsIcon width="120px" height="125px" />
+        <span className="div-title">Contact us</span>
+      </div>
       <div className="contact-form">
         <div id="sect1">
           <span>Contact us and we will get back to you within 24 hours.</span>
