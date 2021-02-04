@@ -20,7 +20,7 @@ function Home() {
       <Card
         className="section mb-24"
         icon={<AboutIcon width="120px" height="125px" />}
-        title="About the Us"
+        title="About Us"
         description={<p dangerouslySetInnerHTML={{ __html: homeSummary }} />}
       />
 
