@@ -2,11 +2,9 @@ import { useState } from "react";
 import RenderToast from "../components/Toast";
 import { getMsgJson } from "../utils";
 import { ReactComponent as Icon } from "../assets/CiLogo.svg";
-import { ReactComponent as AboutIcon } from "../assets/About.svg";
-import { ReactComponent as ServicesIcon } from "../assets/Sevices.svg";
 import { ReactComponent as ContactUsIcon } from "../assets/ContactUs.svg";
 function Home() {
-  const { address, homeSummary, serviceProvided } = getMsgJson();
+  const { address, websiteData } = getMsgJson();
   const [showToast, setShowToast] = useState(false);
   return (
     <div id="body">
@@ -17,25 +15,27 @@ function Home() {
         msg={":( Something went wrong But! you can still contact us using above details :)"}
       />
       <Header />
-      <Card
-        className="section mb-24"
-        icon={<AboutIcon width="120px" height="125px" />}
-        title="About Us"
-        description={<p dangerouslySetInnerHTML={{ __html: homeSummary }} />}
-      />
-
-      <Card
-        className="section bg-grey mb-16"
-        icon={<ServicesIcon width="160px" height="165px" />}
-        title="Our Sevices"
-        description={
-          <ul type="disk">
-            {serviceProvided.map((text, index) => (
-              <li key={index}> {text}</li>
-            ))}
-          </ul>
-        }
-      />
+      {websiteData.map((obj, index) => {
+        return (
+          <Card
+            key={index}
+            className={`section mb-24 px-32 ${index % 2 ? "bg-grey" : ""}`}
+            icon={<img src={`${window.FILE_PATH}/${obj.logo}`} alt="" width="160px" height="165px" />}
+            title={obj.title}
+            description={
+              Array.isArray(obj.content) ? (
+                <ul type="disk">
+                  {obj.content.map((val, index) => (
+                    <li key={index} dangerouslySetInnerHTML={{ __html: val }} />
+                  ))}
+                </ul>
+              ) : (
+                <p dangerouslySetInnerHTML={{ __html: obj.content }} />
+              )
+            }
+          />
+        );
+      })}
       <ContactContainer address={address} setShowToast={setShowToast} />
     </div>
   );
