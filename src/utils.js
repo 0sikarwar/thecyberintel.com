@@ -7,3 +7,11 @@ export const setMsgJson = async (setIsLoading) => {
   setIsLoading(false);
 };
 export const getMsgJson = () => ({ ...MESSAGES });
+
+export const checkMobileDevice = () => {
+  let returnFlag = false;
+  if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini|Mobile|mobile/i.test(navigator.userAgent)) {
+    returnFlag = true;
+  }
+  return returnFlag;
+};

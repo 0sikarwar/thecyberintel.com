@@ -1,8 +1,9 @@
 @for $i from 8 through 40 {
-    .fs-#{$i}  {
+    .fs-#{$i} {
         font-size:#{$i}px;
     }
 }
+
 .fw-bold {
     font-weight: 500;
 }
@@ -13,4 +14,20 @@
 
 .lh-16 {
     line-height: 16px;
+}
+
+.lh-36 {
+    line-height: 36px;
+}
+
+.lh-22 {
+    line-height: 22px;
+}
+
+.lh-10 {
+    line-height: 10px;
+}
+
+.f-small-caps {
+    font-variant: small-caps;
 }

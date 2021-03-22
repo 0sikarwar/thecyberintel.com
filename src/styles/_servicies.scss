@@ -1,0 +1,60 @@
+.services-section {
+  padding-top: 92px;
+  padding-bottom: 34px;
+
+  .page-heading {
+    z-index: 5;
+    font-size: 16px;
+    overflow: hidden;
+    max-width: 900px;
+    line-height: 26px;
+    position: relative;
+    text-align: center;
+    margin: 0 auto 60px;
+
+    .services-section h2 {
+      font-weight: 700;
+      font-size: 32px;
+      line-height: 38px;
+      margin: 0 0 23px;
+      margin-bottom: 23px;
+    }
+
+    .lime {
+      color: #222;
+    }
+  }
+
+  .holder {
+    position: relative;
+    z-index: 1;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    background-color: #fff;
+  }
+
+  .box {
+    z-index: 88;
+    margin: 0 0 49px;
+    overflow: hidden;
+    line-height: 24px;
+    position: relative;
+
+    h3 {
+      color: #2a2a2a;
+      margin: 0 0 27px;
+      position: relative;
+      padding: 0 0 0 40px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font: 700 14px/20px "Lato", Georgia, "Times New Roman", Times, serif;
+    }
+  }
+
+  .img {
+    margin: 34px auto 0;
+    display: block;
+  }
+
+}

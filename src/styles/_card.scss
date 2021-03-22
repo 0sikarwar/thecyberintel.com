@@ -1,0 +1,136 @@
+.card {
+  .card-block {
+    .card-text {
+      max-height: 170px;
+      overflow: hidden;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -moz-box-orient: vertical;
+      -ms-box-orient: vertical;
+      box-orient: vertical;
+      text-align: justify;
+      -webkit-line-clamp: 7;
+      -moz-line-clamp: 7;
+      -ms-line-clamp: 7;
+      line-clamp: 7;
+    }
+  }
+
+  .card-title {
+    font-weight: 700;
+  }
+
+  img {
+    object-fit: cover;
+  }
+}
+
+.cover {
+  height: 60vh;
+
+  &-image {
+    height: 100%;
+    width: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    box-shadow: inset 0px 0px 60px 60px rgba(0, 0, 0, 0.2);
+  }
+
+
+  &-text {
+    left: 0;
+    right: 0;
+    color: #fff;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    height: 60vh;
+
+    position: absolute;
+    z-index: 1;
+    background-color: rgba(0, 0, 0, 0.4);
+
+    &-main {
+      text-align: center;
+      padding: 25px;
+      padding-top: 0px;
+      width: 100%;
+      margin-top: 70px;
+    }
+
+    &-sub {
+      z-index: 1;
+    }
+  }
+
+  &-heading {
+    font-size: 54px;
+    font-weight: 900;
+    transform: scale(1, 1);
+  }
+
+  &-sub-heading {
+    margin: 0;
+    font-size: 30px;
+    font-weight: 700;
+  }
+
+}
+
+@media (max-width: $max-width-for-mobile) {
+  .card {
+    .card-title {
+      font-size: 20px;
+      text-align: center;
+    }
+  }
+
+  .cover {
+    height: 40vh;
+
+    &-image {
+      height: 40vh;
+    }
+
+    &-text {
+      margin-top: 0;
+      border: unset;
+      width: 100%;
+      padding: 5px;
+      height: 40vh;
+
+      &-main {
+        height: 100%;
+        margin-top: 145px;
+        padding-top: 25px;
+
+        p {
+          margin: 0;
+        }
+
+        .cover-sub-text1 {
+          font-size: 16px;
+        }
+
+        .cover-sub-text2 {
+          display: none;
+        }
+      }
+    }
+
+    &-heading {
+      font-size: 25px;
+    }
+
+    &-sub-heading {
+      font-size: 20px;
+    }
+
+  }
+}
+
+.gradient-row {
+  background-color: #ffac81;
+  background-image: linear-gradient(315deg, #ffac81 0%, #ff928b 74%);
+}

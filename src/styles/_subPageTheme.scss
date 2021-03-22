@@ -1,0 +1,26 @@
+.horizontal-section {
+  padding: 92px 120px;
+
+  &.gradient-row {
+    flex-direction: row-reverse;
+  }
+}
+
+@media (max-width: $max-width-for-mobile) {
+  .horizontal-section {
+    padding: 36px 10px;
+
+    &.gradient-row {
+      flex-direction: column-reverse;
+    }
+
+    p {
+      margin-bottom: 0;
+    }
+
+    img {
+      padding: 32px 100px;
+      padding-bottom: 0;
+    }
+  }
+}

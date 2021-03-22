@@ -14,6 +14,10 @@
     .ht-#{$i*5} {
         height:#{$i*5}px;
     }
+
+    .max-ht-#{$i*5} {
+        max-height:#{$i*5}px;
+    }
 }
 
 .wt-20p {
@@ -85,6 +89,10 @@
     width: 80vw;
 }
 
+.wt-70vw {
+    width: 70vw;
+}
+
 .wt-90vw {
     width: 90vw;
 }
@@ -95,6 +103,14 @@
 
 .ht-100vh {
     height: 100vh;
+}
+
+.ht-90vh {
+    height: 90vh;
+}
+
+.ht-95vh {
+    height: 95vh;
 }
 
 .bb-1 {

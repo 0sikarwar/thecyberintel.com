@@ -1,0 +1,41 @@
+.c-pr {
+  color: $primary-theme-text-color !important;
+}
+
+.bg-pr {
+  background-color: $primary-theme-bg-color !important;
+}
+
+.c-sc {
+  color: $secondary-theme-text-color !important;
+}
+
+.bg-sc {
+  background-color: $secondary-theme-bg-color !important;
+}
+
+.c-tr {
+  color: $tertiary-theme-text-color !important;
+}
+
+.bg-tr {
+  background-color: $tertiary-theme-bg-color !important;
+}
+
+.bg-white {
+  background-color: #ffffff;
+}
+
+.bg-none {
+  background: none;
+
+  :hover,
+  :focus,
+  :active {
+    background: none;
+  }
+}
+
+.c-white {
+  color: #ffffff;
+}

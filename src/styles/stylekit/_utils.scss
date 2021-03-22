@@ -14,6 +14,10 @@
     text-decoration: none;
 }
 
+.decoration-del {
+    text-decoration: line-through;
+}
+
 .c-pointer {
     cursor: pointer;
 
@@ -300,6 +304,16 @@ input[type=number]::-webkit-outer-spin-button {
 
 .br-100 {
     border-radius: 100px;
+}
+
+.b-none {
+    border: none;
+
+    :hover,
+    :focus,
+    :active {
+        border: none;
+    }
 }
 
 .elevation-3 {
