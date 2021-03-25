@@ -1,3 +1,15 @@
+import reactImg from "./assets/reactjs.png";
+import dropbox from "./assets/dropbox.png";
+import fb from "./assets/fb.png";
+import instagram from "./assets/instagram.png";
+import netflix from "./assets/netflix.png";
+import paypal from "./assets/paypal.png";
+import salesforce from "./assets/salesforce.png";
+import tnyt from "./assets/tnyt.png";
+import twitter from "./assets/twitter.png";
+import uber from "./assets/uber.png";
+import whatsapp from "./assets/whatsapp.png";
+
 export const timelineData = [
   {
     date: "22 mar 2001",
@@ -76,34 +88,32 @@ export const cardData = [
 
 export const servicesData = [
   {
-    title: "UX / UI",
+    title: "Website Design & Development",
     desc:
-      "UX/UI is about much more than just design, we design experiences that create a link between user and product through innovation.",
+      "Whatever your custom web development requirements are, we are the industry experts. We offer both custom web design and Website Theme design.",
   },
   {
-    title: "UX / UI",
-    desc:
-      "UX/UI is about much more than just design, we design experiences that create a link between user and product through innovation.",
+    title: "Search Engine Optimization",
+    desc: "We offer the full range of digital marketing services to help put your new website into the spotlight.",
   },
   {
-    title: "UX / UI",
+    title: "Common Employee Portal",
     desc:
-      "UX/UI is about much more than just design, we design experiences that create a link between user and product through innovation.",
+      "Deliver personalized content & messages to all employees, stakeholders, members and even spouses with backstitch Reader.",
   },
   {
-    title: "UX / UI",
+    title: "Remote IT Support",
     desc:
-      "UX/UI is about much more than just design, we design experiences that create a link between user and product through innovation.",
+      "We stand by our SLA agreements with our clients and provide with packaged hourly monthly commitments for IT services.",
   },
   {
-    title: "UX / UI",
-    desc:
-      "UX/UI is about much more than just design, we design experiences that create a link between user and product through innovation.",
+    title: "Microsoft Office 365",
+    desc: "We provide Microsoft Office 365 support and Office 365 consulting services to companies remotely.",
   },
   {
-    title: "UX / UI",
+    title: "Veeam Backup & Replication",
     desc:
-      "UX/UI is about much more than just design, we design experiences that create a link between user and product through innovation.",
+      "To get the right solution for your business, book a Disaster Avoidance and Business Continuity Planning Review today.",
   },
 ];
 
@@ -148,42 +158,82 @@ export const websitePricingData = {
 export const webDevData = {
   cover: {
     imagePath: "https://speros.com/wp-content/uploads/2018/03/website-coding-1.jpg",
-    title: "Savannah Web Design",
+    title: "Customized Web Development Services",
     text:
-      "Speros specializes in creating custom web design solutions for small businesses in and around Savannah, GA. Let us help you stand out.",
+      "With collaboration at our core, we are ready to work with you to hand craft winning web solutions. We excel at listening and then acting on your needs, to deliver a successful web design.",
   },
   mainData: [
     {
-      title: "Your customers want to find you online. Speros web design services can make that happen.",
-      desc: `Your customers are doing research online before they make a purchase. Without an updated website, you
-                risk potential customers thinking you are no longer in business. If it’s been a few years since you last
-                updated your web design, or worse, you are one of the 40% of small businesses who don’t have a website,
-                it’s time to get on board.`,
-      buttonText: "Schedule a Consultation",
+      title: "Having a website means customers are always able to find you – anytime, anywhere. ",
+      desc: `The Cyberintel designed website provides a quick and easy way of communicating information between buyers and sellers. It shows what your company is about, what it has achieved and what it can achieve in the future. We're web design specialists so if you'd like to create a website that wows. `,
+      buttonText: "Start you project now",
       buttonUrl: "#contact-block",
       imagePath: "https://i2.wp.com/speros.com/wp-content/uploads/2019/11/web-design-3d-icon-1.png",
     },
     {
-      title: "Your customers want to find you online. Speros web design services can make that happen.",
-      desc: `Your customers are doing research online before they make a purchase. Without an updated website, you
-                risk potential customers thinking you are no longer in business. If it’s been a few years since you last
-                updated your web design, or worse, you are one of the 40% of small businesses who don’t have a website,
-                it’s time to get on board.`,
-      buttonText: "Schedule a Consultation",
-      buttonUrl: "#contact-block",
-      imagePath: "https://i2.wp.com/speros.com/wp-content/uploads/2019/11/web-design-3d-icon-1.png",
-    },
-    {
-      title: "Your customers want to find you online. Speros web design services can make that happen.",
-      desc: `Your customers are doing research online before they make a purchase. Without an updated website, you
-                risk potential customers thinking you are no longer in business. If it’s been a few years since you last
-                updated your web design, or worse, you are one of the 40% of small businesses who don’t have a website,
-                it’s time to get on board.`,
-      buttonText: "Schedule a Consultation",
-      buttonUrl: "#contact-block1",
-      imagePath: "https://i2.wp.com/speros.com/wp-content/uploads/2019/11/web-design-3d-icon-1.png",
+      title: "We use ReactJS for faster and secure development",
+      desc: `React is a “declarative, efficient, and flexible JavaScript library for building user interfaces”, as defined by its creators. Simply put, it allows you to create a fast, simple and scalable frontend for web applications. You most likely use React apps everyday, while watching your favorite TV shows, browsing through social media and checking your email. 
+      <p><i>When a technology is adopted by more and more people every day, it’s clear that it’s for a reason – it’s good quality.</i></p>
+`,
+      imagePath: reactImg,
+      subData: {
+        text1: "Top Organizations/Brands Using And Leveraging The Potential Of ReactJS.",
+        images: [dropbox, fb, instagram, netflix, paypal, salesforce, tnyt, twitter, uber, whatsapp],
+        text2:
+          "The number of React lovers is increasing day by day. Every day new people fall in love with this technology. So why not try it?",
+      },
     },
   ],
+  faqs: {
+    title: "Web Design frequently asked Questions",
+    list: [
+      {
+        label: "How much does a new website cost?",
+        content:
+          "There’s not one single answer to this question. A website design is quoted based on the needs of each individual project. Every website is unique and requires different components; we design and develop custom websites specifically for your small business. We’ll ask a lot of questions, assess your needs, and give you a quote based on that assessment. Most of our sites run in the ₹20,000 – ₹2,00,000 range, but can be more or less depending on needs.",
+      },
+      {
+        label: "What is a responsive website development?",
+        content:
+          "Responsive web design or responsive web development is an approach to improve the readability of the website pages across various devices, which includes PC desktops, retina displays, tablet screens and mobile phone screens.",
+      },
+      {
+        label: "Will my website be mobile-friendly?",
+        content:
+          "Absolutely! Having a mobile-friendly website is more important than ever! We work hard to ensure your website looks great on a variety of devices.",
+      },
+      {
+        label: "Do you only create ReactJS websites?",
+        content:
+          "Nope! We also use WordPress with React to Create Headless CMS for Your Web Application. Don’t worry, we’ll teach you how to manage it and help you along the way.",
+      },
+      {
+        label: "Will you maintain my site for me?",
+        content: "We can! We provide on-going support for many of our clients.",
+      },
+      {
+        label: "When do I pay?",
+        content:
+          "We offer a variety of payment options, varying from a one-time, up-front payment to three parts, 20% payment is taken in the first part and 80% in the remaining two parts. We understand that this is a big investment and want to help you budget for the expense in whatever way possible.",
+      },
+      {
+        label: "I’m on a strict budget. Do you have any low cost options?",
+        content:
+          "A custom website can be a big investment and not all small businesses have the budget for you. We offer a budget package which will help get you online with a nice looking website fast.",
+      },
+      {
+        label: "What if I need help on my site down the road?",
+        content:
+          "We are only an email away! We’re here to help you as much or as little as you need, and we won’t disappear once the site is launched.",
+      },
+      {
+        label: "Why are you so cheap?",
+        content:
+          "Yep. We’ve also been asked that question too. We spend a lot of time researching, planning the user’s journey through your site and then finally with the design and build. We’re typically cheaper than larger agencies because we work remotely which means you don’t pay for the water cooler or beanbag chairs.",
+      },
+    ],
+  },
+  contactUsExtraFields: ["bName", "phone"],
 };
 
 export const seoData = {

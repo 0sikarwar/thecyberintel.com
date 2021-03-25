@@ -1,4 +1,5 @@
 import { Nav, Navbar, NavDropdown } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import { ReactComponent as Icon } from "../assets/CiLogo.svg";
 
 export default function Footer() {
@@ -18,19 +19,15 @@ export default function Footer() {
         </Navbar.Brand>
 
         <p class="footer-links">
-          <a href="#" class="link-1">
+          <a href="#/" class="link-1">
             Home
           </a>
 
-          <a href="#">Blog</a>
+          <a href="#/services">Services</a>
 
-          <a href="#">Pricing</a>
+          {/* <a href="#">About</a> */}
 
-          <a href="#">About</a>
-
-          <a href="#">Faq</a>
-
-          <a href="#">Contact</a>
+          <a href="#/contact">Contact</a>
         </p>
 
         <p class="footer-company-name">The Cyberintel © 2021</p>

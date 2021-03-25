@@ -1,7 +1,7 @@
 .horizontal-section {
   padding: 92px 120px;
 
-  &.gradient-row {
+  &.gradient-row .container {
     flex-direction: row-reverse;
   }
 }
@@ -10,16 +10,29 @@
   .horizontal-section {
     padding: 36px 10px;
 
-    &.gradient-row {
+    &.gradient-row .container {
       flex-direction: column-reverse;
     }
 
-    p {
+    .main {
+      &-data {
+        padding-left: 12px;
+        padding-right: 12px;
+      }
+
+      &-text {
+        margin-bottom: 0;
+        line-height: 28px;
+      }
+    }
+
+    h2 {
+      font-size: 30px;
       margin-bottom: 0;
     }
 
-    img {
-      padding: 32px 100px;
+    img container {
+      padding: 32px 60px;
       padding-bottom: 0;
     }
   }

@@ -13,7 +13,8 @@ export default function contact() {
               <i className="ml-24">Mohali - India. </i>
             </div>
             <div className="mt-2">
-              <i className="phone-icon mr-8"></i>78892 12126
+              <i className="phone-icon mr-8"></i>
+              <a href="tel:+917889212126">+91 78892 12126</a>
               <span className="email-block">
                 <i className="email-icon ml-24 mr-8 fs-20"></i>
                 <a href="mailto:contact@thecyberintel.com">contact@thecyberintel.com</a>

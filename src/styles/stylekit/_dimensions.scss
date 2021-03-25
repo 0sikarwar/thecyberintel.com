@@ -77,6 +77,10 @@
     width: 100%;
 }
 
+.max-wt-100p {
+    max-width: 100%;
+}
+
 .ht-100p {
     height: 100%;
 }
@@ -136,4 +140,8 @@
 
 .ht-max-content {
     height: max-content;
+}
+
+.obj-contain {
+    object-fit: contain;
 }

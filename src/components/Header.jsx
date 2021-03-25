@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Nav, Navbar, NavDropdown, Button, ButtonGroup, Dropdown } from "react-bootstrap";
 import { useLocation } from "react-router";
 import { ReactComponent as Icon } from "../assets/CiLogo.svg";
@@ -7,6 +7,7 @@ import { checkMobileDevice } from "../utils";
 
 export default function Header(props) {
   const [showDropdown, setShowDropdown] = useState(false);
+  const navBarRef = useRef();
   const location = useLocation();
   const handleScroll = (e) => {
     const scrollOffset = checkMobileDevice() ? 5 : 90;
@@ -30,6 +31,7 @@ export default function Header(props) {
         window.removeEventListener("scroll", handleScroll);
       };
     }
+    console.log(navBarRef);
   }, [location.pathname]);
   return (
     <Navbar expand="lg" sticky="top" className="flex flex-between wt-100p shadow" id="header">
@@ -45,31 +47,30 @@ export default function Header(props) {
         </div>
       </Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
-      <Navbar.Collapse id="basic-navbar-nav">
+      <Navbar.Collapse id="basic-navbar-nav" ref={navBarRef}>
         <Nav className="ml-auto">
-          <Nav.Link href="#/">HOME</Nav.Link>
-          <Nav.Link href="#/estimate">GET AN ESTIMATE</Nav.Link>
+          <Nav.Link href="#/" data-toggle="collapse" data-target="#basic-navbar-nav">
+            HOME
+          </Nav.Link>
           <div
             className="grouped-dropdown"
             onMouseEnter={() => setShowDropdown(true)}
             onMouseLeave={() => setShowDropdown(false)}
           >
             <NavDropdown
-              title="OTHER SERVICES"
+              title="SERVICES"
               id="basic-nav-dropdown1"
               alignRight
               show={showDropdown}
               onClick={() => history.push("/services")}
             >
-              <NavDropdown.Item href="#/web-design">Web Design</NavDropdown.Item>
-              <NavDropdown.Item href="#/seo">SEO Services</NavDropdown.Item>
-              <NavDropdown.Item href="#/cep">Common Employee Portal</NavDropdown.Item>
+              <NavDropdown.Item href="#/web-design">Web Design & Devlopment</NavDropdown.Item>
+              {/* <NavDropdown.Item href="#/seo">SEO Services</NavDropdown.Item> */}
+              {/* <NavDropdown.Item href="#/cep">Common Employee Portal</NavDropdown.Item> */}
             </NavDropdown>
           </div>
-          <NavDropdown title="EXPLORE MORE" id="basic-nav-dropdown1" alignRight>
-            <NavDropdown.Item href="#/about">About us</NavDropdown.Item>
-            <NavDropdown.Item href="#/contact">Contact us</NavDropdown.Item>
-          </NavDropdown>
+          {/* <Nav.Link href="#/about">ABOUT US</Nav.Link> */}
+          <Nav.Link href="#/contact">CONTACT US</Nav.Link>
         </Nav>
       </Navbar.Collapse>
     </Navbar>
