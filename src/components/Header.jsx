@@ -7,6 +7,7 @@ import { checkMobileDevice } from "../utils";
 
 export default function Header(props) {
   const [showDropdown, setShowDropdown] = useState(false);
+  const [expanded, setExpanded] = useState(false);
   const navBarRef = useRef();
   const location = useLocation();
   const handleScroll = (e) => {
@@ -34,7 +35,7 @@ export default function Header(props) {
     }
   }, [location.pathname]);
   return (
-    <Navbar expand="lg" sticky="top" className="flex flex-between wt-100p shadow" id="header">
+    <Navbar expand="lg" sticky="top" className="flex flex-between wt-100p shadow" id="header" expanded={expanded}>
       <Navbar.Brand href="#/" className="f-small-caps">
         <div className="flex flex-middle">
           <div className="bg-white in-block mr-8 br-5">
@@ -46,10 +47,10 @@ export default function Header(props) {
           </div>
         </div>
       </Navbar.Brand>
-      <Navbar.Toggle aria-controls="basic-navbar-nav" />
+      <Navbar.Toggle aria-controls="basic-navbar-nav" onClick={() => setExpanded(expanded ? false : "expanded")} />
       <Navbar.Collapse id="basic-navbar-nav" ref={navBarRef}>
         <Nav className="ml-auto">
-          <Nav.Link href="#/" data-toggle="collapse" data-target="#basic-navbar-nav">
+          <Nav.Link href="#/" data-toggle="collapse" data-target="#basic-navbar-nav" onClick={() => setExpanded(false)}>
             HOME
           </Nav.Link>
           <div
@@ -62,15 +63,22 @@ export default function Header(props) {
               id="basic-nav-dropdown1"
               alignRight
               show={showDropdown}
-              onClick={() => history.push("/services")}
+              onClick={() => {
+                // setExpanded(false);
+                history.push("/services");
+              }}
             >
-              <NavDropdown.Item href="#/web-design">Web Design & Devlopment</NavDropdown.Item>
+              <NavDropdown.Item href="#/web-design" onClick={() => setExpanded(false)}>
+                Web Design & Devlopment
+              </NavDropdown.Item>
               {/* <NavDropdown.Item href="#/seo">SEO Services</NavDropdown.Item> */}
               {/* <NavDropdown.Item href="#/cep">Common Employee Portal</NavDropdown.Item> */}
             </NavDropdown>
           </div>
           {/* <Nav.Link href="#/about">ABOUT US</Nav.Link> */}
-          <Nav.Link href="#/contact">CONTACT US</Nav.Link>
+          <Nav.Link href="#/contact" onClick={() => setExpanded(false)}>
+            CONTACT US
+          </Nav.Link>
         </Nav>
       </Navbar.Collapse>
     </Navbar>

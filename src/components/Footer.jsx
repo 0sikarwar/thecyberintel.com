@@ -4,8 +4,8 @@ import { ReactComponent as Icon } from "../assets/CiLogo.svg";
 
 export default function Footer() {
   return (
-    <footer class="footer-distributed mt-32">
-      <div class="footer-left">
+    <footer className="footer-distributed mt-32">
+      <div className="footer-left">
         <Navbar.Brand href="#/" className="f-small-caps c-white">
           <div className="flex flex-middle">
             <div className="bg-white in-block mr-8 br-5">
@@ -18,8 +18,8 @@ export default function Footer() {
           </div>
         </Navbar.Brand>
 
-        <p class="footer-links">
-          <a href="#/" class="link-1">
+        <p className="footer-links">
+          <a href="#/" className="link-1">
             Home
           </a>
 
@@ -30,24 +30,24 @@ export default function Footer() {
           <a href="#/contact">Contact</a>
         </p>
 
-        <p class="footer-company-name">The Cyberintel © 2021</p>
+        <p className="footer-company-name">The Cyberintel © 2021</p>
       </div>
 
-      <div class="footer-center">
+      <div className="footer-center">
         <div>
-          <i class="fa fa-map-marker" aria-hidden="true"></i>
+          <i className="fa fa-map-marker" aria-hidden="true"></i>
           <p>
             <span>Mohali</span> Punjab, India
           </p>
         </div>
 
         <div>
-          <i class="fa fa-phone"></i>
+          <i className="fa fa-phone"></i>
           <p>+91 7889 212 126</p>
         </div>
 
         <div>
-          <i class="fa fa-envelope"></i>
+          <i className="fa fa-envelope"></i>
           <p>
             <a href="mailto:support@company.com" className="c-white">
               contactus@thecyberintel.com
@@ -56,26 +56,26 @@ export default function Footer() {
         </div>
       </div>
 
-      <div class="footer-right">
-        <p class="footer-company-about">
+      <div className="footer-right">
+        <p className="footer-company-about">
           <span>About the company</span>
           We’re a team of young & professional, expertise in Web Development and Technical Support. We help businesses
           fully grasp the fast-developing Digital Age through creative innovation, intelligent design and project
           delivery.
         </p>
 
-        <div class="footer-icons">
+        <div className="footer-icons">
           <a href="#">
-            <i class="fa fa-facebook"></i>
+            <i className="fa fa-facebook"></i>
           </a>
           <a href="#">
-            <i class="fa fa-twitter"></i>
+            <i className="fa fa-twitter"></i>
           </a>
           <a href="#">
-            <i class="fa fa-linkedin"></i>
+            <i className="fa fa-linkedin"></i>
           </a>
           <a href="#">
-            <i class="fa fa-github"></i>
+            <i className="fa fa-github"></i>
           </a>
         </div>
       </div>
