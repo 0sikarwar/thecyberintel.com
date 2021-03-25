@@ -59,8 +59,9 @@ export default function Footer() {
       <div class="footer-right">
         <p class="footer-company-about">
           <span>About the company</span>
-          Lorem ipsum dolor sit amet, consectateur adispicing elit. Fusce euismod convallis velit, eu auctor lacus
-          vehicula sit amet.
+          We’re a team of young & professional, expertise in Web Development and Technical Support. We help businesses
+          fully grasp the fast-developing Digital Age through creative innovation, intelligent design and project
+          delivery.
         </p>
 
         <div class="footer-icons">
