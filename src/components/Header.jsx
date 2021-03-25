@@ -20,6 +20,7 @@ export default function Header(props) {
     }
   };
   useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
     if (!["/", "/web-design", "/seo", "/cep"].includes(location.pathname)) {
       document.getElementById("header").classList.add("solid");
       document.getElementById("header").classList.add("shadow");
@@ -31,7 +32,6 @@ export default function Header(props) {
         window.removeEventListener("scroll", handleScroll);
       };
     }
-    console.log(navBarRef);
   }, [location.pathname]);
   return (
     <Navbar expand="lg" sticky="top" className="flex flex-between wt-100p shadow" id="header">
