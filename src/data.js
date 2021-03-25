@@ -65,7 +65,7 @@ export const cardData = [
     serviceId: "website",
     discription:
       "Over time, people have just come to expect that a reputable business will have a website that they can visit. A website is the first step in helping build a company-customer relationship. Our web designers help businesses create effective online presence that support their growth. Do feel free to contact us here to get started.",
-    readMoreLink: "#/estimate",
+    readMoreLink: "#/web-design",
     imagePath: `${window.FILE_PATH}/website.jpg`,
   },
   {
