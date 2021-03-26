@@ -37,7 +37,7 @@ export default function ContactUsForm(props) {
                 </div>
               </div>
               <div className="col-lg-12 d-flex align-items-center mt-2">
-                <button type="submit" className="btn bg-sc c-white text-inverse px-3 py-2">
+                <button type="button" className="btn bg-sc c-white text-inverse px-3 py-2">
                   <span> {props.buttonText || "Submit"}</span>
                 </button>
               </div>
