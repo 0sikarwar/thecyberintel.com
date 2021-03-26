@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 export default function PricingCard(props) {
   return (
     <div className="col-lg-4 mb-5 mb-lg-0">

@@ -46,18 +46,18 @@ export default function SubPageTheme(props) {
                 )}
               </div>
               <div className="col-md-4 px-32 flex flex-center pt-8">
-                <img src={obj.imagePath} className="max-wt-100p obj-contain" />
+                <img src={obj.imagePath} className="max-wt-100p obj-contain" alt="Heading" />
               </div>
             </div>
             {obj.subData && (
               <div className="sub-data wt-100p flex flex-column flex-middle">
-                <p className="sub-text-1 mb-0 fs-18 fw-bolder c-white">{obj.subData.text1}</p>
+                <p className="sub-text-1 mb-0 fs-18 fw-bolder t-center t-justify c-white">{obj.subData.text1}</p>
                 <div className="sub-image-container flex flex-wrap wt-100p flex-middle flex-center">
-                  {obj.subData.images?.map((img) => (
-                    <img src={img} className="obj-contain wt-120 mx-3 my-2" />
+                  {obj.subData.images?.map((img, index) => (
+                    <img src={img} className="obj-contain wt-120 mx-3 my-2" alt="LOGO" key={index} />
                   ))}
                 </div>
-                <p className="sub-text-2 mb-0 fs-18 fw-bold c-white mt-4">{obj.subData.text2}</p>
+                <p className="sub-text-2 mb-0 fs-18 fw-bold c-white mt-4 t-justify">{obj.subData.text2}</p>
               </div>
             )}
           </div>

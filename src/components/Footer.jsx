@@ -1,5 +1,5 @@
-import { Nav, Navbar, NavDropdown } from "react-bootstrap";
-import { Link } from "react-router-dom";
+/* eslint-disable jsx-a11y/anchor-is-valid */
+import { Navbar } from "react-bootstrap";
 import { ReactComponent as Icon } from "../assets/CiLogo.svg";
 
 export default function Footer() {

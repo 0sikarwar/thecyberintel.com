@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { servicesData } from "../data";
 import worldMap from "../assets/worldMapGrayed.png";
 import SummaryCard from "../components/ServiceSummaryCard";
