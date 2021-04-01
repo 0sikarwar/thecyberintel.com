@@ -1,3 +1,4 @@
-RewriteEngine On
-RewriteCond %{HTTP_HOST} ^thecyberintel.com [NC]
-RewriteRule ^(.*)$ http://www.thecyberintel.com/$1 [L,R=301]
+RewriteEngine on
+RewriteBase /
+RewriteCond %{HTTP_HOST} thecyberintel.com [NC]
+RewriteRule ^(.*)$ http://www.thecyberintel.com/# [R=301,NC]
