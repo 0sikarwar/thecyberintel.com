@@ -1,5 +1,5 @@
 import PricingCard from "../components/PricingCard";
-import { websitePricingData } from "../data";
+import { websitePricingData } from "../utils/data";
 
 export default function WebsitePricing() {
   return (

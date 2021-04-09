@@ -8,7 +8,7 @@ import ContactUs from "./pages/ContactUs";
 import AboutUs from "./pages/AboutUs";
 import Footer from "./components/Footer";
 import WebDev from "./pages/subPages/WebDev";
-import history from "./history";
+import history from "./utils/history";
 import NotFound from "./pages/NotFound";
 import Seo from "./pages/subPages/Seo";
 import Cep from "./pages/subPages/Cep";

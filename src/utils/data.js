@@ -1,14 +1,14 @@
-import reactImg from "./assets/reactjs.png";
-import dropbox from "./assets/dropbox.png";
-import fb from "./assets/fb.png";
-import instagram from "./assets/instagram.png";
-import netflix from "./assets/netflix.png";
-import paypal from "./assets/paypal.png";
-import salesforce from "./assets/salesforce.png";
-import tnyt from "./assets/tnyt.png";
-import twitter from "./assets/twitter.png";
-import uber from "./assets/uber.png";
-import whatsapp from "./assets/whatsapp.png";
+import reactImg from "../assets/reactjs.png";
+import dropbox from "../assets/dropbox.png";
+import fb from "../assets/fb.png";
+import instagram from "../assets/instagram.png";
+import netflix from "../assets/netflix.png";
+import paypal from "../assets/paypal.png";
+import salesforce from "../assets/salesforce.png";
+import tnyt from "../assets/tnyt.png";
+import twitter from "../assets/twitter.png";
+import uber from "../assets/uber.png";
+import whatsapp from "../assets/whatsapp.png";
 
 export const timelineData = [
   {

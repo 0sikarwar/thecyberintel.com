@@ -1,5 +1,5 @@
 import TimelineContainer from "../components/TimelineContainer";
-import { timelineData } from "../data";
+import { timelineData } from "../utils/data";
 
 export default function AboutUs() {
   const sortedTimeLine = timelineData.sort(function (a, b) {

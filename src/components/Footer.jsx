@@ -42,7 +42,7 @@ export default function Footer() {
         </div>
 
         <div>
-          <i className="fa fa-phone"></i>
+          <i className="fa fa-phone rotate-90 ml-0"></i>
           <p>+91 7889 212 126</p>
         </div>
 

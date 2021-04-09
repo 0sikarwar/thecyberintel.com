@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { Nav, Navbar, NavDropdown } from "react-bootstrap";
 import { useLocation } from "react-router";
 import { ReactComponent as Icon } from "../assets/CiLogo.svg";
-import history from "../history";
+import history from "../utils/history";
 import { checkMobileDevice } from "../utils";
 
 export default function Header(props) {

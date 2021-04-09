@@ -1,5 +1,5 @@
 import HorizontalCard from "../components/HorizontalCard";
-import { cardData } from "../data";
+import { cardData } from "../utils/data";
 import coverPic from "../assets/cyberintelCover.jpg";
 import { useEffect } from "react";
 export default function Home(props) {

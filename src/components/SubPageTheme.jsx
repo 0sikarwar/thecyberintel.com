@@ -1,4 +1,4 @@
-import history from "../history";
+import history from "../utils/history";
 import Accordion from "./Accordian";
 import ContactUsForm from "./ContactUsForm";
 
