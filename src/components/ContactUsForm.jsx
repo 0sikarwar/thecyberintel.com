@@ -34,7 +34,7 @@ export default function ContactUsForm(props) {
       setToastData({
         type: "success",
         heading: "Query recieved",
-        msg: "We have recoded you query and will get back to you soon",
+        msg: "We have recorded your query and will get back to you soon",
       });
     } else {
       setShowToast(true);
