@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { isValidMobileNumber } from "../utils";
 import { saveContactData } from "../utils/axiosCalls";
 import Pageloader from "./Pageloader";
 import RenderToast from "./Toast";
@@ -25,6 +26,15 @@ export default function ContactUsForm(props) {
         return;
       }
       formData[key] = value;
+    }
+    if (formData.phone && !isValidMobileNumber(formData.phone)) {
+      setShowToast(true);
+      setToastData({
+        type: "danger",
+        heading: "Invalid mobile number",
+        msg: "Please enter a valid mobile number",
+      });
+      return;
     }
     setLoading(true);
     const res = await saveContactData(formData);

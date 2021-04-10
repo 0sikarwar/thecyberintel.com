@@ -15,3 +15,5 @@ export const checkMobileDevice = () => {
   }
   return returnFlag;
 };
+
+export const isValidMobileNumber = (number) => /^(\+\d{1,3}[- ]?)?\d{10}$/g.test(number.toString());
