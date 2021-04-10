@@ -1,6 +1,9 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import { Navbar } from "react-bootstrap";
-import { ReactComponent as Icon } from "../assets/CiLogo.svg";
+import { ReactComponent as TciIcon } from "../assets/CiLogo.svg";
+import { ReactComponent as PhoneIcon } from "../assets/phone.svg";
+import { ReactComponent as LocationIcon } from "../assets/location.svg";
+import { ReactComponent as EmailIcon } from "../assets/email.svg";
 
 export default function Footer() {
   return (
@@ -9,7 +12,7 @@ export default function Footer() {
         <Navbar.Brand href="#/" className="f-small-caps c-white">
           <div className="flex flex-middle">
             <div className="bg-white in-block mr-8 br-5">
-              <Icon width="44px" height="44px" />
+              <TciIcon width="44px" height="44px" />
             </div>
             <div className="company-name lh-22 fs-32">
               <p className="m-0 mb-1 name">The Cyberintel</p>
@@ -35,19 +38,21 @@ export default function Footer() {
 
       <div className="footer-center">
         <div>
-          <i className="fa fa-map-marker" aria-hidden="true"></i>
+          <LocationIcon width="24px" height="24px" />
+          <p>Mohali Punjab, India</p>
+        </div>
+
+        <div>
+          <PhoneIcon width="24px" height="24px" />
           <p>
-            <span>Mohali</span> Punjab, India
+            <a href="tel:+917889212126" className="c-white">
+              +91 78892 12126
+            </a>
           </p>
         </div>
 
         <div>
-          <i className="fa fa-phone rotate-90 ml-0"></i>
-          <p>+91 7889 212 126</p>
-        </div>
-
-        <div>
-          <i className="fa fa-envelope"></i>
+          <EmailIcon width="24px" height="24px" />
           <p>
             <a href="mailto:support@company.com" className="c-white">
               contactus@thecyberintel.com
@@ -63,21 +68,6 @@ export default function Footer() {
           fully grasp the fast-developing Digital Age through creative innovation, intelligent design and project
           delivery.
         </p>
-
-        <div className="footer-icons">
-          <a href="#">
-            <i className="fa fa-facebook"></i>
-          </a>
-          <a href="#">
-            <i className="fa fa-twitter"></i>
-          </a>
-          <a href="#">
-            <i className="fa fa-linkedin"></i>
-          </a>
-          <a href="#">
-            <i className="fa fa-github"></i>
-          </a>
-        </div>
       </div>
     </footer>
   );

@@ -38,7 +38,7 @@ export default function ContactUsForm(props) {
     }
     setLoading(true);
     const res = await saveContactData(formData);
-    if (res.data.status === "SUCCESS") {
+    if (res?.data?.status === "SUCCESS") {
       event.target.reset();
       setShowToast(true);
       setToastData({
