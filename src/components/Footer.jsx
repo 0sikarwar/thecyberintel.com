@@ -54,8 +54,8 @@ export default function Footer() {
         <div>
           <EmailIcon width="24px" height="24px" />
           <p>
-            <a href="mailto:support@company.com" className="c-white">
-              contactus@thecyberintel.com
+            <a href="mailto:contact@thecyberintel.com" className="c-white">
+              contact@thecyberintel.com
             </a>
           </p>
         </div>
