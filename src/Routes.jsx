@@ -12,6 +12,7 @@ import history from "./utils/history";
 import NotFound from "./pages/NotFound";
 import Seo from "./pages/subPages/Seo";
 import Cep from "./pages/subPages/Cep";
+import QueryListing from "./pages/QueryListing";
 function AppRouter(props) {
   const [addMargin, setAddMargin] = useState(true);
   return (
@@ -81,6 +82,14 @@ function AppRouter(props) {
             component={() => {
               setAddMargin(true);
               return <AboutUs />;
+            }}
+          />
+          <Route
+            exact
+            path="/querylisting"
+            component={() => {
+              setAddMargin(true);
+              return <QueryListing />;
             }}
           />
           <Route component={NotFound} />

@@ -37,7 +37,12 @@ export default function ContactUsForm(props) {
       return;
     }
     setLoading(true);
-    const res = await saveContactData(formData);
+    let res = {};
+    try {
+      res = await saveContactData({ ...formData, query_date: new Date().getTime() });
+    } catch (e) {
+      console.error(e);
+    }
     if (res?.data?.status === "SUCCESS") {
       event.target.reset();
       setShowToast(true);
