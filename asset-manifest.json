@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "https://thecyberintel.com/static/css/main.c6c34517.chunk.css",
-    "main.js": "https://thecyberintel.com/static/js/main.7816f783.chunk.js",
-    "main.js.map": "https://thecyberintel.com/static/js/main.7816f783.chunk.js.map",
+    "main.js": "https://thecyberintel.com/static/js/main.d00d0965.chunk.js",
+    "main.js.map": "https://thecyberintel.com/static/js/main.d00d0965.chunk.js.map",
     "runtime-main.js": "https://thecyberintel.com/static/js/runtime-main.1a1970c8.js",
     "runtime-main.js.map": "https://thecyberintel.com/static/js/runtime-main.1a1970c8.js.map",
     "static/js/2.81fc9d21.chunk.js": "https://thecyberintel.com/static/js/2.81fc9d21.chunk.js",
@@ -31,6 +31,6 @@
     "static/js/runtime-main.1a1970c8.js",
     "static/js/2.81fc9d21.chunk.js",
     "static/css/main.c6c34517.chunk.css",
-    "static/js/main.7816f783.chunk.js"
+    "static/js/main.d00d0965.chunk.js"
   ]
 }
