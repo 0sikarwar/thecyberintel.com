@@ -1,4 +1,4 @@
-import { saveContactUrl, getContactQueriesUrl } from "./apiName";
+import { saveContactUrl, getContactQueriesUrl, testUrl } from "./apiName";
 import axios from "./axios";
 
 export const saveContactData = async (data) => {
@@ -6,4 +6,8 @@ export const saveContactData = async (data) => {
 };
 export const getContactQueries = async (data) => {
   return await axios.get(getContactQueriesUrl);
+};
+
+export const getTestData = (data) => {
+  return axios.get(testUrl);
 };

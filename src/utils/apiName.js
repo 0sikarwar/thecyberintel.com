@@ -3,3 +3,4 @@ export const baseUrl =
 
 export const saveContactUrl = `${baseUrl}/savecontact`;
 export const getContactQueriesUrl = `${baseUrl}/getcontactqueries`;
+export const testUrl = `${baseUrl}/testdata`;

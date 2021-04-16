@@ -13,6 +13,7 @@ import NotFound from "./pages/NotFound";
 import Seo from "./pages/subPages/Seo";
 import Cep from "./pages/subPages/Cep";
 import QueryListing from "./pages/QueryListing";
+import Test from "./pages/Test";
 function AppRouter(props) {
   const [addMargin, setAddMargin] = useState(true);
   return (
@@ -90,6 +91,14 @@ function AppRouter(props) {
             component={() => {
               setAddMargin(true);
               return <QueryListing />;
+            }}
+          />
+          <Route
+            exact
+            path="/test"
+            component={() => {
+              setAddMargin(true);
+              return <Test />;
             }}
           />
           <Route component={NotFound} />
