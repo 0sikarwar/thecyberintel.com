@@ -9,6 +9,9 @@ import tnyt from "../assets/tnyt.png";
 import twitter from "../assets/twitter.png";
 import uber from "../assets/uber.png";
 import whatsapp from "../assets/whatsapp.png";
+import website from "../assets/website.jpg";
+import itSupport from "../assets/itSupport.jpg";
+import seo from "../assets/seo.jpg";
 
 export const timelineData = [
   {
@@ -66,7 +69,7 @@ export const cardData = [
     discription:
       "Over time, people have just come to expect that a reputable business will have a website that they can visit. A website is the first step in helping build a company-customer relationship. Our web designers help businesses create effective online presence that support their growth. Do feel free to contact us here to get started.",
     readMoreLink: "#/web-design",
-    imagePath: `${window.FILE_PATH}/website.jpg`,
+    imagePath: website,
   },
   {
     title: "Remote Managed IT Support",
@@ -74,7 +77,7 @@ export const cardData = [
     discription:
       "We have a team of energetic people, dedicated to absolute customer satisfaction, that will assist and support you at every step. If you are a small business looking for affordable remote IT support Managed Services The Cyberintel can help your company’s IT department become more efficient and productive. We Combine preventative & predictive maintenance, automation and remote monitoring to reduce business impact from IT Failures.",
     readMoreLink: "",
-    imagePath: `${window.FILE_PATH}/itSupport.png`,
+    imagePath: itSupport,
   },
   {
     title: "SEARCH ENGINE OPTIMISATION",
@@ -82,7 +85,7 @@ export const cardData = [
     discription:
       "Search Engine Optimisation (SEO) helps businesses get their website in front of the right people, increasing their exposure, boosting their conversions and maximising their profits. Our SEO strategy marries ethical white hat tactics with innovative experimentation to produce outstanding long-term results for every client.",
     readMoreLink: "",
-    imagePath: `${window.FILE_PATH}/seo.png`,
+    imagePath: seo,
   },
 ];
 
