@@ -1,36 +1,39 @@
 {
   "files": {
     "main.css": "https://thecyberintel.com/static/css/main.c6c34517.chunk.css",
-    "main.js": "https://thecyberintel.com/static/js/main.6031a646.chunk.js",
-    "main.js.map": "https://thecyberintel.com/static/js/main.6031a646.chunk.js.map",
+    "main.js": "https://thecyberintel.com/static/js/main.17c41467.chunk.js",
+    "main.js.map": "https://thecyberintel.com/static/js/main.17c41467.chunk.js.map",
     "runtime-main.js": "https://thecyberintel.com/static/js/runtime-main.1a1970c8.js",
     "runtime-main.js.map": "https://thecyberintel.com/static/js/runtime-main.1a1970c8.js.map",
-    "static/js/2.fa35abaf.chunk.js": "https://thecyberintel.com/static/js/2.fa35abaf.chunk.js",
-    "static/js/2.fa35abaf.chunk.js.map": "https://thecyberintel.com/static/js/2.fa35abaf.chunk.js.map",
+    "static/js/2.60851a8c.chunk.js": "https://thecyberintel.com/static/js/2.60851a8c.chunk.js",
+    "static/js/2.60851a8c.chunk.js.map": "https://thecyberintel.com/static/js/2.60851a8c.chunk.js.map",
     "index.html": "https://thecyberintel.com/index.html",
     "static/css/main.c6c34517.chunk.css.map": "https://thecyberintel.com/static/css/main.c6c34517.chunk.css.map",
-    "static/js/2.fa35abaf.chunk.js.LICENSE.txt": "https://thecyberintel.com/static/js/2.fa35abaf.chunk.js.LICENSE.txt",
+    "static/js/2.60851a8c.chunk.js.LICENSE.txt": "https://thecyberintel.com/static/js/2.60851a8c.chunk.js.LICENSE.txt",
     "static/media/CiLogo.69454327.svg": "https://thecyberintel.com/static/media/CiLogo.69454327.svg",
     "static/media/cyberintelCover.ac234f6b.jpg": "https://thecyberintel.com/static/media/cyberintelCover.ac234f6b.jpg",
     "static/media/dropbox.dc0c9f02.png": "https://thecyberintel.com/static/media/dropbox.dc0c9f02.png",
     "static/media/email.5c1d3bb0.svg": "https://thecyberintel.com/static/media/email.5c1d3bb0.svg",
     "static/media/fb.94b4b875.png": "https://thecyberintel.com/static/media/fb.94b4b875.png",
     "static/media/instagram.fa3164a7.png": "https://thecyberintel.com/static/media/instagram.fa3164a7.png",
+    "static/media/itSupport.86e532a5.jpg": "https://thecyberintel.com/static/media/itSupport.86e532a5.jpg",
     "static/media/location.2f176113.svg": "https://thecyberintel.com/static/media/location.2f176113.svg",
     "static/media/paypal.52ce3b1f.png": "https://thecyberintel.com/static/media/paypal.52ce3b1f.png",
     "static/media/phone.a6541346.svg": "https://thecyberintel.com/static/media/phone.a6541346.svg",
     "static/media/reactjs.d369ac5d.png": "https://thecyberintel.com/static/media/reactjs.d369ac5d.png",
     "static/media/salesforce.46a5d095.png": "https://thecyberintel.com/static/media/salesforce.46a5d095.png",
+    "static/media/seo.08349ba9.jpg": "https://thecyberintel.com/static/media/seo.08349ba9.jpg",
     "static/media/tnyt.27eb83bf.png": "https://thecyberintel.com/static/media/tnyt.27eb83bf.png",
     "static/media/twitter.4d66d961.png": "https://thecyberintel.com/static/media/twitter.4d66d961.png",
+    "static/media/website.481694f7.jpg": "https://thecyberintel.com/static/media/website.481694f7.jpg",
     "static/media/whatsapp.90845964.png": "https://thecyberintel.com/static/media/whatsapp.90845964.png",
     "static/media/worldMapGrayed.1650b1e8.png": "https://thecyberintel.com/static/media/worldMapGrayed.1650b1e8.png",
     "static/media/wwd.84bdf8f8.png": "https://thecyberintel.com/static/media/wwd.84bdf8f8.png"
   },
   "entrypoints": [
     "static/js/runtime-main.1a1970c8.js",
-    "static/js/2.fa35abaf.chunk.js",
+    "static/js/2.60851a8c.chunk.js",
     "static/css/main.c6c34517.chunk.css",
-    "static/js/main.6031a646.chunk.js"
+    "static/js/main.17c41467.chunk.js"
   ]
 }
