@@ -56,7 +56,6 @@ export default function ContactUsForm(props) {
       setToastData({ type: "danger", heading: "Oh snap!", msg: "Something went wrong please try again" });
     }
     setLoading(false);
-    console.log(res);
   };
   return (
     <>

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { HashRouter as Router, Switch, Route } from "react-router-dom";
 import Header from "./components/Header";
 import Home from "./pages/Home";
@@ -12,10 +12,20 @@ import history from "./utils/history";
 import NotFound from "./pages/NotFound";
 import Seo from "./pages/subPages/Seo";
 import Cep from "./pages/subPages/Cep";
+import DocketListing from "./pages/subPages/DocketListing";
 import QueryListing from "./pages/QueryListing";
 import Test from "./pages/Test";
+import DataEntry from "./pages/DataEntry";
 function AppRouter(props) {
   const [addMargin, setAddMargin] = useState(true);
+
+  useEffect(() => {
+    window.addEventListener("afterprint", function () {
+      document.getElementById("print-area").innerHTML = "";
+      document.body.classList.remove("printing");
+    });
+  }, []);
+
   return (
     <Router basename="/thecyberintel" history={history}>
       <Header />
@@ -91,6 +101,22 @@ function AppRouter(props) {
             component={() => {
               setAddMargin(true);
               return <QueryListing />;
+            }}
+          />
+          <Route
+            exact
+            path="/docketlisting"
+            component={() => {
+              setAddMargin(true);
+              return <DocketListing />;
+            }}
+          />
+          <Route
+            exact
+            path="/dataentry"
+            component={() => {
+              setAddMargin(true);
+              return <DataEntry />;
             }}
           />
           <Route

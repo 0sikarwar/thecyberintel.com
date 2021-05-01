@@ -1,0 +1,61 @@
+.data-entry {}
+
+.dropdown {
+
+  .dropdown-menu {
+    max-height: 200px;
+    overflow-y: scroll;
+    width: 250px;
+  }
+
+  button {
+    width: 180px;
+    padding-top: 0;
+    padding-bottom: 0;
+    height: 38px;
+    display: flex;
+    align-items: center;
+
+    .dropdown-heading {
+      width: 95%;
+      display: inline-block;
+      text-overflow: ellipsis;
+      overflow: hidden;
+    }
+  }
+
+  .dropdown-item {
+    white-space: normal;
+  }
+}
+
+@media (max-width: $max-width-for-mobile) {
+  .data-entry {
+    .btn-container {
+      justify-content: center;
+      width: 100%;
+
+      .btn {
+        margin: 12px;
+      }
+    }
+  }
+
+  .rate-list {
+    .rate-row {
+      flex-wrap: wrap;
+
+
+      div {
+        width: 90%;
+      }
+    }
+  }
+
+  .dropdown {
+
+    button {
+      width: 250px;
+    }
+  }
+}

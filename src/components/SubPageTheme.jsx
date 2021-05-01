@@ -12,7 +12,6 @@ export default function SubPageTheme(props) {
       });
     } else {
       history.push("/" + urlText);
-      console.log(history);
     }
   };
   return (
