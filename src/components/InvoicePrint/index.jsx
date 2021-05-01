@@ -5,7 +5,6 @@ import { ReactComponent as Icon } from "../../assets/CiLogo.svg";
 
 const InvoicePrint = (props) => {
   const tableColumnList = ["sno", "docket_num", "docket_date", "destination", "docket_mode", "weight", "amount"];
-  console.log(props.invoiceData);
   return (
     <PrintWrapper setPrintingFlag={props.setPrintInvoiceFlag}>
       <div className="position-fixed wt-100p">
