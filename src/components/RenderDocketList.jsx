@@ -53,6 +53,7 @@ const RenderDocketList = (props) => {
                     onBlur={props.onFieldBlur}
                     {...(inputFiledDataTypes[field] || {})}
                     autoFocus={!fieldIndex}
+                    disabled={props.isUpdate && field === "client_name"}
                   />
                   {props.validationObj[field]?.index === index && (
                     <p className="c-error fs-11 mb-1 mt-1">{props.validationObj[field]?.msg}</p>

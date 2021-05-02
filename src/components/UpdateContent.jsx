@@ -149,6 +149,7 @@ const UpdateDocket = (props) => {
               list={listToUpdate}
               fieldsWithDropDown={fieldsWithDropDown}
               hiddenField={hiddenField}
+              isUpdate
             />
           )}
         </div>
@@ -162,20 +163,24 @@ const UpdateDocket = (props) => {
               Get Current Entry
             </Button>
           ) : (
-            listToUpdate.length !== destinationGroupList.length && [
-              <Button
-                key="1"
-                variant="outline-primary"
-                onClick={() => setListToUpdate([...listToUpdate, { ...initalRatesObj }])}
-              >
-                Add new rate
-              </Button>,
-              fetchedListLen < listToUpdate.length && (
-                <Button key="2" variant="outline-danger" className="ml-2" onClick={handelRemove}>
-                  Remove Last row
-                </Button>
-              ),
-            ]
+            listToUpdate.length !== destinationGroupList.length &&
+            props.modalType ===
+              "update_party_data"[
+                ((
+                  <Button
+                    key="1"
+                    variant="outline-primary"
+                    onClick={() => setListToUpdate([...listToUpdate, { ...initalRatesObj }])}
+                  >
+                    Add new rate
+                  </Button>
+                ),
+                fetchedListLen < listToUpdate.length && (
+                  <Button key="2" variant="outline-danger" className="ml-2" onClick={handelRemove}>
+                    Remove Last row
+                  </Button>
+                ))
+              ]
           )}
         </div>
       </form>
