@@ -59,17 +59,17 @@ export const dataEntrySecondaryBtns = [
       },
     ],
   },
-  {
-    key: "generate_duplicate_invoice",
-    value: "Generate Duplicate Invoice",
-    fields: [
-      {
-        name: "Invoice Number",
-        key: "invoice_num",
-        type: "text",
-      },
-    ],
-  },
+  // {
+  //   key: "generate_duplicate_invoice",
+  //   value: "Generate Duplicate Invoice",
+  //   fields: [
+  //     {
+  //       name: "Invoice Number",
+  //       key: "invoice_num",
+  //       type: "text",
+  //     },
+  //   ],
+  // },
 ];
 
 export const rateListLabels = {

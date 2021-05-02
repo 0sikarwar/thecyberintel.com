@@ -7,6 +7,9 @@ import {
   saveDocketDataUrl,
   getDocketsUrl,
   getDataForInvoiceUrl,
+  getDataToUpadateUrl,
+  updateDocketDataUrl,
+  updateRateListUrl,
 } from "./apiName";
 import axios from "./axios";
 
@@ -37,6 +40,16 @@ export const getDataForInvoice = async (data) => {
   return await axios.get(getDataForInvoiceUrl, { params: data });
 };
 
+export const getDataToUpadate = async (data) => {
+  return await axios.get(getDataToUpadateUrl, { params: data });
+};
+
 export const saveDocketData = async (data) => {
   return await axios.post(saveDocketDataUrl, data);
+};
+export const updateDocketData = async (data) => {
+  return await axios.post(updateDocketDataUrl, data);
+};
+export const updateRateList = async (data) => {
+  return await axios.post(updateRateListUrl, data);
 };

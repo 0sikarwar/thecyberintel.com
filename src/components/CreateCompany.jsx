@@ -1,7 +1,7 @@
 import Button from "react-bootstrap/Button";
 import { useEffect, useState } from "react";
-import { destinationGroupList, rateListLabels, inputFiledDataTypes } from "../utils/dataEntryHelper";
-import DropdownWithSearch from "./DropdownWithSearch";
+import RenderReteList from "./RenderReteList";
+import { destinationGroupList } from "../utils/dataEntryHelper";
 const initalRatesObj = {
   destination: "",
   upto250Gms: "",
@@ -61,62 +61,24 @@ const CreateCompany = (props) => {
           ))}
         </div>
         <div className="rate-list mb-8 mt-16">
-          {rateList.map((obj, index) => {
-            return (
-              <div className={`rate-row flex flex-wrap ${index % 2 ? "bg-lightBlue" : ""}`} key={index}>
-                {Object.keys(obj).map((field) => (
-                  <div className="px-2 mb-8 mt-8" key={field + index + "box"}>
-                    <span className={`row-label ${index ? "d-lg-none" : ""}`}>{rateListLabels[field]}</span>
-                    {field === "destination" ? (
-                      <DropdownWithSearch
-                        heading={rateListLabels[field]}
-                        listData={destinationGroupList}
-                        selectedValue={rateList[index][field]}
-                        name={field}
-                        id={index}
-                        onChange={handelChange}
-                        onBlur={props.onFieldBlur}
-                        isError={props.validationObj[field]?.index === index}
-                        errMsg={props.validationObj[field]?.msg}
-                      />
-                    ) : (
-                      <div>
-                        <input
-                          key={field + index}
-                          className={`form-control ${props.validationObj[field]?.index === index ? "bc-error" : ""}`}
-                          name={field}
-                          placeholder={rateListLabels[field]}
-                          onChange={handelChange}
-                          data-id={index}
-                          value={rateList[index][field]}
-                          onBlur={props.onFieldBlur}
-                          {...(inputFiledDataTypes[field] || {})}
-                        />
-                        {props.validationObj[field]?.index === index && (
-                          <p className="c-error fs-11 mb-1 mt-1">{props.validationObj[field]?.msg}</p>
-                        )}
-                      </div>
-                    )}
-                  </div>
-                ))}
-              </div>
-            );
-          })}
+          <RenderReteList {...props} rateList={rateList} handelChange={handelChange} />
         </div>
         <div className="px-2">
-          <Button
-            variant="outline-primary"
-            onClick={() => setRateList([...rateList, { ...initalRatesObj }])}
-            disabled={
-              !formData.company_name ||
-              (rateList.length &&
-                !Object.values(rateList[rateList.length - 1])
-                  .join("")
-                  .trim())
-            }
-          >
-            Add new rate
-          </Button>
+          {rateList.length !== destinationGroupList.length && (
+            <Button
+              variant="outline-primary"
+              onClick={() => setRateList([...rateList, { ...initalRatesObj }])}
+              disabled={
+                !formData.company_name ||
+                (rateList.length &&
+                  !Object.values(rateList[rateList.length - 1])
+                    .join("")
+                    .trim())
+              }
+            >
+              Add new rate
+            </Button>
+          )}
           {rateList.length > 1 && (
             <Button variant="outline-danger" className="ml-2" onClick={handelRemove}>
               Remove Last row

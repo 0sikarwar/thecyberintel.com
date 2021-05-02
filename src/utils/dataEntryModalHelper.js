@@ -2,9 +2,17 @@ import AddDockets from "../components/AddDockets";
 import CreateCompany from "../components/CreateCompany";
 import Invoice from "../components/Invoice";
 import GenerateInvoice from "../components/GenerateInvoice";
-import { getDataForInvoice, saveDocketData, saveNewPartyData } from "./axiosCalls";
+import {
+  getDataForInvoice,
+  getDataToUpadate,
+  saveDocketData,
+  saveNewPartyData,
+  updateDocketData,
+  updateRateList,
+} from "./axiosCalls";
 import { requiredFields } from "./dataEntryHelper";
 import { isValidDate } from "./index";
+import UpdateDocket from "../components/UpdateContent";
 
 export const onFieldBlur = (e, isNonArrElement, validationObj, companyList, setValidationObj, modalType) => {
   const element = e.target;
@@ -65,6 +73,12 @@ export const makeApiCallOnSubmit = async (modalType, mainData, companyList, setC
     case "generate_invoice":
       res = await getDataForInvoice(mainData);
       break;
+    case "update_docket_data":
+      res = await updateDocketData(mainData);
+      break;
+    case "update_party_data":
+      res = await updateRateList(mainData);
+      break;
     default:
       return;
   }
@@ -73,7 +87,8 @@ export const makeApiCallOnSubmit = async (modalType, mainData, companyList, setC
 
 export const getModalData = (modalType, sectionData, modalProps, companyList, invoiceData) => {
   let modal_title = "",
-    MODAL_CHILD_COMPONENT = null;
+    MODAL_CHILD_COMPONENT = null,
+    submitButtonText = "Submit";
   switch (modalType) {
     case "add_new_party":
       modal_title = "Add a new Party";
@@ -98,10 +113,68 @@ export const getModalData = (modalType, sectionData, modalProps, companyList, in
     case "show_invoice":
       modal_title = "Invoice";
       MODAL_CHILD_COMPONENT = invoiceData ? <Invoice invoiceData={invoiceData} /> : null;
+      submitButtonText = "Print";
       break;
+    case "update_docket_data":
+    case "update_party_data":
+      submitButtonText = "Update";
+      modal_title = "Update data";
+      MODAL_CHILD_COMPONENT = (
+        <UpdateDocket {...sectionData} {...modalProps} companyList={companyList} modalType={modalType} />
+      );
+      break;
+
     default:
       MODAL_CHILD_COMPONENT = null;
       modal_title = "";
   }
-  return [MODAL_CHILD_COMPONENT, modal_title];
+  return [MODAL_CHILD_COMPONENT, modal_title, submitButtonText];
+};
+
+export const convertToValidDate = (str) => {
+  const date = new Date(str);
+  return `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`;
+};
+
+export const getListToUpdate = async (modalType, formData) => {
+  let params = {};
+  switch (modalType) {
+    case "update_docket_data":
+      params = { type: "getdocket", docket_num: formData.docket_num };
+      break;
+    case "update_party_data":
+      params = { type: "getparty", company_id: formData.company_id };
+      break;
+  }
+  let result = {};
+  try {
+    result = await getDataToUpadate(params);
+  } catch (err) {
+    console.error(err);
+  }
+  let listToUpdate = null;
+  switch (modalType) {
+    case "update_docket_data":
+      listToUpdate = result.data?.list?.map((obj) => ({
+        docket_date: convertToValidDate(obj.docket_date),
+        docket_num: obj.docket_num,
+        client_name: obj.client_name,
+        destination: obj.destination,
+        weight: obj.weight,
+        docket_mode: obj.docket_mode,
+      }));
+      break;
+    case "update_party_data":
+      listToUpdate = result.data?.list?.map((obj) => ({
+        destination: obj.destination,
+        upto250Gms: obj.upto250gms,
+        upto500Gms: obj.upto500gms,
+        upto1Kg: obj.upto1kg,
+        above1kgSur: obj.above1kgsur,
+        above1KgAir: obj.above1kgair,
+      }));
+      break;
+  }
+
+  return listToUpdate;
 };

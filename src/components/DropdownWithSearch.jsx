@@ -44,6 +44,7 @@ function DropdownWithSearch(props) {
         variant="outline-primary"
         id="dropdown-custom-components"
         className={props.isError ? "bc-error" : ""}
+        disabled={props.disabled}
       >
         <span className="dropdown-heading">{props.selectedValue || props.heading}</span>
       </Dropdown.Toggle>

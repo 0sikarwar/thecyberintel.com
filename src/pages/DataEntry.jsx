@@ -76,6 +76,8 @@ const DataEntry = () => {
     mainData,
     setMainData,
     setValidationObj,
+    setToastData,
+    setShowToast,
   };
 
   const handleBtnClick = (obj, isPrimary) => {
@@ -135,7 +137,7 @@ const DataEntry = () => {
     }
   };
 
-  const [MODAL_CHILD_COMPONENT, modal_title] = getModalData(
+  const [MODAL_CHILD_COMPONENT, modal_title, submitButtonText] = getModalData(
     modalType,
     sectionData,
     modalProps,
@@ -175,7 +177,7 @@ const DataEntry = () => {
         disabledSubmit={modalType === "show_invoice" ? false : disableModalSubmit}
         title={modal_title}
         modalType={modalType}
-        submitButtonText={modalType === "show_invoice" ? "Print" : "Submit"}
+        submitButtonText={submitButtonText}
         contentClassName={modalType === "show_invoice" ? "ht-90vh" : ""}
       >
         {MODAL_CHILD_COMPONENT}

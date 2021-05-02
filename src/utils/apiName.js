@@ -9,3 +9,6 @@ export const getCompanyNamesUrl = `${baseUrl}/getcompanynames`;
 export const saveDocketDataUrl = `${baseUrl}/savedocketdata`;
 export const getDocketsUrl = `${baseUrl}/getdockets`;
 export const getDataForInvoiceUrl = `${baseUrl}/getdataforinvoice`;
+export const getDataToUpadateUrl = `${baseUrl}/getdatatoupadate`;
+export const updateDocketDataUrl = `${baseUrl}/updatedocketdata`;
+export const updateRateListUrl = `${baseUrl}/updateratelist`;
