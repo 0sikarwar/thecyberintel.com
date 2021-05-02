@@ -1,22 +1,17 @@
 import { useEffect, useState } from "react";
 import Button from "react-bootstrap/Button";
-import AddDockets from "../components/AddDockets";
-import CreateCompany from "../components/CreateCompany";
-import GenerateInvoice from "../components/GenerateInvoice";
-import { getCompanyNames, saveNewPartyData, saveDocketData, getDataForInvoice } from "../utils/axiosCalls";
+import { getCompanyNames } from "../utils/axiosCalls";
 import RenderModal from "../components/Modal";
 import {
   dataEntryPrimaryBtns,
   dataEntrySecondaryBtns,
   getInvoiceNumber,
   isValidEnteredData,
-  requiredFields,
 } from "../utils/dataEntryHelper";
 import RenderToast from "../components/Toast";
-import { isValidDate } from "../utils";
-import Invoice from "../components/Invoice";
 import InvoicePrint from "../components/InvoicePrint";
 import Pageloader from "../components/Pageloader";
+import { getModalData, onFieldBlur, makeApiCallOnSubmit } from "../utils/dataEntryModalHelper";
 
 const DataEntry = () => {
   const [showModal, setShowModal] = useState(false);
@@ -38,43 +33,8 @@ const DataEntry = () => {
     invoiceData && setInvoiceData(null);
   };
 
-  const onFieldBlur = (e, isNonArrElement) => {
-    const element = e.target;
-    const currentValidation = { ...validationObj };
-    if (requiredFields.includes(element.name)) {
-      if (!element.value) {
-        if (isNonArrElement) {
-          currentValidation[element.name] = {
-            msg: "This Field is Required",
-          };
-        } else {
-          currentValidation[element.name] = {
-            index: Number(element.dataset.id),
-            msg: "This Field is Required",
-          };
-        }
-      } else {
-        currentValidation[element.name] = null;
-      }
-    }
-    if (element.name === "docket_date" && element.value) {
-      if (!isValidDate(element.value))
-        currentValidation[element.name] = {
-          index: Number(element.dataset.id),
-          msg: "Date is Invalid",
-        };
-    }
-    if (modalType === "add_new_party" && element.name === "company_name") {
-      const existingCompany = companyList.filter(
-        (obj) => obj.company_name.toLowerCase() === element.value.toLowerCase()
-      ).length;
-      if (existingCompany) {
-        currentValidation[element.name] = {
-          msg: "This Company already exists",
-        };
-      }
-    }
-    setValidationObj(currentValidation);
+  const handleFiledBlur = (e, isNonArrElement) => {
+    onFieldBlur(e, isNonArrElement, validationObj, companyList, setValidationObj, modalType);
   };
 
   useEffect(() => {
@@ -85,8 +45,8 @@ const DataEntry = () => {
       } catch (e) {
         console.error(e);
       }
-      setLoadingType("");
       if (res?.data?.status === "SUCCESS") {
+        setLoadingType("");
         setCompanyList(res.data.list);
       }
     })();
@@ -111,7 +71,7 @@ const DataEntry = () => {
   const handleShowModal = () => setShowModal(true);
 
   const modalProps = {
-    onFieldBlur,
+    onFieldBlur: handleFiledBlur,
     validationObj,
     mainData,
     setMainData,
@@ -129,7 +89,6 @@ const DataEntry = () => {
       setPrintInvoiceFlag(true);
       return;
     }
-    let res = {};
     const isValid = mainData && isValidEnteredData(modalType, mainData, companyList);
     if (!mainData || !isValid) {
       setShowToast(true);
@@ -144,37 +103,17 @@ const DataEntry = () => {
       return;
     }
     setLoadingType("partial");
+    let result = {};
     try {
-      switch (modalType) {
-        case "add_new_party":
-          res = await saveNewPartyData(mainData);
-          res.data?.data?.[0] &&
-            setCompanyList([
-              ...companyList,
-              {
-                id: res.data.data[0].company_id,
-                company_name: res.data.data[0].company_name,
-              },
-            ]);
-          break;
-        case "enter_weekly_data":
-        case "add_cash_booking":
-          res = await saveDocketData(mainData);
-          break;
-        case "generate_invoice":
-          res = await getDataForInvoice(mainData);
-          break;
-        default:
-          return;
-      }
+      result = await makeApiCallOnSubmit(modalType, mainData, companyList, setCompanyList);
     } catch (e) {
       console.error(e);
     }
     setLoadingType("");
-    if (res.data?.status === "SUCCESS") {
+    if (result?.status === "SUCCESS") {
       if (modalType === "generate_invoice") {
         setModalType("show_invoice");
-        setInvoiceData(res.data);
+        setInvoiceData(result);
         setMainData(null);
         setValidationObj({});
         return;
@@ -191,44 +130,20 @@ const DataEntry = () => {
       setToastData({
         type: "danger",
         heading: "Oh snap!",
-        msg: res.data?.err?.msg || "Something went wrong please try again",
+        msg: result?.err?.msg || "Something went wrong please try again",
       });
     }
   };
 
-  let MODAL_CHILD_COMPONENT = null,
-    modal_title = "";
-  switch (modalType) {
-    case "add_new_party":
-      modal_title = "Add a new Party";
-      MODAL_CHILD_COMPONENT = <CreateCompany {...sectionData} {...modalProps} />;
-      break;
-    case "enter_weekly_data":
-    case "add_cash_booking":
-      modal_title = modalType === "add_cash_booking" ? "Add new Cash booking" : "Add Dockets";
-      MODAL_CHILD_COMPONENT = (
-        <AddDockets
-          isCashBooking={modalType === "add_cash_booking"}
-          companyList={companyList}
-          {...sectionData}
-          {...modalProps}
-        />
-      );
-      break;
-    case "generate_invoice":
-      modal_title = "Generate Invoice";
-      MODAL_CHILD_COMPONENT = <GenerateInvoice companyList={companyList} {...sectionData} {...modalProps} />;
-      break;
-    case "show_invoice":
-      modal_title = "Invoice";
-      MODAL_CHILD_COMPONENT = invoiceData ? <Invoice invoiceData={invoiceData} /> : null;
-      break;
-    default:
-      MODAL_CHILD_COMPONENT = null;
-      modal_title = "";
-  }
+  const [MODAL_CHILD_COMPONENT, modal_title] = getModalData(
+    modalType,
+    sectionData,
+    modalProps,
+    companyList,
+    invoiceData
+  );
 
-  if (loadingType === "full") return <Pageloader title="Please wait" message="Preparing the screen..." />;
+  if (loadingType === "full") return <Pageloader title="Please wait" message="Getting initial data..." />;
   return (
     <>
       {loadingType === "partial" && <Pageloader title="Please wait" message="Executing your query..." />}

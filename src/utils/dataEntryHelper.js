@@ -37,18 +37,39 @@ export const dataEntryPrimaryBtns = [
 ];
 
 export const dataEntrySecondaryBtns = [
-  // {
-  //   key: "update_docket_data",
-  //   value: "Update docket data",
-  // },
-  // {
-  //   key: "update_party_data",
-  //   value: "Update Party data",
-  // },
-  // {
-  //   key: "generate_duplicate_invoice",
-  //   value: "Generate Duplicate Invoice",
-  // },
+  {
+    key: "update_docket_data",
+    value: "Update docket data",
+    fields: [
+      {
+        name: "Docket Number",
+        key: "docket_num",
+        type: "text",
+      },
+    ],
+  },
+  {
+    key: "update_party_data",
+    value: "Update Party data",
+    fields: [
+      {
+        name: "Company Name",
+        key: "company_name",
+        type: "text",
+      },
+    ],
+  },
+  {
+    key: "generate_duplicate_invoice",
+    value: "Generate Duplicate Invoice",
+    fields: [
+      {
+        name: "Invoice Number",
+        key: "invoice_num",
+        type: "text",
+      },
+    ],
+  },
 ];
 
 export const rateListLabels = {
@@ -130,4 +151,5 @@ export const invoicePrintColumnHead = {
   amount: "Amount",
 };
 
-export const getInvoiceNumber = (num) => "TCI" + num.toString().padStart(4, "0");
+export const getInvoiceNumber = (num) =>
+  "TCI" + new Date().getFullYear().toString().slice(2) + num.toString().padStart(4, "0");

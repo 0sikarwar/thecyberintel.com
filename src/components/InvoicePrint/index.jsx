@@ -6,7 +6,7 @@ import { ReactComponent as Icon } from "../../assets/CiLogo.svg";
 const InvoicePrint = (props) => {
   const tableColumnList = ["sno", "docket_num", "docket_date", "destination", "docket_mode", "weight", "amount"];
   return (
-    <PrintWrapper setPrintingFlag={props.setPrintInvoiceFlag}>
+    <PrintWrapper setPrintingFlag={props.setPrintInvoiceFlag} title={`${props.companyName}_${props.invoiceNumber}`}>
       <div className="position-fixed wt-100p">
         <div className="flex flex-between">
           <div className="flex flex-middle">
@@ -20,7 +20,7 @@ const InvoicePrint = (props) => {
           <div className="fs-14 fw-bolder">SUMMARY</div>
           <div className="fs-12 fw-bolder">www.thecyberintel.com</div>
         </div>
-        <div className="flex flex-between mb-2 bg-silver">
+        <div className="flex flex-between mb-1 bg-silver py-1 px-2">
           <div className="mt-2">
             To: <b>{props.companyName}</b>
           </div>

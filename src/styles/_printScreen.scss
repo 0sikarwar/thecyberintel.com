@@ -3,7 +3,10 @@
 }
 
 @media print {
+
   .printing {
+
+    background-color: white;
 
     #print-area {
       display: block;
