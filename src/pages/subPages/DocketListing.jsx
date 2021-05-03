@@ -41,7 +41,7 @@ const QueryListing = () => {
           return {
             name: key.toUpperCase(),
             selector: key,
-            sortable: ["destination", "client_name", "docket_date"].includes(key) && true,
+            sortable: ["destination", "client_name", "docket_date", "docket_num"].includes(key) && true,
             wrap: true,
             maxWidth: key === "docket_date" ? "170px" : "",
           };

@@ -39,7 +39,7 @@ const Invoice = (props) => {
             />
           </div>
         ) : (
-          <h3>No docket available for selected client in selcted month</h3>
+          <h3>No docket available for selected client in selected month.</h3>
         )}
       </div>
     </>

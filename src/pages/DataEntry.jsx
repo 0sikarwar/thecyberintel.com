@@ -192,6 +192,7 @@ const DataEntry = () => {
           toDate={invoiceData.to}
           invoiceDate={invoiceData.invoice_date}
           invoiceNumber={getInvoiceNumber(invoiceData.invoice_number)}
+          total={invoiceData.totalAmount}
         />
       )}
     </>

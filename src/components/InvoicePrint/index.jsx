@@ -54,6 +54,9 @@ const InvoicePrint = (props) => {
           ))}
         </tbody>
       </table>
+      <b style={{ float: "right" }} className="mt-1">
+        Total: {props.total}
+      </b>
     </PrintWrapper>
   );
 };
