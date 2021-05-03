@@ -1,17 +1,12 @@
 import Button from "react-bootstrap/Button";
 import { useEffect, useState } from "react";
 import RenderDocketList from "./RenderDocketList";
-const initalDocketObj = {
-  docket_date: "",
-  docket_num: "",
-  client_name: "",
-  destination: "",
-  weight: "",
-  docket_mode: "Surface",
-};
+import { getInitalDocketObj } from "../utils/dataEntryHelper";
 let isModified = false;
 const AddDockets = (props) => {
-  const [docketList, setDocketList] = useState(props.mainData?.formData || [{ ...initalDocketObj }]);
+  const [docketList, setDocketList] = useState(
+    props.mainData?.formData || [{ ...getInitalDocketObj(props.isCashBooking) }]
+  );
   const [fieldsWithDropDown, setFieldsWithDropDown] = useState(["destination", "docket_mode"]);
   const [hiddenField, setHiddenField] = useState([]);
 
@@ -55,11 +50,7 @@ const AddDockets = (props) => {
   };
 
   const handleAddNewClick = () => {
-    const objToPush = { ...initalDocketObj };
-    if (props.isCashBooking) {
-      objToPush.amount = "";
-    }
-    setDocketList([...docketList, { ...objToPush }]);
+    setDocketList([...docketList, { ...getInitalDocketObj(props.isCashBooking) }]);
   };
   return (
     <div>

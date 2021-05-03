@@ -136,7 +136,7 @@ export const convertToValidDate = (str) => {
   return `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`;
 };
 
-export const getListToUpdate = async (modalType, formData) => {
+export const getListToUpdate = async (modalType, formData, companyList) => {
   let params = {};
   switch (modalType) {
     case "update_docket_data":
@@ -155,14 +155,21 @@ export const getListToUpdate = async (modalType, formData) => {
   let listToUpdate = null;
   switch (modalType) {
     case "update_docket_data":
-      listToUpdate = result.data?.list?.map((obj) => ({
-        docket_date: convertToValidDate(obj.docket_date),
-        docket_num: obj.docket_num,
-        client_name: obj.client_name,
-        destination: obj.destination,
-        weight: obj.weight,
-        docket_mode: obj.docket_mode,
-      }));
+      listToUpdate = result.data?.list?.map((obj) => {
+        const updatedObj = {
+          docket_date: convertToValidDate(obj.docket_date),
+          docket_num: obj.docket_num,
+          destination: obj.destination,
+          weight: obj.weight,
+          docket_mode: obj.docket_mode,
+        };
+        if (obj.company_id) {
+          updatedObj.client_name = companyList.filter((item) => item.id === obj.company_id)[0]?.company_name;
+        } else if (obj.amount) {
+          updatedObj.amount = obj.amount;
+        }
+        return updatedObj;
+      });
       break;
     case "update_party_data":
       listToUpdate = result.data?.list?.map((obj) => ({

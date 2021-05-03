@@ -51,7 +51,10 @@ const CreateCompany = (props) => {
                 name={obj.key}
                 placeholder={obj.name}
                 value={formData[obj.key]}
-                onChange={(e) => handelChange(e, true)}
+                onChange={(e) => {
+                  if (obj.key === "company_gst") e.target.value = e.target.value.toUpperCase();
+                  handelChange(e, true);
+                }}
                 onBlur={(e) => props.onFieldBlur(e, true)}
               />
               {props.validationObj[obj.key]?.msg && (

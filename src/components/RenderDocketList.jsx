@@ -47,7 +47,10 @@ const RenderDocketList = (props) => {
                     className={`form-control ${props.validationObj[field]?.index === index ? "bc-error" : ""}`}
                     name={field}
                     placeholder={field === "docket_date" ? "dd/mm/yy" : addDocketLabels[field]}
-                    onChange={props.handelChange}
+                    onChange={(e) => {
+                      if (field === "docket_num") e.target.value = e.target.value.toUpperCase();
+                      props.handelChange(e);
+                    }}
                     data-id={index}
                     value={props.list[index][field]}
                     onBlur={props.onFieldBlur}

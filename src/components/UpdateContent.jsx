@@ -61,7 +61,7 @@ const UpdateDocket = (props) => {
     }
   }, [formData, listToUpdate, fetchedListLen]);
   const handleGetEntryClick = async () => {
-    const fetchedList = await getListToUpdate(props.modalType, formData);
+    const fetchedList = await getListToUpdate(props.modalType, formData, props.companyList);
     if (!fetchedList.length) {
       props.setShowToast(true);
       props.setToastData({
@@ -121,7 +121,11 @@ const UpdateDocket = (props) => {
                       name={obj.key}
                       placeholder={obj.name}
                       value={formData[obj.key]}
-                      onChange={(e) => handelChange(e, true)}
+                      onChange={(e) => {
+                        if (obj.key === "docket_num" || obj.key === "company_gst")
+                          e.target.value = e.target.value.toUpperCase();
+                        handelChange(e, true);
+                      }}
                       onBlur={(e) => props.onFieldBlur(e, true)}
                       disabled={listToUpdate.length}
                     />
@@ -141,6 +145,7 @@ const UpdateDocket = (props) => {
               rateList={listToUpdate}
               handelChange={handelChange}
               fetchedListLen={fetchedListLen}
+              isUpdate
             />
           ) : (
             <RenderDocketList

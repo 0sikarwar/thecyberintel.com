@@ -8,6 +8,16 @@ export const dataEntryPrimaryBtns = [
         key: "company_name",
         type: "text",
       },
+      {
+        name: "Company Address",
+        key: "company_address",
+        type: "text",
+      },
+      {
+        name: "Company GSTIN",
+        key: "company_gst",
+        type: "text",
+      },
     ],
   },
   {
@@ -113,6 +123,21 @@ export const destinationGroupList = [
   "Leh, Tripura, Manipur, Nagaland, Silchar and Andaman Nicobar",
 ];
 
+export const getInitalDocketObj = (isCashBooking) => {
+  const obj = {
+    docket_date: "",
+    docket_num: "",
+    client_name: "",
+    destination: "",
+    weight: "",
+    docket_mode: "Surface",
+  };
+  if (isCashBooking) {
+    delete obj.client_name;
+    obj.amount = "";
+  }
+  return obj;
+};
 export const requiredFields = ["destination", "docket_num", "company_name"];
 
 export const isValidEnteredData = (modalType, mainData, companyList) => {
