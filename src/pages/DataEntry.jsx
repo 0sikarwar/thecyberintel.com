@@ -38,13 +38,15 @@ const DataEntry = () => {
   };
 
   const handleGetInvoiceNumber = async () => {
+    setLoadingType("partial");
     const confirmMsg = `Ganerating Invoice number for **${invoiceData.company_name}** for the month of **${invoiceData.for_month}**`;
     if (window.confirm(confirmMsg)) {
       const result = await getInvoiceNum({ company_id: invoiceData.company_id, for_month: invoiceData.for_month });
-      if (result?.invoice_number) {
-        setInvoiceData({ ...invoiceData, invoice_number: result.invoice_number });
+      if (result.data?.invoice_number) {
+        setInvoiceData({ ...invoiceData, invoice_number: result.data.invoice_number });
       }
     }
+    setLoadingType("");
   };
 
   useEffect(() => {

@@ -1,6 +1,10 @@
 .modal-container {
   max-width: 90%;
 
+  .modal-content {
+    min-height: 50vh;
+  }
+
   .modal-body {
     overflow: scroll;
   }
