@@ -17,7 +17,10 @@ const Invoice = (props) => {
             selector: key,
             sortable: ["docket_date"].includes(key) && true,
             wrap: true,
-            maxWidth: key === "docket_date" ? "170px" : "",
+            width: ["docket_num", "weight", "company_id", "docket_mode", "docket_discount", "amount"].includes(key)
+              ? "100px"
+              : "170px",
+            cell: (d) => <span>{key === "docket_discount" && d[key] ? d[key] + " ₹/Kg" : d[key]}</span>,
           };
         return null;
       })
@@ -30,7 +33,9 @@ const Invoice = (props) => {
         {props.invoiceData.docketList?.length ? (
           <div className="card px-16">
             <DataTable
-              title="Invoice Details"
+              title={`Invoice Details /${" Total Amount: " + props.invoiceData.totalAmount} ${
+                props.invoiceData.invoice_number ? "/ Invoice Number: " + props.invoiceData.invoice_number : ""
+              }`}
               columns={getFormattedColumns(props.invoiceData.docketList)}
               data={props.invoiceData.docketList}
               pagination

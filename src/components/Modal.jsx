@@ -9,6 +9,9 @@ function RenderModal({
   submitButtonText,
   contentClassName,
   modalType,
+  optionalButtonText,
+  handleThirdButtonClick,
+  disableOptionalButton,
   children,
 }) {
   return (
@@ -34,6 +37,11 @@ function RenderModal({
           <Button variant="primary" onClick={handleSubmit} disabled={disabledSubmit}>
             {submitButtonText || "Submit"}
           </Button>
+          {optionalButtonText && (
+            <Button variant="danger" onClick={handleThirdButtonClick} disabled={disableOptionalButton}>
+              {optionalButtonText}
+            </Button>
+          )}
         </Modal.Footer>
       </Modal>
     </>

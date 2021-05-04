@@ -152,7 +152,8 @@ export const getListToUpdate = async (modalType, formData, companyList) => {
   } catch (err) {
     console.error(err);
   }
-  let listToUpdate = null;
+  let listToUpdate = null,
+    companyDetails = null;
   switch (modalType) {
     case "update_docket_data":
       listToUpdate = result.data?.list?.map((obj) => {
@@ -162,6 +163,7 @@ export const getListToUpdate = async (modalType, formData, companyList) => {
           destination: obj.destination,
           weight: obj.weight,
           docket_mode: obj.docket_mode,
+          docket_discount: obj.docket_discount,
         };
         if (obj.company_id) {
           updatedObj.client_name = companyList.filter((item) => item.id === obj.company_id)[0]?.company_name;
@@ -180,8 +182,9 @@ export const getListToUpdate = async (modalType, formData, companyList) => {
         above1kgSur: obj.above1kgsur,
         above1KgAir: obj.above1kgair,
       }));
+      companyDetails = result.data?.companyDetails?.[0];
       break;
   }
 
-  return listToUpdate;
+  return { fetchedList: listToUpdate, companyDetails };
 };

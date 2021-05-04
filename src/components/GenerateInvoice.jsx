@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import DropdownWithSearch from "./DropdownWithSearch";
 let isModified = false;
-const CreateCompany = (props) => {
+const GenerateInvoice = (props) => {
   const [formData, setFormData] = useState(props.mainData?.formData || {});
 
   const handelChange = (e, isNonRateElement) => {
@@ -61,4 +61,4 @@ const CreateCompany = (props) => {
   );
 };
 
-export default CreateCompany;
+export default GenerateInvoice;

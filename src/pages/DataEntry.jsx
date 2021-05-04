@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import Button from "react-bootstrap/Button";
-import { getCompanyNames } from "../utils/axiosCalls";
+import { getCompanyNames, getInvoiceNum } from "../utils/axiosCalls";
 import RenderModal from "../components/Modal";
 import {
   dataEntryPrimaryBtns,
@@ -35,6 +35,16 @@ const DataEntry = () => {
 
   const handleFiledBlur = (e, isNonArrElement) => {
     onFieldBlur(e, isNonArrElement, validationObj, companyList, setValidationObj, modalType);
+  };
+
+  const handleGetInvoiceNumber = async () => {
+    const confirmMsg = `Ganerating Invoice number for **${invoiceData.company_name}** for the month of **${invoiceData.for_month}**`;
+    if (window.confirm(confirmMsg)) {
+      const result = await getInvoiceNum({ company_id: invoiceData.company_id, for_month: invoiceData.for_month });
+      if (result?.invoice_number) {
+        setInvoiceData({ ...invoiceData, invoice_number: result.invoice_number });
+      }
+    }
   };
 
   useEffect(() => {
@@ -179,6 +189,9 @@ const DataEntry = () => {
         modalType={modalType}
         submitButtonText={submitButtonText}
         contentClassName={modalType === "show_invoice" ? "ht-90vh" : ""}
+        optionalButtonText={modalType === "show_invoice" ? "Get Invoice Number" : ""}
+        handleThirdButtonClick={modalType === "show_invoice" ? handleGetInvoiceNumber : () => {}}
+        disableOptionalButton={invoiceData?.invoice_number || !invoiceData?.docketList?.length}
       >
         {MODAL_CHILD_COMPONENT}
       </RenderModal>
@@ -191,7 +204,7 @@ const DataEntry = () => {
           fromDate={invoiceData.from}
           toDate={invoiceData.to}
           invoiceDate={invoiceData.invoice_date}
-          invoiceNumber={getInvoiceNumber(invoiceData.invoice_number)}
+          invoiceNumber={invoiceData.invoice_number ? getInvoiceNumber(invoiceData.invoice_number) : ""}
           total={invoiceData.totalAmount}
         />
       )}

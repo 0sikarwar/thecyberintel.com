@@ -91,6 +91,12 @@ export const rateListLabels = {
   above1KgAir: "above 1kg air",
 };
 
+export const comapnyDataLabel = {
+  company_name: "Company Name",
+  company_address: "Company Address",
+  company_gst: "Company GSTIN",
+};
+
 export const inputFiledDataTypes = {
   amount: { type: "number", min: 0 },
   upto250Gms: { type: "number", min: 0 },
@@ -98,6 +104,7 @@ export const inputFiledDataTypes = {
   upto1Kg: { type: "number", min: 0 },
   above1kgSur: { type: "number", min: 0 },
   above1KgAir: { type: "number", min: 0 },
+  docket_discount: { type: "number", min: 0 },
   weight: { type: "number", step: 0.1, min: 0 },
 };
 
@@ -109,6 +116,7 @@ export const addDocketLabels = {
   weight: "Weight ",
   docket_mode: "Mode SF/Air",
   docket_date: "Date",
+  docket_discount: "Discount in ₹/Kg",
 };
 
 export const destinationGroupList = [
@@ -131,14 +139,16 @@ export const getInitalDocketObj = (isCashBooking) => {
     destination: "",
     weight: "",
     docket_mode: "Surface",
+    docket_discount: "",
   };
   if (isCashBooking) {
     delete obj.client_name;
     obj.amount = "";
+    delete obj.docket_discount;
   }
   return obj;
 };
-export const requiredFields = ["destination", "docket_num", "company_name"];
+export const requiredFields = ["destination", "docket_num", "company_name", "new_company_name"];
 
 export const isValidEnteredData = (modalType, mainData, companyList) => {
   const { formData, rateList } = mainData;

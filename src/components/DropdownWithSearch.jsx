@@ -39,7 +39,7 @@ function DropdownWithSearch(props) {
     }
   };
   return (
-    <Dropdown onToggle={handleToggle} focusFirstItemOnShow>
+    <Dropdown onToggle={handleToggle} focusFirstItemOnShow name={props.name}>
       <Dropdown.Toggle
         variant="outline-primary"
         id="dropdown-custom-components"

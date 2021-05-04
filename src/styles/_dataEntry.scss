@@ -1,5 +1,17 @@
 .data-entry {}
 
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
 .dropdown {
 
   .dropdown-menu {
@@ -56,6 +68,20 @@
 
     button {
       width: 250px;
+    }
+  }
+}
+
+@media (min-width: $max-width-for-mobile) {
+
+  input[name="weight"],
+  input[name*="date"],
+  input[name="docket_discount"],
+  div[name="docket_mode"] {
+    width: 120px;
+
+    * {
+      max-width: 120px;
     }
   }
 }

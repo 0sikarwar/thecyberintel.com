@@ -1,8 +1,7 @@
 import Button from "react-bootstrap/Button";
 import { useEffect, useRef, useState } from "react";
-import { getDataToUpadate } from "../utils/axiosCalls";
 import citiesList from "../utils/citiesOnlyList";
-import { addDocketLabels, destinationGroupList, inputFiledDataTypes } from "../utils/dataEntryHelper";
+import { comapnyDataLabel, destinationGroupList, inputFiledDataTypes } from "../utils/dataEntryHelper";
 import DropdownWithSearch from "./DropdownWithSearch";
 import { getListToUpdate } from "../utils/dataEntryModalHelper";
 import RenderDocketList from "./RenderDocketList";
@@ -19,6 +18,7 @@ let isModified = false;
 const UpdateDocket = (props) => {
   const [formData, setFormData] = useState(props.mainData?.formData || {});
   const [listToUpdate, setListToUpdate] = useState([]);
+  const [fetchedComapnyDetails, setFetchedComapnyDetails] = useState(null);
   const [fieldsWithDropDown, setFieldsWithDropDown] = useState(["destination", "docket_mode", "company_name"]);
   const [hiddenField, setHiddenField] = useState([]);
   const [fetchedListLen, setFetchedListLen] = useState(0);
@@ -57,11 +57,12 @@ const UpdateDocket = (props) => {
   };
   useEffect(() => {
     if (isModified && (Object.keys(formData).length || listToUpdate.length)) {
-      props.setMainData({ formData, listToUpdate, fetchedListLen });
+      props.setMainData({ formData, listToUpdate, fetchedListLen, companyDetails: fetchedComapnyDetails });
     }
-  }, [formData, listToUpdate, fetchedListLen]);
+  }, [formData, listToUpdate, fetchedListLen, fetchedComapnyDetails]);
   const handleGetEntryClick = async () => {
-    const fetchedList = await getListToUpdate(props.modalType, formData, props.companyList);
+    const { fetchedList, companyDetails } = await getListToUpdate(props.modalType, formData, props.companyList);
+    console.log(formData, props.fields);
     if (!fetchedList.length) {
       props.setShowToast(true);
       props.setToastData({
@@ -72,6 +73,7 @@ const UpdateDocket = (props) => {
     }
     setFetchedListLen(fetchedList.length);
     setListToUpdate(fetchedList);
+    setFetchedComapnyDetails(companyDetails);
   };
   const handelRemove = () => {
     const confirmMsg = "Are you sure? You want to remove last row.";
@@ -138,6 +140,32 @@ const UpdateDocket = (props) => {
             );
           })}
         </div>
+        {fetchedComapnyDetails && (
+          <div className="px-2 flex flex-wrap flex-around mt-2 mb-2">
+            {Object.keys(fetchedComapnyDetails).map(
+              (key, index) =>
+                key !== "id" && (
+                  <div>
+                    <label htmlFor={"new_" + key}>{comapnyDataLabel[key]}</label>
+                    <div key={index}>
+                      <input
+                        className={`form-control ${props.validationObj["new_" + key]?.msg ? "bc-error" : ""}`}
+                        name={"new_" + key}
+                        value={fetchedComapnyDetails[key]}
+                        onChange={(e) => {
+                          setFetchedComapnyDetails({ ...fetchedComapnyDetails, [key]: e.target.value });
+                        }}
+                        onBlur={(e) => props.onFieldBlur(e, true)}
+                      />
+                      {props.validationObj["new_" + key]?.msg && (
+                        <p className="c-error fs-11 mb-1 mt-1">{props.validationObj["new_" + key]?.msg}</p>
+                      )}
+                    </div>
+                  </div>
+                )
+            )}
+          </div>
+        )}
         <div className="rate-list mb-8 mt-16">
           {props.modalType === "update_party_data" ? (
             <RenderReteList

@@ -10,6 +10,7 @@ import {
   getDataToUpadateUrl,
   updateDocketDataUrl,
   updateRateListUrl,
+  getInvoiceNumUrl,
 } from "./apiName";
 import axios from "./axios";
 
@@ -52,4 +53,8 @@ export const updateDocketData = async (data) => {
 };
 export const updateRateList = async (data) => {
   return await axios.post(updateRateListUrl, data);
+};
+
+export const getInvoiceNum = async (data) => {
+  return await axios.get(getInvoiceNumUrl, { params: data });
 };

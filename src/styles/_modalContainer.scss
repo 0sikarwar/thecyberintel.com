@@ -1,5 +1,9 @@
 .modal-container {
   max-width: 90%;
+
+  .modal-body {
+    overflow: scroll;
+  }
 }
 
 @media (max-width: $max-width-for-mobile) {

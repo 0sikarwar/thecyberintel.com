@@ -32,8 +32,7 @@ const QueryListing = () => {
       name: "ID",
       selector: "id",
       sortable: true,
-      maxWidth: "60px",
-      minWidth: "60px",
+      width: "60px",
     };
     const columnsList = Object.keys(firstRow)
       .map((key) => {
@@ -43,7 +42,10 @@ const QueryListing = () => {
             selector: key,
             sortable: ["destination", "client_name", "docket_date", "docket_num"].includes(key) && true,
             wrap: true,
-            maxWidth: key === "docket_date" ? "170px" : "",
+            width: ["docket_num", "weight", "company_id", "docket_mode", "docket_discount", "amount"].includes(key)
+              ? "110px"
+              : "170px",
+            cell: (d) => <span>{key === "docket_discount" && d[key] ? d[key] + " ₹/Kg" : d[key]}</span>,
           };
         return null;
       })
