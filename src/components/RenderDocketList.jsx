@@ -52,7 +52,7 @@ const RenderDocketList = (props) => {
                       props.handelChange(e);
                     }}
                     data-id={index}
-                    value={props.list[index][field]}
+                    value={props.list[index][field] || inputFiledDataTypes[field]?.type === "number" ? 0 : ""}
                     onBlur={props.onFieldBlur}
                     {...(inputFiledDataTypes[field] || {})}
                     autoFocus={!fieldIndex}
