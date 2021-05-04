@@ -116,6 +116,8 @@ const citiesList = [
   "Sagar, Madhya Pradesh",
   "Tumkur, Karnataka",
   "Hisar, Haryana",
+  "Ambala, Haryana",
+  "Udham Singh Nagar, Uttarakhand",
   "Rohtak, Haryana",
   "Panipat, Haryana",
   "Darbhanga, Bihar",
