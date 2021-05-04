@@ -125,6 +125,7 @@ const citiesList = [
   "Aizawl, Mizoram",
   "Ichalkaranji, Maharashtra",
   "Tirupati, Andhra Pradesh",
+  "Sirmaur, Himachal Pradesh",
   "Karnal, Haryana",
   "Bathinda, Punjab",
   "Rampur, Uttar Pradesh",
