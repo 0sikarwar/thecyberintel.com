@@ -126,6 +126,7 @@ const citiesList = [
   "Ichalkaranji, Maharashtra",
   "Tirupati, Andhra Pradesh",
   "Sirmaur, Himachal Pradesh",
+  "Jaunpur, Uttar Pradesh",
   "Karnal, Haryana",
   "Bathinda, Punjab",
   "Rampur, Uttar Pradesh",

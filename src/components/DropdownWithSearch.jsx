@@ -1,4 +1,4 @@
-import { Children, forwardRef, useState } from "react";
+import { Children, forwardRef, useEffect, useState } from "react";
 import { Dropdown, FormControl } from "react-bootstrap";
 
 const CustomMenu = forwardRef(({ children, style, className, "aria-labelledby": labeledBy }, ref) => {
@@ -22,6 +22,16 @@ const CustomMenu = forwardRef(({ children, style, className, "aria-labelledby": 
 });
 
 function DropdownWithSearch(props) {
+  const [searchValue, setSearchValue] = useState("");
+  useEffect(() => {
+    if (searchValue && searchValue.length > 2) {
+      const item = props.listData.filter((obj) => {
+        if (props.keyToMatch) return obj[props.keyToMatch].toLowerCase().includes(searchValue.toLowerCase());
+        else return obj.toLowerCase().includes(searchValue.toLowerCase());
+      })[0];
+      item && handleClick(item);
+    }
+  }, [searchValue]);
   const handleClick = (item) => {
     const { name, id, extraReqKey, keyToMatch } = props;
     const e = { target: { name, value: keyToMatch ? item[keyToMatch] : item, dataset: { id } } };
@@ -38,8 +48,17 @@ function DropdownWithSearch(props) {
       onBlur(e);
     }
   };
+  const handleKeyUp = (e) => {
+    const keyCode = e.which ? e.which : e.keyCode;
+    if (!((keyCode < 65 || keyCode > 90) && (keyCode < 97 || keyCode > 123) && keyCode != 32) && e.key.length === 1) {
+      setSearchValue(searchValue + e.key);
+    }
+  };
+  const handleBlur = (e) => {
+    setSearchValue("");
+  };
   return (
-    <Dropdown onToggle={handleToggle} focusFirstItemOnShow name={props.name}>
+    <Dropdown onToggle={handleToggle} name={props.name} onKeyUp={handleKeyUp} onBlur={handleBlur} focusFirstItemOnShow>
       <Dropdown.Toggle
         variant="outline-primary"
         id="dropdown-custom-components"
@@ -64,7 +83,7 @@ function DropdownWithSearch(props) {
           ))}
         </Dropdown.Menu>
       ) : (
-        <Dropdown.Menu as={CustomMenu}>
+        <Dropdown.Menu as={CustomMenu} searchValue={searchValue}>
           {props.listData.map((item, index) => (
             <Dropdown.Item
               className={`${index % 2 ? "bg-lightBlue" : ""}`}

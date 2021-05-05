@@ -139,7 +139,7 @@ export const getInitalDocketObj = (isCashBooking) => {
     destination: "",
     weight: "",
     docket_mode: "Surface",
-    docket_discount: "",
+    docket_discount: 0,
   };
   if (isCashBooking) {
     delete obj.client_name;
