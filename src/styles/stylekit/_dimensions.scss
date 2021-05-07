@@ -117,9 +117,35 @@
     height: 95vh;
 }
 
+.border-1 {
+    border-width: 1px;
+    border-style: solid;
+}
+
 .bb-1 {
     border-bottom-width: 1px;
     border-style: solid;
+}
+
+.br-1 {
+    border-right-width: 1px;
+    border-style: solid;
+}
+
+.bl-0 {
+    border-left-width: 0;
+}
+
+.br-0 {
+    border-right-width: 0;
+}
+
+.bt-0 {
+    border-top-width: 0;
+}
+
+.bb-0 {
+    border-bottom-width: 0;
 }
 
 .searchImageHover:hover {

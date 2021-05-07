@@ -12,6 +12,7 @@ import RenderToast from "../components/Toast";
 import InvoicePrint from "../components/InvoicePrint";
 import Pageloader from "../components/Pageloader";
 import { getModalData, onFieldBlur, makeApiCallOnSubmit } from "../utils/dataEntryModalHelper";
+import letterHead from "../assets/letterHead.png";
 
 const DataEntry = () => {
   const [showModal, setShowModal] = useState(false);
@@ -208,8 +209,11 @@ const DataEntry = () => {
           invoiceDate={invoiceData.invoice_date}
           invoiceNumber={invoiceData.invoice_number ? getInvoiceNumber(invoiceData.invoice_number) : ""}
           total={invoiceData.totalAmount}
+          companyId={invoiceData.company_id}
+          companyList={companyList}
         />
       )}
+      <img src={letterHead} className="d-none" />
     </>
   );
 };

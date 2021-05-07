@@ -16,6 +16,8 @@ import DocketListing from "./pages/subPages/DocketListing";
 import QueryListing from "./pages/QueryListing";
 import Test from "./pages/Test";
 import DataEntry from "./pages/DataEntry";
+import FrontPage from "./components/InvoicePrint/FrontPage";
+import BillSlipPage from "./components/InvoicePrint/BillSlipPage";
 function AppRouter(props) {
   const [addMargin, setAddMargin] = useState(true);
 
@@ -124,7 +126,15 @@ function AppRouter(props) {
             path="/test"
             component={() => {
               setAddMargin(true);
-              return <Test />;
+              return <FrontPage />;
+            }}
+          />
+          <Route
+            exact
+            path="/test1"
+            component={() => {
+              setAddMargin(true);
+              return <BillSlipPage />;
             }}
           />
           <Route component={NotFound} />
