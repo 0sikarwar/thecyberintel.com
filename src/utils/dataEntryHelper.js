@@ -38,8 +38,13 @@ export const dataEntryPrimaryBtns = [
         type: "text",
       },
       {
-        name: "For the month",
-        key: "for_month",
+        name: "From month",
+        key: "from_month",
+        type: "month",
+      },
+      {
+        name: "To month",
+        key: "to_month",
         type: "month",
       },
     ],
@@ -169,7 +174,7 @@ export const isValidEnteredData = (modalType, mainData, companyList) => {
         .join("")
         .trim();
     case "generate_invoice":
-      return formData.company_name && formData.for_month;
+      return formData.company_name && formData.from_month && formData.to_month;
     default:
       return true;
   }
