@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "https://thecyberintel.com/static/css/main.243807f8.chunk.css",
-    "main.js": "https://thecyberintel.com/static/js/main.57bd4614.chunk.js",
-    "main.js.map": "https://thecyberintel.com/static/js/main.57bd4614.chunk.js.map",
+    "main.js": "https://thecyberintel.com/static/js/main.2d28b957.chunk.js",
+    "main.js.map": "https://thecyberintel.com/static/js/main.2d28b957.chunk.js.map",
     "runtime-main.js": "https://thecyberintel.com/static/js/runtime-main.1a1970c8.js",
     "runtime-main.js.map": "https://thecyberintel.com/static/js/runtime-main.1a1970c8.js.map",
-    "static/js/2.56da672a.chunk.js": "https://thecyberintel.com/static/js/2.56da672a.chunk.js",
-    "static/js/2.56da672a.chunk.js.map": "https://thecyberintel.com/static/js/2.56da672a.chunk.js.map",
+    "static/js/2.2d7ed260.chunk.js": "https://thecyberintel.com/static/js/2.2d7ed260.chunk.js",
+    "static/js/2.2d7ed260.chunk.js.map": "https://thecyberintel.com/static/js/2.2d7ed260.chunk.js.map",
     "index.html": "https://thecyberintel.com/index.html",
     "static/css/main.243807f8.chunk.css.map": "https://thecyberintel.com/static/css/main.243807f8.chunk.css.map",
-    "static/js/2.56da672a.chunk.js.LICENSE.txt": "https://thecyberintel.com/static/js/2.56da672a.chunk.js.LICENSE.txt",
+    "static/js/2.2d7ed260.chunk.js.LICENSE.txt": "https://thecyberintel.com/static/js/2.2d7ed260.chunk.js.LICENSE.txt",
     "static/media/CiLogo.69454327.svg": "https://thecyberintel.com/static/media/CiLogo.69454327.svg",
     "static/media/cyberintelCover.ac234f6b.jpg": "https://thecyberintel.com/static/media/cyberintelCover.ac234f6b.jpg",
     "static/media/dropbox.dc0c9f02.png": "https://thecyberintel.com/static/media/dropbox.dc0c9f02.png",
@@ -33,8 +33,8 @@
   },
   "entrypoints": [
     "static/js/runtime-main.1a1970c8.js",
-    "static/js/2.56da672a.chunk.js",
+    "static/js/2.2d7ed260.chunk.js",
     "static/css/main.243807f8.chunk.css",
-    "static/js/main.57bd4614.chunk.js"
+    "static/js/main.2d28b957.chunk.js"
   ]
 }
