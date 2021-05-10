@@ -26,6 +26,7 @@ const DataEntry = () => {
   const [toastData, setToastData] = useState({ type: "", heading: "", msg: "" });
   const [invoiceData, setInvoiceData] = useState(null);
   const [printInvoiceFlag, setPrintInvoiceFlag] = useState(false);
+  const [invoiceFuelCharge, setInvoiceFuelCharge] = useState(0);
   const [loadingType, setLoadingType] = useState("full");
   const closeModal = () => {
     setShowModal(false);
@@ -42,7 +43,11 @@ const DataEntry = () => {
     setLoadingType("partial");
     const confirmMsg = `Ganerating Invoice number for **${invoiceData.company_name}** for the month of **${invoiceData.for_month}**`;
     if (window.confirm(confirmMsg)) {
-      const result = await getInvoiceNum({ company_id: invoiceData.company_id, for_month: invoiceData.for_month });
+      const result = await getInvoiceNum({
+        company_id: invoiceData.company_id,
+        from_month: invoiceData.from_month,
+        to_month: invoiceData.to_month,
+      });
       if (result.data?.invoice_number) {
         setInvoiceData({ ...invoiceData, invoice_number: result.data.invoice_number });
       }
@@ -91,6 +96,8 @@ const DataEntry = () => {
     setValidationObj,
     setToastData,
     setShowToast,
+    invoiceFuelCharge,
+    setInvoiceFuelCharge,
   };
 
   const handleBtnClick = (obj, isPrimary) => {
@@ -98,7 +105,6 @@ const DataEntry = () => {
     setModalType(obj.key);
     setSectionData(obj);
   };
-
   const handleSubmitModal = async () => {
     if (modalType === "show_invoice") {
       setPrintInvoiceFlag(true);
@@ -149,7 +155,6 @@ const DataEntry = () => {
       });
     }
   };
-
   const [MODAL_CHILD_COMPONENT, modal_title, submitButtonText] = getModalData(
     modalType,
     sectionData,
@@ -211,6 +216,7 @@ const DataEntry = () => {
           total={invoiceData.totalAmount}
           companyId={invoiceData.company_id}
           companyList={companyList}
+          invoiceFuelCharge={invoiceFuelCharge}
         />
       )}
       <img src={letterHead} className="d-none" />

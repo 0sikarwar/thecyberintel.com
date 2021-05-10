@@ -11,7 +11,12 @@ const tableColumnList = ["sno", "docket_num", "docket_date", "destination", "doc
 const InvoicePrint = (props) => {
   const companyData = getCompanyDetails(props.companyId, props.companyList);
   const gstDetails = getGstDetails(companyData.company_gst);
-  const totalAmount = Number(props.total.replace(/^\D+/g, ""));
+  let totalAmount = Number(props.total.replace(/^\D+/g, ""));
+  let fuelCharge = 0;
+  if (props.invoiceFuelCharge) {
+    fuelCharge = (Number(props.invoiceFuelCharge) / 100) * totalAmount;
+    totalAmount += fuelCharge;
+  }
   const sgst = gstDetails.SGST ? (gstDetails.SGST / 100) * totalAmount : 0.0;
   const cgst = gstDetails.CGST ? (gstDetails.CGST / 100) * totalAmount : 0.0;
   const igst = gstDetails.IGST ? (gstDetails.IGST / 100) * totalAmount : 0.0;
@@ -26,6 +31,9 @@ const InvoicePrint = (props) => {
         cgst={cgst}
         igst={igst}
         totalWithTax={totalWithTax}
+        totalAmount={totalAmount}
+        invoiceFuelCharge={props.invoiceFuelCharge || 0}
+        fuelCharge={fuelCharge}
       />
       <BillSlipPage {...props} companyData={companyData} gstDetails={gstDetails} totalWithTax={totalWithTax} />
       <div>

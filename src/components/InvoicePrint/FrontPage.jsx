@@ -3,16 +3,29 @@ import letterHead from "../../assets/letterHead.png";
 import { convertNumberToWords } from "../../utils";
 const highlightedText = ["Total Invoice Value (INR)", "Invoice No"];
 const FrontPage = (props) => {
-  const { total, gstDetails, invoiceNumber, invoiceDate, companyData, sgst, cgst, igst, totalWithTax } = props;
+  const {
+    total,
+    gstDetails,
+    invoiceNumber,
+    invoiceDate,
+    companyData,
+    sgst,
+    cgst,
+    igst,
+    totalWithTax,
+    totalAmount,
+    invoiceFuelCharge,
+    fuelCharge,
+  } = props;
 
   const [billBreakup, setPriceBreakup] = useState({
     "Invoice No": invoiceNumber,
     "Invoice Date": invoiceDate,
     "Invoice Amount": total,
-    "Fuel Surcharge": 0.0,
+    [`Fuel Surcharge @ ${invoiceFuelCharge}%`]: fuelCharge && "₹ " + fuelCharge,
     Insurance: 0.0,
     "Additional Surcharges": 0.0,
-    "Taxable Value": total,
+    "Taxable Value": "₹ " + totalAmount,
     [`SGST @ ${gstDetails.SGST}%`]: sgst && "₹ " + sgst,
     [`CGST @ ${gstDetails.CGST}%`]: cgst && "₹ " + cgst,
     [`IGST @ ${gstDetails.IGST}%`]: igst && "₹ " + igst,

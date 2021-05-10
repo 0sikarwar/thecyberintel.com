@@ -1,7 +1,7 @@
 import { convertNumberToWords } from "../../utils";
 
 const BillSlipPage = (props) => {
-  const { total, gstDetails, invoiceNumber, invoiceDate, companyData, sgst, cgst, igst, totalWithTax } = props;
+  const { total, invoiceNumber, invoiceDate, companyData, totalWithTax } = props;
 
   return (
     <div id="tax invoice_2_7105" align="center" className="ht-100vh" style={{ paddingTop: "15vh" }}>

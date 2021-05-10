@@ -112,7 +112,13 @@ export const getModalData = (modalType, sectionData, modalProps, companyList, in
       break;
     case "show_invoice":
       modal_title = "Invoice";
-      MODAL_CHILD_COMPONENT = invoiceData ? <Invoice invoiceData={invoiceData} /> : null;
+      MODAL_CHILD_COMPONENT = invoiceData ? (
+        <Invoice
+          invoiceData={invoiceData}
+          invoiceFuelCharge={modalProps.invoiceFuelCharge}
+          setInvoiceFuelCharge={modalProps.setInvoiceFuelCharge}
+        />
+      ) : null;
       submitButtonText = "Print";
       break;
     case "update_docket_data":
