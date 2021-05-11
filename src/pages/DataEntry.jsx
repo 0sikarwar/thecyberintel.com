@@ -41,7 +41,7 @@ const DataEntry = () => {
 
   const handleGetInvoiceNumber = async () => {
     setLoadingType("partial");
-    const confirmMsg = `Ganerating Invoice number for **${invoiceData.company_name}** for the month of **${invoiceData.for_month}**`;
+    const confirmMsg = `Ganerating Invoice number for **${invoiceData.company_name}** for the month of **${invoiceData.from_month} - ${invoiceData.to_month}**`;
     if (window.confirm(confirmMsg)) {
       const result = await getInvoiceNum({
         company_id: invoiceData.company_id,
