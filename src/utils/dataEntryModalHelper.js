@@ -170,6 +170,7 @@ export const getListToUpdate = async (modalType, formData, companyList) => {
           weight: obj.weight,
           docket_mode: obj.docket_mode,
           docket_discount: obj.docket_discount || 0,
+          company_id: obj.company_id,
         };
         if (obj.company_id) {
           updatedObj.client_name = companyList.filter((item) => item.id === obj.company_id)[0]?.company_name;

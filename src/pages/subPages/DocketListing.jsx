@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import DataTable from "react-data-table-component";
+import DataTableExtensions from "react-data-table-component-extensions";
+import "react-data-table-component-extensions/dist/index.css";
 import RenderToast from "../../components/Toast";
 import { getDockets } from "../../utils/axiosCalls";
 const QueryListing = () => {
@@ -28,12 +30,6 @@ const QueryListing = () => {
   }, []);
   const getFormattedColumns = (list) => {
     const firstRow = list[0];
-    const firstCol = {
-      name: "ID",
-      selector: "id",
-      sortable: true,
-      width: "60px",
-    };
     const columnsList = Object.keys(firstRow)
       .map((key) => {
         if (key !== "id")
@@ -50,22 +46,16 @@ const QueryListing = () => {
         return null;
       })
       .filter(Boolean);
-    return [firstCol, ...columnsList];
+    return columnsList;
   };
   return (
     <>
       <RenderToast showToast={showToast} setShowToast={setShowToast} {...toastData} />
       <div>
         <div className="card px-16">
-          <DataTable
-            title="Docket List"
-            columns={columns}
-            data={listingData}
-            progressPending={isLoading}
-            pagination
-            striped
-            highlightOnHover
-          />
+          <DataTableExtensions columns={columns} data={listingData}>
+            <DataTable title="Docket List" progressPending={isLoading} pagination striped highlightOnHover />
+          </DataTableExtensions>
         </div>
       </div>
     </>

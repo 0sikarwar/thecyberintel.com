@@ -20,7 +20,7 @@ const UpdateDocket = (props) => {
   const [listToUpdate, setListToUpdate] = useState([]);
   const [fetchedComapnyDetails, setFetchedComapnyDetails] = useState(null);
   const [fieldsWithDropDown, setFieldsWithDropDown] = useState(["destination", "docket_mode", "company_name"]);
-  const [hiddenField, setHiddenField] = useState([]);
+  const [hiddenField, setHiddenField] = useState(["company_id"]);
   const [fetchedListLen, setFetchedListLen] = useState(0);
 
   const handelChange = (e, isNonRateElement) => {
@@ -31,7 +31,7 @@ const UpdateDocket = (props) => {
       const currentFormData = { ...formData };
       if (e.extraReqKey) {
         const strToAppend = element.name === "company_name" ? "company_" : "";
-        const hiddenFieldArr = [];
+        const hiddenFieldArr = [...hiddenField];
         e.extraReqKey.forEach((key) => {
           currentFormData[strToAppend + key] = element[key] || "";
           hiddenFieldArr.push(strToAppend + key);
