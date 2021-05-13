@@ -65,7 +65,7 @@ const UpdateDocket = (props) => {
     if (!fetchedList.length) {
       props.setShowToast(true);
       props.setToastData({
-        type: companyDetails ? "info" : "danger",
+        type: companyDetails ? "warning" : "danger",
         heading: "Oh snap!",
         msg: companyDetails
           ? "Rate list not available for given Party."
