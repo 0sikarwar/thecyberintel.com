@@ -62,13 +62,14 @@ const UpdateDocket = (props) => {
   }, [formData, listToUpdate, fetchedListLen, fetchedComapnyDetails]);
   const handleGetEntryClick = async () => {
     const { fetchedList, companyDetails } = await getListToUpdate(props.modalType, formData, props.companyList);
-    console.log(formData, props.fields);
     if (!fetchedList.length) {
       props.setShowToast(true);
       props.setToastData({
-        type: "danger",
+        type: companyDetails ? "info" : "danger",
         heading: "Oh snap!",
-        msg: "Data not available for given key. Try another one.",
+        msg: companyDetails
+          ? "Rate list not available for given Party."
+          : "Data not available for given key. Try another one.",
       });
     }
     setFetchedListLen(fetchedList.length);
@@ -187,7 +188,7 @@ const UpdateDocket = (props) => {
           )}
         </div>
         <div className="px-2">
-          {!listToUpdate.length ? (
+          {!listToUpdate.length && !fetchedComapnyDetails ? (
             <Button
               variant="outline-primary"
               onClick={handleGetEntryClick}
@@ -196,8 +197,8 @@ const UpdateDocket = (props) => {
               Get Current Entry
             </Button>
           ) : (
-            listToUpdate.length !== destinationGroupList.length &&
-            props.modalType === "update_party_data" && [
+            ((fetchedComapnyDetails && !listToUpdate.length) ||
+              (listToUpdate.length !== destinationGroupList.length && props.modalType === "update_party_data")) && [
               <Button
                 key="1"
                 variant="outline-primary"
