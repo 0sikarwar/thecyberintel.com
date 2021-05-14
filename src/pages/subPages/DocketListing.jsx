@@ -10,6 +10,7 @@ const QueryListing = () => {
   const [listingData, setListingData] = useState({});
   const [columns, setColumns] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const sortableColumns = ["destination", "client_name", "docket_date", "docket_num", "added_on", "updated_on"];
   useEffect(() => {
     (async () => {
       let res = {};
@@ -28,20 +29,52 @@ const QueryListing = () => {
       setIsLoading(false);
     })();
   }, []);
+
+  const getCellContent = (d, key) => {
+    switch (key) {
+      case "docket_discount":
+        return d[key] && d[key] + " ₹/Kg";
+      case "weight":
+        return Number(d[key]).toFixed(3) + " Kg";
+      case "added_on":
+      case "updated_on":
+        const date = new Date(...d[key].split(", "));
+        return date.getTime() ? date.toDateString() + ", " + date.toLocaleTimeString() : d[key];
+      default:
+        return d[key];
+    }
+  };
+
+  const getColoumnWidth = (key) => {
+    switch (key) {
+      case "docket_num":
+      case "weight":
+        return "100px";
+      case "docket_mode":
+      case "docket_discount":
+      case "amount":
+        return "80px";
+      case "docket_date":
+      case "added_on":
+      case "updated_on":
+        return "140px";
+      default:
+        return "170px";
+    }
+  };
   const getFormattedColumns = (list) => {
     const firstRow = list[0];
     const columnsList = Object.keys(firstRow)
       .map((key) => {
         if (key !== "id")
           return {
-            name: key.toUpperCase(),
+            name: key.toUpperCase().replace("DOCKET_", ""),
             selector: key,
-            sortable: ["destination", "client_name", "docket_date", "docket_num"].includes(key) && true,
+            sortable: sortableColumns.includes(key),
             wrap: true,
-            width: ["docket_num", "weight", "company_id", "docket_mode", "docket_discount", "amount"].includes(key)
-              ? "100px"
-              : "170px",
-            cell: (d) => <span>{key === "docket_discount" && d[key] ? d[key] + " ₹/Kg" : d[key]}</span>,
+            width: getColoumnWidth(key),
+            cell: (d) => <span>{getCellContent(d, key)}</span>,
+            omit: key === "company_id",
           };
         return null;
       })
