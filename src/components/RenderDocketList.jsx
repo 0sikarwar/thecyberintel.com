@@ -51,6 +51,7 @@ const RenderDocketList = (props) => {
                       if (field === "docket_num") e.target.value = e.target.value.toUpperCase();
                       props.handelChange(e);
                     }}
+                    maxLength={field === "docket_num" ? 9 : undefined}
                     data-id={index}
                     value={props.list[index][field]}
                     onBlur={props.onFieldBlur}
