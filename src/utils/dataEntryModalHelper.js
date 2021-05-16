@@ -41,8 +41,9 @@ export const onFieldBlur = (e, isNonArrElement, validationObj, companyList, setV
       };
   }
   if (modalType === "add_new_party" && element.name === "company_name") {
-    const existingCompany = companyList.filter((obj) => obj.company_name.toLowerCase() === element.value.toLowerCase())
-      .length;
+    const existingCompany = companyList.filter(
+      (obj) => obj.company_name.toLowerCase() === element.value.toLowerCase()
+    ).length;
     if (existingCompany) {
       currentValidation[element.name] = {
         msg: "This Company already exists",
@@ -171,6 +172,7 @@ export const getListToUpdate = async (modalType, formData, companyList) => {
           docket_mode: obj.docket_mode,
           docket_discount: obj.docket_discount || 0,
           company_id: obj.company_id,
+          amount: obj.amount,
         };
         if (obj.company_id) {
           updatedObj.client_name = companyList.filter((item) => item.id === obj.company_id)[0]?.company_name;
