@@ -1,7 +1,7 @@
 import Button from "react-bootstrap/Button";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import citiesList from "../utils/citiesOnlyList";
-import { comapnyDataLabel, destinationGroupList, inputFiledDataTypes } from "../utils/dataEntryHelper";
+import { comapnyDataLabel, destinationGroupList } from "../utils/dataEntryHelper";
 import DropdownWithSearch from "./DropdownWithSearch";
 import { getListToUpdate } from "../utils/dataEntryModalHelper";
 import RenderDocketList from "./RenderDocketList";
