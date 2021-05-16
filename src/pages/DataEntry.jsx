@@ -31,6 +31,7 @@ const DataEntry = () => {
   const closeModal = () => {
     setShowModal(false);
     setMainData(null);
+    setInvoiceFuelCharge(0);
     setValidationObj({});
     invoiceData && setInvoiceData(null);
   };

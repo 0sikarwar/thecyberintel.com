@@ -5,13 +5,6 @@ const Invoice = (props) => {
   const [fuelCharge, setFuelCharge] = useState("");
   const getFormattedColumns = (list) => {
     const firstRow = list[0];
-    const firstCol = {
-      name: "ID",
-      selector: "id",
-      sortable: true,
-      maxWidth: "60px",
-      minWidth: "60px",
-    };
     const columnsList = Object.keys(firstRow)
       .map((key) => {
         if (key !== "id")
@@ -28,7 +21,7 @@ const Invoice = (props) => {
         return null;
       })
       .filter(Boolean);
-    return [firstCol, ...columnsList];
+    return columnsList;
   };
   const TableTitle = () => {
     return (
