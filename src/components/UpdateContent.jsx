@@ -80,6 +80,7 @@ const UpdateDocket = (props) => {
     const confirmMsg = "Are you sure? You want to remove last row.";
     if (window.confirm(confirmMsg)) {
       setListToUpdate(listToUpdate.slice(0, -1));
+      props.setValidationObj({});
     }
   };
 

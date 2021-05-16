@@ -46,6 +46,7 @@ const AddDockets = (props) => {
     const confirmMsg = "Are you sure? You want to remove last row.";
     if (window.confirm(confirmMsg)) {
       setDocketList(docketList.slice(0, -1));
+      props.setValidationObj({});
     }
   };
 

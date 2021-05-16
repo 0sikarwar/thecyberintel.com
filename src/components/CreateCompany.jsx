@@ -36,6 +36,7 @@ const CreateCompany = (props) => {
     const confirmMsg = "Are you sure? You want to remove last row.";
     if (window.confirm(confirmMsg)) {
       setRateList(rateList.slice(0, -1));
+      props.setValidationObj({});
     }
   };
   return (
