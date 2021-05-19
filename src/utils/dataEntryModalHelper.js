@@ -192,6 +192,8 @@ export const getListToUpdate = async (modalType, formData, companyList) => {
         above1KgAir: obj.above1kgair,
       }));
       companyDetails = result.data?.companyDetails?.[0];
+      delete companyDetails.added_on;
+      delete companyDetails.updated_on;
       break;
   }
 

@@ -58,3 +58,15 @@ body {
 	place-items: center;
 	padding: 2rem;
 }
+
+.form-control {
+
+	&[type="radio"],
+	&[type="checkbox"] {
+		height: 20px;
+		display: inline;
+		width: 20px;
+		margin-right: 8px;
+		margin-bottom: 0.5rem;
+	}
+}

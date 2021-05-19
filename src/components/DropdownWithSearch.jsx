@@ -32,6 +32,11 @@ function DropdownWithSearch(props) {
       item && handleClick(item);
     }
   }, [searchValue]);
+  useEffect(() => {
+    if (props.prevValue) {
+      handleClick(props.prevValue);
+    }
+  }, []);
   const handleClick = (item) => {
     const { name, id, extraReqKey, keyToMatch } = props;
     const e = { target: { name, value: keyToMatch ? item[keyToMatch] : item, dataset: { id } } };

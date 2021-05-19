@@ -73,6 +73,23 @@ export const dataEntrySecondaryBtns = [
         type: "text",
       },
     ],
+    extraFieldsToUpdate: [
+      {
+        name: "Update Dockets amount also",
+        key: "reflect_changes_in_docket",
+        type: "checkbox",
+      },
+      {
+        name: "Update Dockets From month",
+        key: "dockets_from_month",
+        type: "month",
+      },
+      {
+        name: "Update Dockets To month",
+        key: "dockets_to_month",
+        type: "month",
+      },
+    ],
   },
   // {
   //   key: "generate_duplicate_invoice",

@@ -36,7 +36,7 @@ const citiesList = [
   "Jodhpur, Rajasthan",
   "Amritsar, Punjab",
   "Raipur, Chhattisgarh",
-  "Bilaspur, Chhattisgarh",
+  "Bilaspur, Himachal Pradesh",
   "Allahabad, Uttar Pradesh",
   "Coimbatore, Tamil Nadu",
   "Jabalpur, Madhya Pradesh",

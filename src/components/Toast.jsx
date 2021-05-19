@@ -4,7 +4,7 @@ function RenderToast({ showToast, setShowToast, heading, msg, type }) {
   const toggleShow = () => setShowToast(!showToast);
   useEffect(() => {
     if (showToast) {
-      setTimeout(() => setShowToast(false), 5000);
+      setTimeout(() => setShowToast(false), 8000);
     }
   }, [showToast]);
   return (

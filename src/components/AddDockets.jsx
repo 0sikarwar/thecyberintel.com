@@ -9,12 +9,16 @@ const AddDockets = (props) => {
   );
   const [fieldsWithDropDown, setFieldsWithDropDown] = useState(["destination", "docket_mode"]);
   const [hiddenField, setHiddenField] = useState([]);
+  const [prevCompanyName, setPrevCompanyName] = useState("");
 
   const handelChange = (e) => {
     const element = e.target;
     isModified = true;
     const currentDocketList = [...docketList];
     currentDocketList[element.dataset.id][element.name] = element.value || "";
+    if (!props.isCashBooking && element.name === "client_name" && element.id !== prevCompanyName.id) {
+      setPrevCompanyName({ ...element, company_name: element.value });
+    }
     props.setValidationObj({ ...props.validationObj, [element.name]: null });
     if (e.extraReqKey) {
       const strToAppend = element.name === "client_name" ? "company_" : "";
@@ -63,6 +67,7 @@ const AddDockets = (props) => {
             list={docketList}
             fieldsWithDropDown={fieldsWithDropDown}
             hiddenField={hiddenField}
+            prevCompanyName={prevCompanyName}
           />
         </div>
         <div className="px-2">

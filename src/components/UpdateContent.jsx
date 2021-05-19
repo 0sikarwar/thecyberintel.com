@@ -17,6 +17,7 @@ const initalRatesObj = {
 let isModified = false;
 const UpdateDocket = (props) => {
   const [formData, setFormData] = useState(props.mainData?.formData || {});
+  const [extraFormFields, setExtraFormFields] = useState({});
   const [listToUpdate, setListToUpdate] = useState([]);
   const [fetchedComapnyDetails, setFetchedComapnyDetails] = useState(null);
   const [fieldsWithDropDown, setFieldsWithDropDown] = useState(["destination", "docket_mode", "company_name"]);
@@ -57,9 +58,15 @@ const UpdateDocket = (props) => {
   };
   useEffect(() => {
     if (isModified && (Object.keys(formData).length || listToUpdate.length)) {
-      props.setMainData({ formData, listToUpdate, fetchedListLen, companyDetails: fetchedComapnyDetails });
+      props.setMainData({
+        formData,
+        listToUpdate,
+        fetchedListLen,
+        companyDetails: fetchedComapnyDetails,
+        extraFormFields,
+      });
     }
-  }, [formData, listToUpdate, fetchedListLen, fetchedComapnyDetails]);
+  }, [formData, listToUpdate, fetchedListLen, fetchedComapnyDetails, extraFormFields]);
   const handleGetEntryClick = async () => {
     const { fetchedList, companyDetails } = await getListToUpdate(props.modalType, formData, props.companyList);
     if (!fetchedList.length) {
@@ -215,6 +222,29 @@ const UpdateDocket = (props) => {
             ]
           )}
         </div>
+        {(fetchedComapnyDetails || !!listToUpdate.length) && (
+          <div className="flex bg-silver py-4 mt-2">
+            {props.extraFieldsToUpdate.map((obj, index) => (
+              <div className={`px-2 ${obj.type === "checkbox" ? "flex flex-middle flex-row-reverse" : ""}`} key={index}>
+                <label htmlFor={obj.key}>{obj.name}</label>
+                <input
+                  className="form-control"
+                  type={obj.type}
+                  name={obj.key}
+                  placeholder={obj.name}
+                  value={extraFormFields[obj.key]}
+                  checked={obj.type === "checkbox" ? extraFormFields[obj.key] : undefined}
+                  onChange={(e) => {
+                    setExtraFormFields({
+                      ...extraFormFields,
+                      [obj.key]: obj.type === "checkbox" ? !extraFormFields[obj.key] : e.target.value,
+                    });
+                  }}
+                />
+              </div>
+            ))}
+          </div>
+        )}
       </form>
     </div>
   );

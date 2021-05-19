@@ -28,6 +28,7 @@ const RenderDocketList = (props) => {
                 <DropdownWithSearch
                   heading={addDocketLabels[field]}
                   listData={listData}
+                  prevValue={field === "client_name" && props.prevCompanyName}
                   selectedValue={props.list[index][field]}
                   name={field}
                   id={index}
