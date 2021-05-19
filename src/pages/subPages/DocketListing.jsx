@@ -38,7 +38,9 @@ const QueryListing = () => {
         return Number(d[key]).toFixed(3) + " Kg";
       case "added_on":
       case "updated_on":
-        const date = new Date(...d[key].split(", "));
+        const arr = d[key].split(", ");
+        arr[1] -= 1;
+        const date = new Date(...arr);
         return date.getTime() ? date.toDateString() + ", " + date.toLocaleTimeString() : d[key];
       default:
         return d[key];
