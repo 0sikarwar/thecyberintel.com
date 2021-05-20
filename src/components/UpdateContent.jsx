@@ -222,7 +222,7 @@ const UpdateDocket = (props) => {
             ]
           )}
         </div>
-        {(fetchedComapnyDetails || !!listToUpdate.length) && (
+        {props.modalType === "update_party_data" && (fetchedComapnyDetails || !!listToUpdate.length) && (
           <div className="flex bg-silver py-4 mt-2">
             {props.extraFieldsToUpdate.map((obj, index) => (
               <div className={`px-2 ${obj.type === "checkbox" ? "flex flex-middle flex-row-reverse" : ""}`} key={index}>
