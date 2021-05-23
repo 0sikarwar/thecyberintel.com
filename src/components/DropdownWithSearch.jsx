@@ -47,8 +47,8 @@ function DropdownWithSearch(props) {
     props.onChange(e);
   };
   const handleToggle = (isOpen, event) => {
-    if (!isOpen) {
-      const { name, id, selectedValue, onBlur } = props;
+    const { name, id, selectedValue, onBlur } = props;
+    if (!isOpen && onBlur) {
       const e = { target: { name, value: event?.target?.text || selectedValue, dataset: { id } } };
       onBlur(e);
     }

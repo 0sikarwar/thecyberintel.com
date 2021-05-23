@@ -103,6 +103,32 @@ export const dataEntrySecondaryBtns = [
   //   ],
   // },
 ];
+export const bulkEntryFormFields = {
+  key: "bulk_data_entry",
+  value: "Bulk data Entry",
+  fields: [
+    {
+      name: "Docket Dates",
+      key: "bulk_docket_date",
+    },
+    {
+      name: "Docket numbers",
+      key: "bulk_docket_num",
+    },
+    {
+      name: "Weights",
+      key: "bulk_weight",
+    },
+    {
+      name: "Docket Mode",
+      key: "docket_mode",
+    },
+    {
+      name: "Company Name",
+      key: "client_name",
+    },
+  ],
+};
 
 export const rateListLabels = {
   destination: "Destination",

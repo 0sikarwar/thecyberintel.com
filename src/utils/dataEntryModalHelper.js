@@ -10,9 +10,10 @@ import {
   updateDocketData,
   updateRateList,
 } from "./axiosCalls";
-import { requiredFields } from "./dataEntryHelper";
+import { getInitalDocketObj, requiredFields } from "./dataEntryHelper";
 import { isValidDate } from "./index";
 import UpdateDocket from "../components/UpdateContent";
+import BulkEntry from "../components/BulkEntry";
 
 export const onFieldBlur = (e, isNonArrElement, validationObj, companyList, setValidationObj, modalType) => {
   const element = e.target;
@@ -130,7 +131,13 @@ export const getModalData = (modalType, sectionData, modalProps, companyList, in
         <UpdateDocket {...sectionData} {...modalProps} companyList={companyList} modalType={modalType} />
       );
       break;
-
+    case "bulk_data_entry":
+      submitButtonText = "Open list";
+      modal_title = "Enter in bulk";
+      MODAL_CHILD_COMPONENT = (
+        <BulkEntry {...sectionData} {...modalProps} companyList={companyList} modalType={modalType} />
+      );
+      break;
     default:
       MODAL_CHILD_COMPONENT = null;
       modal_title = "";
@@ -198,4 +205,37 @@ export const getListToUpdate = async (modalType, formData, companyList) => {
   }
 
   return { fetchedList: listToUpdate, companyDetails };
+};
+
+export const validateBulkData = (data) => {
+  const keys = Object.keys(data);
+  const initialObj = getInitalDocketObj();
+  const res = [];
+  let prevLength = 0;
+  for (let i of keys) {
+    if (i.indexOf("bulk_") > -1) {
+      const spliteArr = data[i].trim().split(" ");
+      const keyName = i.split("bulk_")[1];
+      if (prevLength && spliteArr.length !== prevLength) {
+        return [false, `${keyName.toUpperCase()} has different number of entry then Previous field`];
+      } else {
+        prevLength = spliteArr.length;
+        for (let j = 0; j < prevLength; j++) {
+          if (keyName === "docket_date" && !isValidDate(spliteArr[j])) {
+            return [false, `${keyName.toUpperCase()} "${spliteArr[j]}" is not a valid Date`];
+          } else if (keyName === "docket_num" && spliteArr[j].length > 9) {
+            return [false, `${keyName.toUpperCase()} "${spliteArr[j]}" is not a valid Docket Number`];
+          }
+          res[j] = res[j] || { ...initialObj };
+          res[j][keyName] = spliteArr[j];
+        }
+      }
+    } else {
+      for (let j = 0; j < prevLength; j++) {
+        res[j] = res[j] || { ...initialObj };
+        res[j][i] = data[i];
+      }
+    }
+  }
+  return [true, res];
 };

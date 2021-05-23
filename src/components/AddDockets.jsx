@@ -8,7 +8,7 @@ const AddDockets = (props) => {
     props.mainData?.formData || [{ ...getInitalDocketObj(props.isCashBooking) }]
   );
   const [fieldsWithDropDown, setFieldsWithDropDown] = useState(["destination", "docket_mode"]);
-  const [hiddenField, setHiddenField] = useState([]);
+  const [hiddenField, setHiddenField] = useState(["company_id"]);
   const [prevCompanyName, setPrevCompanyName] = useState("");
 
   const handelChange = (e) => {

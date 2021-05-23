@@ -3,6 +3,7 @@ import Button from "react-bootstrap/Button";
 import { getCompanyNames, getInvoiceNum } from "../utils/axiosCalls";
 import RenderModal from "../components/Modal";
 import {
+  bulkEntryFormFields,
   dataEntryPrimaryBtns,
   dataEntrySecondaryBtns,
   getInvoiceNumber,
@@ -11,7 +12,7 @@ import {
 import RenderToast from "../components/Toast";
 import InvoicePrint from "../components/InvoicePrint";
 import Pageloader from "../components/Pageloader";
-import { getModalData, onFieldBlur, makeApiCallOnSubmit } from "../utils/dataEntryModalHelper";
+import { getModalData, onFieldBlur, makeApiCallOnSubmit, validateBulkData } from "../utils/dataEntryModalHelper";
 import letterHead from "../assets/letterHead.png";
 
 const DataEntry = () => {
@@ -111,6 +112,22 @@ const DataEntry = () => {
       setPrintInvoiceFlag(true);
       return;
     }
+    if (modalType === "bulk_data_entry") {
+      console.log(mainData);
+      const [isValid, result] = validateBulkData(mainData);
+      if (isValid) {
+        setMainData({ formData: result });
+        setModalType("enter_weekly_data");
+      } else {
+        setShowToast(true);
+        setToastData({
+          type: "danger",
+          heading: "Oh snap!",
+          msg: result,
+        });
+      }
+      return;
+    }
     const isValid = mainData && isValidEnteredData(modalType, mainData, companyList);
     if (!mainData || !isValid) {
       setShowToast(true);
@@ -169,9 +186,12 @@ const DataEntry = () => {
     <>
       {loadingType === "partial" && <Pageloader title="Please wait" message="Executing your query..." />}
       <div className="data-entry bg-white">
-        <div className="p-20">
+        <div className="btn-container p-12 wt-50p flex flex-wrap flex-around">
           <Button href="#/docketlisting" variant="warning">
             Display all dockets
+          </Button>
+          <Button href="#" variant="warning" onClick={() => handleBtnClick(bulkEntryFormFields, true)}>
+            Bulk data Entry
           </Button>
         </div>
         <div className="btn-container p-12 wt-50p flex flex-wrap flex-around">
