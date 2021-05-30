@@ -4,6 +4,7 @@ import DataTableExtensions from "react-data-table-component-extensions";
 import "react-data-table-component-extensions/dist/index.css";
 import RenderToast from "../../components/Toast";
 import { getDockets } from "../../utils/axiosCalls";
+import Table from "data-table-reactjs";
 const QueryListing = () => {
   const [showToast, setShowToast] = useState(false);
   const [toastData, setToastData] = useState({ type: "", heading: "", msg: "" });
@@ -73,10 +74,10 @@ const QueryListing = () => {
             name: key.toUpperCase().replace("DOCKET_", ""),
             selector: key,
             sortable: sortableColumns.includes(key),
-            wrap: true,
+            // wrap: true,
             width: getColoumnWidth(key),
-            cell: (d) => <span>{getCellContent(d, key)}</span>,
-            omit: key === "company_id",
+            // cell: (d) => <span>{getCellContent(d, key)}</span>,
+            // omit: key === "company_id",
           };
         return null;
       })
@@ -87,11 +88,12 @@ const QueryListing = () => {
     <>
       <RenderToast showToast={showToast} setShowToast={setShowToast} {...toastData} />
       <div>
-        <div className="card px-16">
+        <Table columns={columns} list={listingData} showSerialNumber />
+        {/* <div className="card px-16">
           <DataTableExtensions columns={columns} data={listingData} exportHeaders>
             <DataTable title="Docket List" progressPending={isLoading} pagination striped highlightOnHover />
           </DataTableExtensions>
-        </div>
+        </div> */}
       </div>
     </>
   );
