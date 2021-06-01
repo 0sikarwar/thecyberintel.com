@@ -214,7 +214,7 @@ export const validateBulkData = (data) => {
   let prevLength = 0;
   for (let i of keys) {
     if (i.indexOf("bulk_") > -1) {
-      const spliteArr = data[i].trim().split(" ");
+      const spliteArr = data[i].trim().split(/\s/);
       const keyName = i.split("bulk_")[1];
       if (prevLength && spliteArr.length !== prevLength) {
         return [false, `${keyName.toUpperCase()} has different number of entry then Previous field`];

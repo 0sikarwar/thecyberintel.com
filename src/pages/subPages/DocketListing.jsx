@@ -1,17 +1,25 @@
 import { useEffect, useState } from "react";
-import DataTable from "react-data-table-component";
-import DataTableExtensions from "react-data-table-component-extensions";
 import "react-data-table-component-extensions/dist/index.css";
 import RenderToast from "../../components/Toast";
 import { getDockets } from "../../utils/axiosCalls";
-import Table from "data-table-reactjs";
+import ReactDataTable from "data-table-reactjs";
 const QueryListing = () => {
   const [showToast, setShowToast] = useState(false);
   const [toastData, setToastData] = useState({ type: "", heading: "", msg: "" });
-  const [listingData, setListingData] = useState({});
+  const [listingData, setListingData] = useState([]);
   const [columns, setColumns] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const sortableColumns = ["destination", "client_name", "docket_date", "docket_num", "added_on", "updated_on"];
+  const filterableColumns = [
+    "destination",
+    "client_name",
+    "docket_date",
+    "docket_num",
+    "added_on",
+    "updated_on",
+    "company_id",
+    "comapany_name",
+  ];
   useEffect(() => {
     (async () => {
       let res = {};
@@ -76,8 +84,8 @@ const QueryListing = () => {
             sortable: sortableColumns.includes(key),
             // wrap: true,
             width: getColoumnWidth(key),
-            // cell: (d) => <span>{getCellContent(d, key)}</span>,
-            // omit: key === "company_id",
+            omit: key === "company_id",
+            filterable: filterableColumns.includes(key),
           };
         return null;
       })
@@ -88,12 +96,9 @@ const QueryListing = () => {
     <>
       <RenderToast showToast={showToast} setShowToast={setShowToast} {...toastData} />
       <div>
-        <Table columns={columns} list={listingData} showSerialNumber />
-        {/* <div className="card px-16">
-          <DataTableExtensions columns={columns} data={listingData} exportHeaders>
-            <DataTable title="Docket List" progressPending={isLoading} pagination striped highlightOnHover />
-          </DataTableExtensions>
-        </div> */}
+        <div className="card px-16">
+          <ReactDataTable columns={columns} list={listingData} showSerialNumber isLoading={isLoading} pagination />
+        </div>
       </div>
     </>
   );
