@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import "react-data-table-component-extensions/dist/index.css";
 import RenderToast from "../../components/Toast";
 import { getDockets } from "../../utils/axiosCalls";
 import ReactDataTable from "data-table-reactjs";
@@ -18,7 +17,7 @@ const QueryListing = () => {
     "added_on",
     "updated_on",
     "company_id",
-    "comapany_name",
+    "company_name",
   ];
   useEffect(() => {
     (async () => {
@@ -84,6 +83,7 @@ const QueryListing = () => {
             sortable: sortableColumns.includes(key),
             // wrap: true,
             width: getColoumnWidth(key),
+            // customCell: getCellContent,
             omit: key === "company_id",
             filterable: filterableColumns.includes(key),
           };

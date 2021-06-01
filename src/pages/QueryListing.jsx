@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import DataTable from "react-data-table-component";
 import RenderToast from "../components/Toast";
 import { getContactQueries } from "../utils/axiosCalls";
+import ReactDataTable from "data-table-reactjs";
 const QueryListing = () => {
   const [showToast, setShowToast] = useState(false);
   const [toastData, setToastData] = useState({ type: "", heading: "", msg: "" });
@@ -32,8 +32,7 @@ const QueryListing = () => {
       name: "ID",
       selector: "id",
       sortable: true,
-      maxWidth: "60px",
-      minWidth: "60px",
+      width: "60px",
     };
     const columnsList = Object.keys(firstRow)
       .map((key) => {
@@ -42,28 +41,20 @@ const QueryListing = () => {
             name: key.toUpperCase(),
             selector: key,
             sortable: ["name", "query_date", "id"].includes(key) && true,
-            wrap: true,
-            maxWidth: key === "query_date" ? "170px" : "",
+            width: key === "query_date" ? "170px" : "",
           };
         return null;
       })
       .filter(Boolean);
     return [firstCol, ...columnsList];
   };
+  const Test = () => <h1>Test</h1>;
   return (
     <>
       <RenderToast showToast={showToast} setShowToast={setShowToast} {...toastData} />
       <div>
         <div className="card px-16">
-          <DataTable
-            title="Contact Us data"
-            columns={columns}
-            data={listingData}
-            progressPending={isLoading}
-            pagination
-            striped
-            highlightOnHover
-          />
+          <ReactDataTable title={<Test />} columns={columns} list={listingData} isLoading={isLoading} pagination />
         </div>
       </div>
     </>

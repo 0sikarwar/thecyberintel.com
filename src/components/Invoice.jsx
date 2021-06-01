@@ -1,6 +1,6 @@
 import { useState } from "react";
+import ReactDataTable from "data-table-reactjs";
 import Button from "react-bootstrap/Button";
-import DataTable from "react-data-table-component";
 const Invoice = (props) => {
   const [fuelCharge, setFuelCharge] = useState("");
   const getFormattedColumns = (list) => {
@@ -12,11 +12,11 @@ const Invoice = (props) => {
             name: key.toUpperCase(),
             selector: key,
             sortable: ["docket_date"].includes(key) && true,
-            wrap: true,
             width: ["docket_num", "weight", "company_id", "docket_mode", "docket_discount", "amount"].includes(key)
               ? "100px"
               : "170px",
-            cell: (d) => <span>{key === "docket_discount" && d[key] ? d[key] + " ₹/Kg" : d[key]}</span>,
+            customCell:
+              key === "docket_discount" ? (d, sel) => <div className="w-100">{d[sel] + " ₹/Kg"}</div> : undefined,
           };
         return null;
       })
@@ -35,7 +35,7 @@ const Invoice = (props) => {
   return (
     <>
       <div className="position-relative">
-        <div className="position-absolute z-1 r-0 p-2">
+        <div className="position-absolute z-1 p-2 t-60 r-32">
           <div className="flex">
             <input
               className="form-control wt-180"
@@ -59,13 +59,11 @@ const Invoice = (props) => {
         </div>
         {props.invoiceData.docketList?.length ? (
           <div className="card px-16">
-            <DataTable
+            <ReactDataTable
               title={<TableTitle />}
               columns={getFormattedColumns(props.invoiceData.docketList)}
-              data={props.invoiceData.docketList}
+              list={props.invoiceData.docketList}
               pagination
-              striped
-              highlightOnHover
             />
           </div>
         ) : (
