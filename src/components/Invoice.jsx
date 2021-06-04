@@ -12,6 +12,7 @@ const Invoice = (props) => {
             name: key.toUpperCase(),
             selector: key,
             sortable: ["docket_date"].includes(key) && true,
+            filterable: key === "docket_num",
             width: ["docket_num", "weight", "company_id", "docket_mode", "docket_discount", "amount"].includes(key)
               ? "100px"
               : "170px",
@@ -33,31 +34,31 @@ const Invoice = (props) => {
     );
   };
   return (
-    <>
-      <div className="position-relative">
-        <div className="position-absolute z-1 p-2 t-60 r-32">
-          <div className="flex">
-            <input
-              className="form-control wt-180"
-              type="number"
-              name="fuel_charge"
-              placeholder="Fuel charge in %"
-              value={fuelCharge}
-              onChange={(e) => {
-                setFuelCharge(e.target.value);
-              }}
-            />
-            <Button variant="outline-primary" className="ml-2" onClick={() => props.setInvoiceFuelCharge(fuelCharge)}>
-              Add fuel Charge
-            </Button>
-          </div>
-          {!!props.invoiceFuelCharge && (
-            <div className="ml-8">
-              <b>{props.invoiceFuelCharge} % Fuel charge</b> will be added in print screen
+    <div className="position-relative">
+      {props.invoiceData.docketList?.length ? (
+        <>
+          <div className="position-absolute z-1 p-2 t-60 r-32">
+            <div className="flex">
+              <input
+                className="form-control wt-180"
+                type="number"
+                name="fuel_charge"
+                placeholder="Fuel charge in %"
+                value={fuelCharge}
+                onChange={(e) => {
+                  setFuelCharge(e.target.value);
+                }}
+              />
+              <Button variant="outline-primary" className="ml-2" onClick={() => props.setInvoiceFuelCharge(fuelCharge)}>
+                Add fuel Charge
+              </Button>
             </div>
-          )}
-        </div>
-        {props.invoiceData.docketList?.length ? (
+            {!!props.invoiceFuelCharge && (
+              <div className="ml-8">
+                <b>{props.invoiceFuelCharge} % Fuel charge</b> will be added in print screen
+              </div>
+            )}
+          </div>
           <div className="card px-16">
             <ReactDataTable
               title={<TableTitle />}
@@ -66,11 +67,11 @@ const Invoice = (props) => {
               pagination
             />
           </div>
-        ) : (
-          <h3>No docket available for selected client in selected month.</h3>
-        )}
-      </div>
-    </>
+        </>
+      ) : (
+        <h3>No docket available for selected client in selected month.</h3>
+      )}
+    </div>
   );
 };
 

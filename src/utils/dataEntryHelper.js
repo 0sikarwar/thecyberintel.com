@@ -47,6 +47,16 @@ export const dataEntryPrimaryBtns = [
         key: "to_month",
         type: "month",
       },
+      {
+        name: "From date",
+        key: "from_month",
+        type: "date",
+      },
+      {
+        name: "To date",
+        key: "to_month",
+        type: "date",
+      },
     ],
   },
 ];
