@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "https://thecyberintel.com/static/css/main.32e0dcfc.chunk.css",
-    "main.js": "https://thecyberintel.com/static/js/main.1d3d5d74.chunk.js",
-    "main.js.map": "https://thecyberintel.com/static/js/main.1d3d5d74.chunk.js.map",
+    "main.css": "https://thecyberintel.com/static/css/main.884fb19e.chunk.css",
+    "main.js": "https://thecyberintel.com/static/js/main.c9c48148.chunk.js",
+    "main.js.map": "https://thecyberintel.com/static/js/main.c9c48148.chunk.js.map",
     "runtime-main.js": "https://thecyberintel.com/static/js/runtime-main.1a1970c8.js",
     "runtime-main.js.map": "https://thecyberintel.com/static/js/runtime-main.1a1970c8.js.map",
     "static/js/2.d4945f3a.chunk.js": "https://thecyberintel.com/static/js/2.d4945f3a.chunk.js",
     "static/js/2.d4945f3a.chunk.js.map": "https://thecyberintel.com/static/js/2.d4945f3a.chunk.js.map",
     "index.html": "https://thecyberintel.com/index.html",
-    "static/css/main.32e0dcfc.chunk.css.map": "https://thecyberintel.com/static/css/main.32e0dcfc.chunk.css.map",
+    "static/css/main.884fb19e.chunk.css.map": "https://thecyberintel.com/static/css/main.884fb19e.chunk.css.map",
     "static/js/2.d4945f3a.chunk.js.LICENSE.txt": "https://thecyberintel.com/static/js/2.d4945f3a.chunk.js.LICENSE.txt",
     "static/media/CiLogo.69454327.svg": "https://thecyberintel.com/static/media/CiLogo.69454327.svg",
     "static/media/cyberintelCover.ac234f6b.jpg": "https://thecyberintel.com/static/media/cyberintelCover.ac234f6b.jpg",
@@ -34,7 +34,7 @@
   "entrypoints": [
     "static/js/runtime-main.1a1970c8.js",
     "static/js/2.d4945f3a.chunk.js",
-    "static/css/main.32e0dcfc.chunk.css",
-    "static/js/main.1d3d5d74.chunk.js"
+    "static/css/main.884fb19e.chunk.css",
+    "static/js/main.c9c48148.chunk.js"
   ]
 }
