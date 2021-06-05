@@ -43,18 +43,18 @@ const InvoicePrint = (props) => {
               <div className="in-block mr-1 br-5">
                 <Icon width="16px" height="16px" />
               </div>
-              <div className="company-name fs-16 fw-bolder">
+              <div className="company-name fs-17 fw-bolder">
                 <p className="m-0 mb-1 name">The Cyberintel</p>
               </div>
             </div>
-            <div className="fs-14 fw-bolder">SUMMARY</div>
-            <div className="fs-12 fw-bolder">www.thecyberintel.com</div>
+            <div className="fs-15 fw-bolder">SUMMARY</div>
+            <div className="fs-13 fw-bolder">www.thecyberintel.com</div>
           </div>
           <div className="flex flex-between mb-1 bg-silver py-1 px-2">
             <div className="mt-2">
               To: <b>{props.companyName}</b>
             </div>
-            <div className="lh-16 fs-12">
+            <div className="lh-16 fs-13">
               <div> Invoice No.: {props.invoiceNumber}</div>
               <div>Invoice Date: {props.invoiceDate}</div>
               <div>
