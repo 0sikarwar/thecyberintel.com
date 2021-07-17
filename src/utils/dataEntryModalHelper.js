@@ -2,6 +2,7 @@ import AddDockets from "../components/AddDockets";
 import CreateCompany from "../components/CreateCompany";
 import Invoice from "../components/Invoice";
 import GenerateInvoice from "../components/GenerateInvoice";
+import GetInvoiceUsingNum from "../components/GetInvoiceUsingNum";
 import {
   getDataForInvoice,
   getDataToUpadate,
@@ -81,6 +82,9 @@ export const makeApiCallOnSubmit = async (modalType, mainData, companyList, setC
     case "update_party_data":
       res = await updateRateList(mainData);
       break;
+    case "get_invoice_using_num":
+      res = await getDataForInvoice(mainData, true);
+      break;
     default:
       return;
   }
@@ -137,6 +141,9 @@ export const getModalData = (modalType, sectionData, modalProps, companyList, in
       MODAL_CHILD_COMPONENT = (
         <BulkEntry {...sectionData} {...modalProps} companyList={companyList} modalType={modalType} />
       );
+      break;
+    case "get_invoice_using_num":
+      MODAL_CHILD_COMPONENT = <GetInvoiceUsingNum {...sectionData} {...modalProps} />;
       break;
     default:
       MODAL_CHILD_COMPONENT = null;

@@ -37,8 +37,8 @@ export const getCompanyNames = async () => {
   return await axios.get(getCompanyNamesUrl);
 };
 
-export const getDataForInvoice = async (data) => {
-  return await axios.get(getDataForInvoiceUrl, { params: data });
+export const getDataForInvoice = async (data, isInvoiceNumber) => {
+  return await axios.get(getDataForInvoiceUrl, { params: { ...data, isInvoiceNumber } });
 };
 
 export const getDataToUpadate = async (data) => {

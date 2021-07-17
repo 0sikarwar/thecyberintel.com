@@ -16,6 +16,7 @@ const FrontPage = (props) => {
     totalAmount,
     invoiceFuelCharge,
     fuelCharge,
+    dueDate,
   } = props;
 
   const [billBreakup, setPriceBreakup] = useState({
@@ -98,7 +99,7 @@ const FrontPage = (props) => {
                 <br />
               </font>
               <font className="fs-12pt fw-bolder">
-                3. PAYMENT DUE DATE: {new Date(new Date().getTime() + 10 * 24 * 60 * 60 * 1000).toDateString()}
+                3. PAYMENT DUE DATE: {dueDate}
                 <br />
               </font>
               <font className="fs-12pt ">

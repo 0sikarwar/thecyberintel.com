@@ -136,7 +136,7 @@ const DataEntry = () => {
         heading: "Oh snap!",
         msg:
           modalType === "generate_invoice"
-            ? "All field a required to get invoce data"
+            ? "All field are required to get invoce data"
             : "Cannot submit empty data. Please fill the fields or remove row.",
       });
       return;
@@ -150,9 +150,9 @@ const DataEntry = () => {
     }
     setLoadingType("");
     if (result?.status === "SUCCESS") {
-      if (modalType === "generate_invoice") {
+      if (modalType === "generate_invoice" || modalType === "get_invoice_using_num") {
         setModalType("show_invoice");
-        setInvoiceData(result);
+        setInvoiceData({ ...result, hideGanerateBtn: modalType === "get_invoice_using_num" });
         setMainData(null);
         setValidationObj({});
         return;
@@ -218,7 +218,7 @@ const DataEntry = () => {
         modalType={modalType}
         submitButtonText={submitButtonText}
         contentClassName={modalType === "show_invoice" ? "ht-90vh" : ""}
-        optionalButtonText={modalType === "show_invoice" ? "Get Invoice Number" : ""}
+        optionalButtonText={modalType === "show_invoice" && !invoiceData?.hideGanerateBtn ? "Get Invoice Number" : ""}
         handleThirdButtonClick={modalType === "show_invoice" ? handleGetInvoiceNumber : () => {}}
         disableOptionalButton={invoiceData?.invoice_number || !invoiceData?.docketList?.length}
       >
@@ -233,6 +233,7 @@ const DataEntry = () => {
           fromDate={invoiceData.from}
           toDate={invoiceData.to}
           invoiceDate={invoiceData.invoice_date}
+          dueDate={invoiceData.due_date}
           invoiceNumber={invoiceData.invoice_number ? getInvoiceNumber(invoiceData.invoice_number) : ""}
           total={invoiceData.totalAmount}
           companyId={invoiceData.company_id}

@@ -101,17 +101,17 @@ export const dataEntrySecondaryBtns = [
       },
     ],
   },
-  // {
-  //   key: "generate_duplicate_invoice",
-  //   value: "Generate Duplicate Invoice",
-  //   fields: [
-  //     {
-  //       name: "Invoice Number",
-  //       key: "invoice_num",
-  //       type: "text",
-  //     },
-  //   ],
-  // },
+  {
+    key: "get_invoice_using_num",
+    value: "Get Invoice using Number",
+    fields: [
+      {
+        name: "Invoice Number",
+        key: "invoice_num",
+        type: "number",
+      },
+    ],
+  },
 ];
 export const bulkEntryFormFields = {
   key: "bulk_data_entry",
