@@ -30,12 +30,17 @@ const InvoicePrint = (props) => {
         sgst={sgst}
         cgst={cgst}
         igst={igst}
-        totalWithTax={totalWithTax}
-        totalAmount={totalAmount}
-        invoiceFuelCharge={props.invoiceFuelCharge || 0}
-        fuelCharge={fuelCharge}
+        totalWithTax={Math.ceil(totalWithTax)}
+        totalAmount={Math.ceil(totalAmount)}
+        invoiceFuelCharge={Math.ceil(props.invoiceFuelCharge) || 0}
+        fuelCharge={Math.ceil(fuelCharge)}
       />
-      <BillSlipPage {...props} companyData={companyData} gstDetails={gstDetails} totalWithTax={totalWithTax} />
+      <BillSlipPage
+        {...props}
+        companyData={companyData}
+        gstDetails={gstDetails}
+        totalWithTax={Math.ceil(totalWithTax)}
+      />
       <div>
         <div className="position-fixed wt-100p">
           <div className="flex flex-between">

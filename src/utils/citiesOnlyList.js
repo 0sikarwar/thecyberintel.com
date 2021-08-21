@@ -11,6 +11,7 @@ const citiesList = [
   "Jaipur, Rajasthan",
   "Surat, Gujarat",
   "Lucknow, Uttar Pradesh",
+  "Muzaffarnagar, Uttar Pradesh",
   "Sonbhadra, Uttar Pradesh",
   "Kanpur, Uttar Pradesh",
   "Nagpur, Maharashtra",
