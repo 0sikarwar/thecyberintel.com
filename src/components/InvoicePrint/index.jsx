@@ -27,9 +27,9 @@ const InvoicePrint = (props) => {
         {...props}
         companyData={companyData}
         gstDetails={gstDetails}
-        sgst={sgst}
-        cgst={cgst}
-        igst={igst}
+        sgst={Math.ceil(sgst)}
+        cgst={Math.ceil(cgst)}
+        igst={Math.ceil(igst)}
         totalWithTax={Math.ceil(totalWithTax)}
         totalAmount={Math.ceil(totalAmount)}
         invoiceFuelCharge={Math.ceil(props.invoiceFuelCharge) || 0}
