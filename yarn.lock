@@ -4156,10 +4156,10 @@ dashdash@^1.12.0:
   dependencies:
     assert-plus "^1.0.0"
 
-data-table-reactjs@^0.1.83:
-  version "0.1.83"
-  resolved "https://registry.yarnpkg.com/data-table-reactjs/-/data-table-reactjs-0.1.83.tgz#cf0d8f8ac9cd4ab27541566093d426c66b845473"
-  integrity sha512-J5dU75kp9PiO0PQ0ItBHnTwr+h/5Qq22aTFO1ZlZw7maH1vd8StR4cQ/Ltn+iTaxnnp5DCo12422j9SVA0Pi0w==
+data-table-reactjs@^0.1.84:
+  version "0.1.84"
+  resolved "https://registry.yarnpkg.com/data-table-reactjs/-/data-table-reactjs-0.1.84.tgz#0dcbfb7cda7786a4289bcdc6e5c853741dc1393e"
+  integrity sha512-AIDM8uyBJDlQeBwe308wMN1GGdjk01hOcnZ8szdv7b0ngF8jOug6c63Kn/bUshYhMzX8wwxyw3zd7o3t/YM+Sg==
 
 data-urls@^2.0.0:
   version "2.0.0"
