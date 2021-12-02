@@ -66,8 +66,9 @@ const QueryListing = () => {
         return "80px";
       case "docket_date":
       case "added_on":
-      case "updated_on":
         return "140px";
+      case "updated_on":
+        return "";
       default:
         return "170px";
     }
@@ -97,7 +98,14 @@ const QueryListing = () => {
       <RenderToast showToast={showToast} setShowToast={setShowToast} {...toastData} />
       <div>
         <div className="card px-16">
-          <ReactDataTable columns={columns} list={listingData} showSerialNumber isLoading={isLoading} pagination />
+          <ReactDataTable
+            columns={columns}
+            list={listingData}
+            showSerialNumber
+            isLoading={isLoading}
+            pagination
+            showDownloadOption
+          />
         </div>
       </div>
     </>
