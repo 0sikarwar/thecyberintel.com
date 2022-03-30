@@ -18,19 +18,26 @@ import Test from "./pages/Test";
 import DataEntry from "./pages/DataEntry";
 import FrontPage from "./components/InvoicePrint/FrontPage";
 import BillSlipPage from "./components/InvoicePrint/BillSlipPage";
+import RenderModal from "./components/Modal";
+import SignupForm from "./components/SignupForm";
+import RenderToast from "./components/Toast";
 function AppRouter(props) {
   const [addMargin, setAddMargin] = useState(true);
-
+  const [modalType, setModalType] = useState("");
+  const [showToast, setShowToast] = useState(false);
+  const [toastData, setToastData] = useState({ type: "", heading: "", msg: "" });
+  const [userDetails, setUserDetails] = useState(null);
   useEffect(() => {
     window.addEventListener("afterprint", function () {
       document.getElementById("print-area").innerHTML = "";
       document.body.classList.remove("printing");
     });
+    setUserDetails(localStorage.getItem("userDetails"));
   }, []);
 
   return (
     <Router basename="/thecyberintel" history={history}>
-      <Header />
+      <Header setModalType={setModalType} userDetails={userDetails} setUserDetails={setUserDetails} />
       <div className={addMargin ? "mt-72" : ""}>
         <Switch>
           <Route
@@ -141,6 +148,22 @@ function AppRouter(props) {
         </Switch>
       </div>
       <Footer />
+      <RenderModal
+        show={!!modalType}
+        hidebuttons
+        handleClose={() => setModalType("")}
+        title={modalType === "login" ? "Log in" : "Sign up"}
+        dialogClassName="signup"
+      >
+        <SignupForm
+          isLogin={modalType === "login"}
+          setModalType={setModalType}
+          setToastData={setToastData}
+          setShowToast={setShowToast}
+          setUserDetails={setUserDetails}
+        />
+      </RenderModal>
+      <RenderToast showToast={showToast} setShowToast={setShowToast} {...toastData} />
     </Router>
   );
 }

@@ -12,7 +12,9 @@ function RenderModal({
   optionalButtonText,
   handleThirdButtonClick,
   disableOptionalButton,
+  dialogClassName,
   children,
+  hidebuttons,
 }) {
   return (
     <>
@@ -21,7 +23,7 @@ function RenderModal({
         onHide={handleClose}
         backdrop="static"
         keyboard={false}
-        dialogClassName="modal-container"
+        dialogClassName={`modal-container ${dialogClassName || ""}`}
         contentClassName={contentClassName || ""}
         centered
         autoFocus
@@ -30,19 +32,21 @@ function RenderModal({
           <Modal.Title>{title}</Modal.Title>
         </Modal.Header>
         <Modal.Body>{children}</Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
-            Close
-          </Button>
-          <Button variant="primary" onClick={handleSubmit} disabled={disabledSubmit}>
-            {submitButtonText || "Submit"}
-          </Button>
-          {optionalButtonText && (
-            <Button variant="danger" onClick={handleThirdButtonClick} disabled={disableOptionalButton}>
-              {optionalButtonText}
+        {!hidebuttons && (
+          <Modal.Footer>
+            <Button variant="secondary" onClick={handleClose}>
+              Close
             </Button>
-          )}
-        </Modal.Footer>
+            <Button variant="primary" onClick={handleSubmit} disabled={disabledSubmit}>
+              {submitButtonText || "Submit"}
+            </Button>
+            {optionalButtonText && (
+              <Button variant="danger" onClick={handleThirdButtonClick} disabled={disableOptionalButton}>
+                {optionalButtonText}
+              </Button>
+            )}
+          </Modal.Footer>
+        )}
       </Modal>
     </>
   );

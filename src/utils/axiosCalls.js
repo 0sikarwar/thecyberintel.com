@@ -11,6 +11,8 @@ import {
   updateDocketDataUrl,
   updateRateListUrl,
   getInvoiceNumUrl,
+  registerUserUrl,
+  signinUserUrl,
 } from "./apiName";
 import axios from "./axios";
 
@@ -57,4 +59,10 @@ export const updateRateList = async (data) => {
 
 export const getInvoiceNum = async (data) => {
   return await axios.get(getInvoiceNumUrl, { params: data });
+};
+export const registerUser = async (data) => {
+  return await axios.post(registerUserUrl, data);
+};
+export const signinUser = async (data) => {
+  return await axios.post(signinUserUrl, data);
 };

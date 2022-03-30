@@ -34,6 +34,10 @@ export default function Header(props) {
       };
     }
   }, [location.pathname]);
+  const logout = () => {
+    props.setUserDetails(null);
+    localStorage.removeItem("userDetails");
+  };
   return (
     <Navbar expand="lg" sticky="top" className="flex flex-between wt-100p shadow" id="header" expanded={expanded}>
       <Navbar.Brand href="#/" className="f-small-caps">
@@ -79,6 +83,11 @@ export default function Header(props) {
           <Nav.Link href="#/contact" onClick={() => setExpanded(false)}>
             CONTACT US
           </Nav.Link>
+          {!!props.userDetails ? (
+            <Nav.Link onClick={logout}>{props.userDetails.firstname} (Log out)</Nav.Link>
+          ) : (
+            <Nav.Link onClick={() => props.setModalType("login")}>Login/Signup</Nav.Link>
+          )}
         </Nav>
       </Navbar.Collapse>
     </Navbar>
