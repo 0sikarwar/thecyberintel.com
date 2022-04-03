@@ -60,6 +60,11 @@ const DataEntry = () => {
   useEffect(() => {
     (async () => {
       let res = {};
+      if (window.companyList) {
+        setLoadingType("");
+        setCompanyList(window.companyList);
+        return;
+      }
       try {
         res = await getCompanyNames();
       } catch (e) {
@@ -68,6 +73,7 @@ const DataEntry = () => {
       if (res?.data?.status === "SUCCESS") {
         setLoadingType("");
         setCompanyList(res.data.list);
+        window.companyList = res.data.list;
       }
     })();
   }, []);
