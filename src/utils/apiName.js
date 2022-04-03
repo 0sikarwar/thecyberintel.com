@@ -1,6 +1,4 @@
-export const baseUrl = "https://data.thecyberintel.com/tciserver";
-// process.env.NODE_ENV === "development" ? "http://localhost:8080" : "https://data.thecyberintel.com/tciserver";
-
+export const baseUrl = process.env.REACT_APP_BARE_URL;
 export const saveContactUrl = `${baseUrl}/savecontact`;
 export const getContactQueriesUrl = `${baseUrl}/getcontactqueries`;
 export const testUrl = `${baseUrl}/testdata`;
