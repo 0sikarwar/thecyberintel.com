@@ -1282,6 +1282,7 @@ const citiesList = [
   "Mirzapur, Uttar Pradesh",
   "Kota, Rajasthan",
   "Dispur, Assam",
+  "Kathmandu, Nepal",
 ];
 
 export default citiesList;
