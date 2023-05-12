@@ -4085,10 +4085,10 @@ dashdash@^1.12.0:
   dependencies:
     assert-plus "^1.0.0"
 
-data-table-reactjs@^0.1.92:
-  version "0.1.92"
-  resolved "https://registry.npmjs.org/data-table-reactjs/-/data-table-reactjs-0.1.92.tgz#6af0e87f384043f3039087103f7a4bb46380fc1d"
-  integrity sha512-y6teZnctcNJVkJ/m/uGrigtMqk8+1c/ZEwuSsuXbxunZQbhzMvTrbGt4oQDxVRhbbohzMZHbRYFA0uod+8KpDQ==
+data-table-reactjs@^0.1.94:
+  version "0.1.94"
+  resolved "https://registry.npmjs.org/data-table-reactjs/-/data-table-reactjs-0.1.94.tgz#7789daca50e0cae27255ed9896142c5b655917e6"
+  integrity sha512-HUzSfflz0Hlwdxe2QvyCC8oIBwumh+eGyOTAnUDX9dVAe3NKq0KNvO1t8bVmubLAFlgqIkl9RYPVcLxOF1cTCw==
 
 data-urls@^2.0.0:
   version "2.0.0"
