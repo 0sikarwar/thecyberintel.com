@@ -97,7 +97,7 @@ const QueryListing = () => {
     <>
       <RenderToast showToast={showToast} setShowToast={setShowToast} {...toastData} />
       <div>
-        <div className="card px-16">
+        <div className="card px-16" style={{ height: "calc(100vh - 280px)" }}>
           <ReactDataTable
             columns={columns}
             list={listingData}
