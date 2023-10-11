@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { HashRouter as Router, Switch, Route } from "react-router-dom";
+import { HashRouter as Router, Routes, Route } from "react-router-dom";
 import Header from "./components/Header";
 import Home from "./pages/Home";
 import Services from "./pages/Services";
@@ -14,14 +14,13 @@ import Seo from "./pages/subPages/Seo";
 import Cep from "./pages/subPages/Cep";
 import DocketListing from "./pages/subPages/DocketListing";
 import QueryListing from "./pages/QueryListing";
-import Test from "./pages/Test";
 import DataEntry from "./pages/DataEntry";
 import FrontPage from "./components/InvoicePrint/FrontPage";
 import BillSlipPage from "./components/InvoicePrint/BillSlipPage";
 import RenderModal from "./components/Modal";
 import SignupForm from "./components/SignupForm";
 import RenderToast from "./components/Toast";
-function AppRouter(props) {
+function AppRouter() {
   const [addMargin, setAddMargin] = useState(true);
   const [modalType, setModalType] = useState("");
   const [showToast, setShowToast] = useState(false);
@@ -36,116 +35,25 @@ function AppRouter(props) {
   }, []);
 
   return (
-    <Router basename="/thecyberintel" history={history}>
+    <Router history={history}>
       <Header setModalType={setModalType} userDetails={userDetails} setUserDetails={setUserDetails} />
-      <div className={addMargin ? "mt-72" : ""}>
-        <Switch>
-          <Route
-            exact
-            path="/"
-            component={() => {
-              setAddMargin(false);
-              return <Home />;
-            }}
-          />
-          <Route
-            exact
-            path="/estimate"
-            component={() => {
-              setAddMargin(true);
-              return <WebsitePricing />;
-            }}
-          />
-          <Route
-            exact
-            path="/services"
-            component={() => {
-              setAddMargin(true);
-              return <Services />;
-            }}
-          />
-          <Route
-            exact
-            path="/web-design"
-            component={() => {
-              setAddMargin(false);
-              return <WebDev />;
-            }}
-          />
-          <Route
-            exact
-            path="/seo"
-            component={() => {
-              setAddMargin(false);
-              return <Seo />;
-            }}
-          />
-          <Route
-            exact
-            path="/cep"
-            component={() => {
-              setAddMargin(false);
-              return <Cep />;
-            }}
-          />
-          <Route
-            exact
-            path="/contact"
-            component={() => {
-              setAddMargin(true);
-              return <ContactUs />;
-            }}
-          />
-          <Route
-            exact
-            path="/about"
-            component={() => {
-              setAddMargin(true);
-              return <AboutUs />;
-            }}
-          />
-          <Route
-            exact
-            path="/querylisting"
-            component={() => {
-              setAddMargin(true);
-              return <QueryListing />;
-            }}
-          />
-          <Route
-            exact
-            path="/docketlisting"
-            component={() => {
-              setAddMargin(true);
-              return <DocketListing />;
-            }}
-          />
-          <Route
-            exact
-            path="/dataentry"
-            component={() => {
-              setAddMargin(true);
-              return <DataEntry />;
-            }}
-          />
-          <Route
-            exact
-            path="/test"
-            component={() => {
-              setAddMargin(true);
-              return <FrontPage />;
-            }}
-          />
-          <Route
-            exact
-            path="/test1"
-            component={() => {
-              setAddMargin(true);
-              return <BillSlipPage />;
-            }}
-          />
-          <Route component={NotFound} />
-        </Switch>
+      <div>
+        <Routes>
+          <Route exact path="/" element={<Home />} />
+          <Route exact path="/estimate" element={<WebsitePricing />} />
+          <Route exact path="/services" element={<Services />} />
+          <Route exact path="/web-design" element={<WebDev />} />
+          <Route exact path="/seo" element={<Seo />} />
+          <Route exact path="/cep" element={<Cep />} />
+          <Route exact path="/contact" element={<ContactUs />} />
+          <Route exact path="/about" element={<AboutUs />} />
+          <Route exact path="/querylisting" element={<QueryListing />} />
+          <Route exact path="/docketlisting" element={<DocketListing />} />
+          <Route exact path="/dataentry" element={<DataEntry />} />
+          <Route exact path="/test" element={<FrontPage />} />
+          <Route exact path="/test1" element={<BillSlipPage />} />
+          <Route element={NotFound} />
+        </Routes>
       </div>
       <Footer />
       <RenderModal
