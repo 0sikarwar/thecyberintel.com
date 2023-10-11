@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import letterHead from "../../assets/letterHead.png";
 import { convertNumberToWords } from "../../utils";
 const highlightedText = ["Total Invoice Value (INR)", "Invoice No"];
@@ -36,7 +36,7 @@ const FrontPage = (props) => {
     "Description of Services": "Courier Services",
   });
   return (
-    <div id="Book1_17204" align="center" className="ht-100vh" style={{ paddingTop: "4vh" }}>
+    <div id="Book1_17204" className="ht-100vh" style={{ paddingTop: "4vh" }}>
       <img src={letterHead} />
       <table
         border={0}
@@ -72,8 +72,8 @@ const FrontPage = (props) => {
             </td>
             <td className="br-1 bb-1 bl-0 bt-1 fs-12pt t-right pr-8">{`${props.fromDate} to ${props.toDate}`}</td>
           </tr>
-          {Object.keys(billBreakup).map((key) => (
-            <tr height={22} className={highlightedText.includes(key) ? "fw-bolder" : ""}>
+          {Object.keys(billBreakup).map((key, index) => (
+            <tr height={22} className={highlightedText.includes(key) ? "fw-bolder" : ""} key={index}>
               <td colSpan={2} height={22} className="br-1 bb-1 bl-0 bt-1 fs-12pt pl-8">
                 {key}
               </td>
