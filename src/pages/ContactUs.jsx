@@ -28,7 +28,6 @@ export default function contact() {
             src="https://maps.google.com/maps?q=the%20cyberintel%20daffarpur&t=&z=15&ie=UTF8&iwloc=&output=embed"
             width="100%"
             height="538"
-            frameborder="0"
             style={{ border: "1px solid #fad744" }}
             allowfullscreen
             data-aos="fade-left"

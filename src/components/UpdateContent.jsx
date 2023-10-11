@@ -154,7 +154,7 @@ const UpdateDocket = (props) => {
             {Object.keys(fetchedComapnyDetails).map(
               (key, index) =>
                 key !== "id" && (
-                  <div>
+                  <div key={index}>
                     <label htmlFor={"new_" + key}>{comapnyDataLabel[key]}</label>
                     <div key={index}>
                       <input

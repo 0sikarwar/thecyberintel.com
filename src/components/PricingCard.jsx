@@ -1,4 +1,3 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react";
 export default function PricingCard(props) {
   return (
@@ -14,7 +13,7 @@ export default function PricingCard(props) {
           {props.featuresList.map((feature, index) => {
             const isDisabled = props.disabledFeatureIndex.includes(index);
             return (
-              <li className={`mb-3 ${isDisabled ? "text-muted" : ""}`}>
+              <li className={`mb-3 ${isDisabled ? "text-muted" : ""}`} key={index}>
                 <i className={`${isDisabled ? "cross-icon" : "check-icon c-tr"} mr-2`}></i>{" "}
                 <span className={`${isDisabled ? "decoration-del" : ""}`}>{feature}</span>
               </li>

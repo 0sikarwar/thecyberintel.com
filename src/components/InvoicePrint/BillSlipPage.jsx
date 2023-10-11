@@ -5,7 +5,7 @@ const BillSlipPage = (props) => {
   const { total, invoiceNumber, invoiceDate, companyData, totalWithTax, dueDate } = props;
 
   return (
-    <div id="tax invoice_2_7105" align="center" className="ht-100vh" style={{ paddingTop: "15vh" }}>
+    <div id="tax invoice_2_7105" className="ht-100vh" style={{ paddingTop: "15vh" }}>
       <table border={0} cellPadding={0} cellSpacing={0} className="fs-12pt wt-90vw">
         <colgroup>
           <col className="fs-12pt" width={80} />
