@@ -17,6 +17,8 @@
     "react-hooks/exhaustive-deps": 0,
     "no-unused-vars": 1,
     "react/prop-types": 0,
-    "no-extra-boolean-cast": 0
+    "no-extra-boolean-cast": 0,
+    "react/no-unescaped-entities": 0,
+    "react/display-name": 0
   }
 }

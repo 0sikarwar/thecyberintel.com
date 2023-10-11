@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import React, { useEffect } from "react";
 import Alert from "react-bootstrap/Alert";
 function RenderToast({ showToast, setShowToast, heading, msg, type }) {
   const toggleShow = () => setShowToast(!showToast);

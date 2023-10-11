@@ -1,3 +1,4 @@
+import React from "react";
 export default function SummaryCard(props) {
   return (
     <div className="box fadeIn animated flex flex-column flex-middle" data-animate="fadeIn" data-delay="200">

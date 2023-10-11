@@ -1,3 +1,4 @@
+import React from "react";
 import { destinationGroupList, rateListLabels, inputFiledDataTypes } from "../utils/dataEntryHelper";
 import DropdownWithSearch from "./DropdownWithSearch";
 

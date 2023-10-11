@@ -1,7 +1,7 @@
 import HorizontalCard from "../components/HorizontalCard";
 import { cardData } from "../utils/data";
 import coverPic from "../assets/cyberintelCover.jpg";
-import { useEffect } from "react";
+import React, { useEffect } from "react";
 export default function Home(props) {
   useEffect(() => {
     // props.setAddMargin(false);

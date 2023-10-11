@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { isValidMobileNumber } from "../utils";
 import { saveContactData } from "../utils/axiosCalls";
 import Pageloader from "./Pageloader";

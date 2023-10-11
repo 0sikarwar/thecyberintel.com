@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import RenderToast from "../components/Toast";
 import { getContactQueries } from "../utils/axiosCalls";
 import ReactDataTable from "data-table-reactjs";

@@ -1,3 +1,4 @@
+import React from "react";
 import TimelineContainer from "../components/TimelineContainer";
 import { timelineData } from "../utils/data";
 

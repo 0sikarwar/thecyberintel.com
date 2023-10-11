@@ -1,3 +1,4 @@
+import React from "react";
 import SubPageTheme from "../../components/SubPageTheme";
 import { seoData } from "../../utils/data";
 

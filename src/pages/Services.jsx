@@ -1,3 +1,4 @@
+import React from "react";
 import { servicesData } from "../utils/data";
 import worldMap from "../assets/worldMapGrayed.png";
 import SummaryCard from "../components/ServiceSummaryCard";

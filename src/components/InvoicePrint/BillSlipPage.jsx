@@ -1,3 +1,4 @@
+import React from "react";
 import { convertNumberToWords } from "../../utils";
 
 const BillSlipPage = (props) => {

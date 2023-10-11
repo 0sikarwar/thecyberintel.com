@@ -1,3 +1,4 @@
+import React from "react";
 import { addDocketLabels, inputFiledDataTypes } from "../utils/dataEntryHelper";
 import DropdownWithSearch from "./DropdownWithSearch";
 import citiesList from "../utils/citiesOnlyList";

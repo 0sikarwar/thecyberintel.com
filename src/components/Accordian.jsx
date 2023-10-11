@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import Panel from "./AccordianPanel";
 
 export default function Accordion(props) {

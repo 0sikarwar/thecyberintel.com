@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import RenderToast from "../../components/Toast";
 import { getDockets } from "../../utils/axiosCalls";
 import ReactDataTable from "data-table-reactjs";
@@ -39,6 +39,7 @@ const QueryListing = () => {
   }, []);
 
   const getCellContent = (d, key) => {
+    let arr, date;
     switch (key) {
       case "docket_discount":
         return d[key] && d[key] + " ₹/Kg";
@@ -46,9 +47,9 @@ const QueryListing = () => {
         return Number(d[key]).toFixed(3) + " Kg";
       case "added_on":
       case "updated_on":
-        const arr = d[key].split(", ");
+        arr = d[key].split(", ");
         arr[1] -= 1;
-        const date = new Date(...arr);
+        date = new Date(...arr);
         return date.getTime() ? date.toDateString() + ", " + date.toLocaleTimeString() : d[key];
       default:
         return d[key];

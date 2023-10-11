@@ -1,3 +1,4 @@
+import React from "react";
 export default function HorizontalCard(props) {
   return (
     <div className="container py-3">

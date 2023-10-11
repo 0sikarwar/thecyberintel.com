@@ -1,3 +1,4 @@
+import React from "react";
 import PricingCard from "../components/PricingCard";
 import { websitePricingData } from "../utils/data";
 
