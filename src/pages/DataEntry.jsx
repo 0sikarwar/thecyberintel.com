@@ -196,20 +196,20 @@ const DataEntry = () => {
           <Button href="#/docketlisting" variant="warning">
             Display all dockets
           </Button>
-          <Button href="#" variant="warning" onClick={() => handleBtnClick(bulkEntryFormFields, true)}>
+          <Button variant="warning" onClick={() => handleBtnClick(bulkEntryFormFields, true)}>
             Bulk data Entry
           </Button>
         </div>
         <div className="btn-container p-12 wt-50p flex flex-wrap flex-around">
           {dataEntryPrimaryBtns.map((obj) => (
-            <Button href="#" variant="primary" onClick={() => handleBtnClick(obj, true)} key={obj.key}>
+            <Button variant="primary" onClick={() => handleBtnClick(obj, true)} key={obj.key}>
               {obj.value}
             </Button>
           ))}
         </div>
         <div className="btn-container p-12 wt-50p flex flex-wrap flex-around">
           {dataEntrySecondaryBtns.map((obj) => (
-            <Button href="#" variant="secondary" onClick={() => handleBtnClick(obj, false)} key={obj.key}>
+            <Button variant="secondary" onClick={() => handleBtnClick(obj, false)} key={obj.key}>
               {obj.value}
             </Button>
           ))}
