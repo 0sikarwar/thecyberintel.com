@@ -1,11 +1,10 @@
 {
   "files": {
     "main.css": "https://thecyberintel.com/static/css/main.48538267.css",
-    "main.js": "https://thecyberintel.com/static/js/main.ee8d8e26.js",
+    "main.js": "https://thecyberintel.com/static/js/main.00ef16eb.js",
     "static/media/wwd.png": "https://thecyberintel.com/static/media/wwd.84bdf8f852e0fd5e4f27.png",
     "static/media/letterHead.png": "https://thecyberintel.com/static/media/letterHead.fb89537bf56d46590b99.png",
     "static/media/cyberintelCover.jpg": "https://thecyberintel.com/static/media/cyberintelCover.ac234f6b8b404330c019.jpg",
-    "static/media/CiLogo.png": "https://thecyberintel.com/static/media/CiLogo.f106407fdcf1260f80d2.png",
     "static/media/worldMapGrayed.png": "https://thecyberintel.com/static/media/worldMapGrayed.1650b1e87de7d21b2270.png",
     "static/media/tnyt.png": "https://thecyberintel.com/static/media/tnyt.27eb83bff89f41e1486f.png",
     "static/media/dropbox.png": "https://thecyberintel.com/static/media/dropbox.dc0c9f029875c45b608b.png",
@@ -19,16 +18,17 @@
     "static/media/twitter.png": "https://thecyberintel.com/static/media/twitter.4d66d9612a9690990dbe.png",
     "static/media/salesforce.png": "https://thecyberintel.com/static/media/salesforce.46a5d09547eb7bf13a0b.png",
     "static/media/seo.jpg": "https://thecyberintel.com/static/media/seo.08349ba9b46b237f6f95.jpg",
+    "static/media/CiLogo.png": "https://thecyberintel.com/static/media/CiLogo.f7931791a225eda84916.png",
     "index.html": "https://thecyberintel.com/index.html",
     "static/media/CiLogo.svg": "https://thecyberintel.com/static/media/CiLogo.694543272567fa56a45dbae732eb0b76.svg",
     "static/media/email.svg": "https://thecyberintel.com/static/media/email.5c1d3bb019f332cda0759b592eb7cfea.svg",
     "static/media/phone.svg": "https://thecyberintel.com/static/media/phone.a6541346bd67ac829c0c7c527ee66d1e.svg",
     "static/media/location.svg": "https://thecyberintel.com/static/media/location.2f1761134dc3ebc9d58ed8661a400991.svg",
     "main.48538267.css.map": "https://thecyberintel.com/static/css/main.48538267.css.map",
-    "main.ee8d8e26.js.map": "https://thecyberintel.com/static/js/main.ee8d8e26.js.map"
+    "main.00ef16eb.js.map": "https://thecyberintel.com/static/js/main.00ef16eb.js.map"
   },
   "entrypoints": [
     "static/css/main.48538267.css",
-    "static/js/main.ee8d8e26.js"
+    "static/js/main.00ef16eb.js"
   ]
 }
