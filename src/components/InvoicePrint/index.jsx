@@ -3,7 +3,6 @@ import { invoicePrintColumnHead } from "../../utils/dataEntryHelper";
 import { getCompanyDetails, getGstDetails } from "../../utils";
 
 import PrintWrapper from "../PrintWrapper";
-import { ReactComponent as Icon } from "../../assets/CiLogo.svg";
 import logo from "../../assets/CiLogo.png";
 import FrontPage from "./FrontPage";
 import BillSlipPage from "./BillSlipPage";
@@ -52,7 +51,6 @@ const InvoicePrint = (props) => {
           <div className="flex flex-between">
             <div className="flex flex-middle">
               <div className="in-block mr-4 br-5">
-                {/* <Icon width="16px" height="16px" /> */}
                 <img src={logo} style={{ width: "0.5cm", display: "block" }} />
               </div>
               <div className="company-name fs-17 fw-bolder">
