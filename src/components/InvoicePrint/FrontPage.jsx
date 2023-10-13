@@ -36,29 +36,41 @@ const FrontPage = (props) => {
     "Description of Services": "Courier Services",
   });
   return (
-    <div id="Book1_17204" className="ht-100vh" style={{ paddingTop: "4vh" }}>
-      <img src={letterHead} />
+    <div
+      id="Book1_17204"
+      style={{
+        paddingTop: "4vh",
+        height: "100vh",
+        width: "21cm",
+        pageBreakAfter: "always",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        flexDirection: "column",
+      }}
+    >
+      <img src={letterHead} style={{ width: "21cm", display: "block" }} />
       <table
         border={0}
         cellPadding={0}
         cellSpacing={0}
         className="wt-90vw mt-5"
-        style={{ borderCollapse: "collapse", tableLayout: "fixed" }}
+        style={{ borderCollapse: "collapse", tableLayout: "fixed", width: "21cm" }}
       >
         <colgroup>
-          <col width={293} />
-          <col width={175} />
-          <col width={63} />
-          <col width={153} />
+          <col style={{ width: "9cm" }} />
+          <col style={{ width: "2cm" }} />
+          <col style={{ width: "4cm" }} />
+          <col style={{ width: "6cm" }} />
         </colgroup>
         <tbody>
           <tr height={22}>
-            <td colSpan={4} height={22} className="bt-1 bb-1 bl-0 br-0 t-center v-middle fs-13pt fw-bolder" width={684}>
+            <td colSpan={4} height={22} className="bt-1 bb-1 bl-0 br-0 t-center v-middle fs-13pt fw-bolder">
               TAX INVOICE
             </td>
           </tr>
           <tr height={22}>
-            <td rowSpan={15} height={352} className="border-1 fs-13pt pl-8 v-top" width={293}>
+            <td rowSpan={15} height={352} className="border-1 fs-13pt pl-8 v-top">
               TO <br />
               {companyData.company_name} <br />
               {companyData.company_address} <br />
@@ -86,7 +98,7 @@ const FrontPage = (props) => {
             </td>
           </tr>
           <tr height={291}>
-            <td colSpan={2} height={291} className="bt-1 bb-1 bl-0 br-1 px-1" width={468}>
+            <td colSpan={3} height={291} className="bt-1 bb-1 bl-0 br-1 px-1">
               <font className="fs-12pt fw-bolder">
                 Statutory Guidelines
                 <br />

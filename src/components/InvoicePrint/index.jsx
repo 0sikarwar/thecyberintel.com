@@ -4,13 +4,14 @@ import { getCompanyDetails, getGstDetails } from "../../utils";
 
 import PrintWrapper from "../PrintWrapper";
 import { ReactComponent as Icon } from "../../assets/CiLogo.svg";
+import logo from "../../assets/CiLogo.png";
 import FrontPage from "./FrontPage";
 import BillSlipPage from "./BillSlipPage";
 
 const tableColumnList = ["sno", "docket_num", "docket_date", "destination", "docket_mode", "weight", "amount"];
 const InvoicePrint = (props) => {
   const companyData = getCompanyDetails(props.companyId, props.companyList);
-  const gstDetails = getGstDetails(companyData.company_gst);
+  const gstDetails = getGstDetails(companyData.company_gst || "");
   let totalAmount = Number(props.total.replace(/^\D+/g, ""));
   let fuelCharge = 0;
   if (props.invoiceFuelCharge) {
@@ -42,11 +43,17 @@ const InvoicePrint = (props) => {
         totalWithTax={Math.ceil(totalWithTax)}
       />
       <div>
-        <div className="position-fixed wt-100p">
+        <div
+          className="position-fixed wt-100p"
+          style={{
+            width: "21cm",
+          }}
+        >
           <div className="flex flex-between">
             <div className="flex flex-middle">
-              <div className="in-block mr-1 br-5">
-                <Icon width="16px" height="16px" />
+              <div className="in-block mr-4 br-5">
+                {/* <Icon width="16px" height="16px" /> */}
+                <img src={logo} style={{ width: "0.5cm", display: "block" }} />
               </div>
               <div className="company-name fs-17 fw-bolder">
                 <p className="m-0 mb-1 name">The Cyberintel</p>
@@ -63,7 +70,7 @@ const InvoicePrint = (props) => {
               <div> Invoice No.: {props.invoiceNumber}</div>
               <div>Invoice Date: {props.invoiceDate}</div>
               <div>
-                <span className="mr-2">From: {props.fromDate}</span>
+                <span className="mr-4">From: {props.fromDate}</span>
                 <span>To: {props.toDate}</span>
               </div>
             </div>

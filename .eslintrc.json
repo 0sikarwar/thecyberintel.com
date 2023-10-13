@@ -19,6 +19,7 @@
     "react/prop-types": 0,
     "no-extra-boolean-cast": 0,
     "react/no-unescaped-entities": 0,
-    "react/display-name": 0
+    "react/display-name": 0,
+    "no-debugger": 1
   }
 }

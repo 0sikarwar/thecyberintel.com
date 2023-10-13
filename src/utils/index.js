@@ -33,7 +33,7 @@ export const handlePrint = () => {
 };
 
 export const getCompanyDetails = (id, list) => {
-  const details = list.filter((obj) => obj.id === id)[0];
+  const details = list.filter((obj) => obj.id === Number(id))[0];
   return details || {};
 };
 
