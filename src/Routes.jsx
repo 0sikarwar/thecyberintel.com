@@ -20,23 +20,42 @@ import BillSlipPage from "./components/InvoicePrint/BillSlipPage";
 import RenderModal from "./components/Modal";
 import SignupForm from "./components/SignupForm";
 import RenderToast from "./components/Toast";
+import Verify from "./pages/Verify";
+import { getuser } from "./utils/axiosCalls";
+import ResetPassword from "./pages/ResetPassword";
 function AppRouter() {
-  const [addMargin, setAddMargin] = useState(true);
   const [modalType, setModalType] = useState("");
   const [showToast, setShowToast] = useState(false);
   const [toastData, setToastData] = useState({ type: "", heading: "", msg: "" });
   const [userDetails, setUserDetails] = useState(null);
+  const makeGetuseCall = async () => {
+    try {
+      const resp = await getuser();
+      if (resp.status === 200) {
+        setUserDetails(resp.data.userDetails);
+      }
+    } catch (error) {
+      console.log("error", error);
+    }
+  };
   useEffect(() => {
     window.addEventListener("afterprint", function () {
       document.getElementById("print-area").innerHTML = "";
       document.body.classList.remove("printing");
     });
-    setUserDetails(localStorage.getItem("userDetails"));
+    makeGetuseCall();
+    // setUserDetails(localStorage.getItem("userDetails"));
   }, []);
 
   return (
     <Router history={history}>
-      <Header setModalType={setModalType} userDetails={userDetails} setUserDetails={setUserDetails} />
+      <Header
+        setModalType={setModalType}
+        userDetails={userDetails}
+        setUserDetails={setUserDetails}
+        setShowToast={setShowToast}
+        setToastData={setToastData}
+      />
       <div>
         <Routes>
           <Route exact path="/" element={<Home />} />
@@ -50,6 +69,18 @@ function AppRouter() {
           <Route exact path="/querylisting" element={<QueryListing />} />
           <Route exact path="/docketlisting" element={<DocketListing />} />
           <Route exact path="/dataentry" element={<DataEntry />} />
+          <Route
+            exact
+            path="/verify/:token"
+            element={<Verify setModalType={setModalType} setUserDetails={setUserDetails} />}
+          />
+          <Route
+            exact
+            path="/reset-password/:token"
+            element={
+              <ResetPassword setModalType={setModalType} setShowToast={setShowToast} setToastData={setToastData} />
+            }
+          />
           <Route exact path="/test" element={<FrontPage />} />
           <Route exact path="/test1" element={<BillSlipPage />} />
           <Route element={NotFound} />
@@ -60,11 +91,12 @@ function AppRouter() {
         show={!!modalType}
         hidebuttons
         handleClose={() => setModalType("")}
-        title={modalType === "login" ? "Log in" : "Sign up"}
+        title={modalType === "login" ? "Log in" : modalType === "register" ? "Sign up" : "Reset Passowrd"}
         dialogClassName="signup"
       >
         <SignupForm
           isLogin={modalType === "login"}
+          modalType={modalType}
           setModalType={setModalType}
           setToastData={setToastData}
           setShowToast={setShowToast}

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Button } from "react-bootstrap";
 import { isValidEmail } from "../utils";
-import { registerUser, signinUser } from "../utils/axiosCalls";
+import { forgotPassword, registerUser, signinUser } from "../utils/axiosCalls";
 import Pageloader from "./Pageloader";
 const SignupForm = (props) => {
   const [formFiled, setFormFiled] = useState([]);
@@ -26,34 +26,42 @@ const SignupForm = (props) => {
   };
   const handleSubmit = async (e) => {
     setLoading(true);
-    const res = props.isLogin
-      ? await signinUser(formObj).catch((err) => err.response)
-      : await registerUser({ ...formObj, namespace: "thecyberintel.com" }).catch((err) => err.response);
+    props.setShowToast(false);
+
+    const res =
+      props.modalType === "login"
+        ? await signinUser(formObj).catch((err) => err.response)
+        : props.modalType === "register"
+        ? await registerUser({ ...formObj, namespace: "thecyberintel.com" }).catch((err) => err.response)
+        : await forgotPassword({ email: formObj.email });
     if (res.data.msg) {
       props.setShowToast(true);
       props.setToastData({
-        type: res.data.success ? "success" : "danger",
+        type: res.status === 200 ? "success" : "danger",
         heading: "",
         msg: res.data.msg,
       });
     }
-    if (res.data.success) {
-      props.setUserDetails(res.data.userDetails);
-      localStorage.setItem("userDetails", res.data.userDetails);
+    if (res.status === 200) {
+      if (props.modalType === "login") {
+        props.setUserDetails(res.data.userDetails);
+      }
       props.setModalType("");
-    } else {
+    } else if (res.data.errField) {
       setValidationObj({ ...validationObj, [res.data.errField]: res.data.msg });
     }
     setLoading(false);
   };
   useEffect(() => {
-    if (props.isLogin) {
+    if (props.modalType === "login") {
       setFormFiled(["Email", "Password"]);
-    } else {
+    } else if (props.modalType === "register") {
       setFormFiled(["Name", "Email", "Password"]);
+    } else {
+      setFormFiled(["Email"]);
     }
     setFormObj({ ...formObj, password: "" });
-  }, [props.isLogin]);
+  }, [props.modalType]);
   return (
     <div className="">
       {formFiled.map((key, index) => {
@@ -64,7 +72,7 @@ const SignupForm = (props) => {
               className={`mb-12 form-control ${validationObj[field] ? "bc-error" : ""}`}
               name={field}
               placeholder={key}
-              type={field === "name" ? undefined : field}
+              type={field === "name" ? undefined : field.toLowerCase()}
               value={formObj[field] || ""}
               onChange={handleChange}
               onBlur={handleBlur}
@@ -81,21 +89,27 @@ const SignupForm = (props) => {
             Object.values(validationObj).filter(Boolean).length ||
             Object.values(formObj).filter(Boolean).length !== formFiled.length
           }
+          className="mr-4"
         >
-          {props.isLogin ? "Login" : "Register"}
+          {props.modalType === "login" ? "Login" : props.modalType === "register" ? "Register" : "Reset password"}
         </Button>
         <span className="fs-13 pl-1">
-          {props.isLogin ? (
+          {props.modalType === "login" ? (
             <>
-              Don't have an Account?
-              <span className="link pl-1" onClick={() => props.setModalType("register")}>
-                Register
+              <span className="link pl-4" onClick={() => props.setModalType("forgot")}>
+                Forgot Password?
               </span>
+              <div className="mt4">
+                Don't have an Account?
+                <span className="link pl-4" onClick={() => props.setModalType("register")}>
+                  Register
+                </span>
+              </div>
             </>
           ) : (
             <>
-              Already have an Account?
-              <span className="link pl-1" onClick={() => props.setModalType("login")}>
+              {props.modalType === "Register" && "Already have an Account?"}
+              <span className="link pl-4" onClick={() => props.setModalType("login")}>
                 Log in
               </span>
             </>

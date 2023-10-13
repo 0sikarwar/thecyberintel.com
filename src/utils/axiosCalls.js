@@ -13,6 +13,11 @@ import {
   getInvoiceNumUrl,
   registerUserUrl,
   signinUserUrl,
+  verifyEmailUrl,
+  signoutUserUrl,
+  getuserUrl,
+  forgotPasswordUrl,
+  updatePasswordUrl,
 } from "./apiName";
 import axios from "./axios";
 
@@ -65,4 +70,19 @@ export const registerUser = async (data) => {
 };
 export const signinUser = async (data) => {
   return await axios.post(signinUserUrl, data);
+};
+export const signoutUser = async () => {
+  return await axios.post(signoutUserUrl);
+};
+export const verifyEmail = async (token) => {
+  return await axios.post(`${verifyEmailUrl}/${token}`);
+};
+export const getuser = async () => {
+  return await axios.get(getuserUrl);
+};
+export const forgotPassword = async (data) => {
+  return await axios.post(forgotPasswordUrl, data);
+};
+export const updatePassword = async (data) => {
+  return await axios.post(updatePasswordUrl, data);
 };

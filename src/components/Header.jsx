@@ -2,8 +2,8 @@ import React, { useEffect, useRef, useState } from "react";
 import { Nav, Navbar, NavDropdown } from "react-bootstrap";
 import { useLocation, useNavigate } from "react-router-dom";
 import { ReactComponent as Icon } from "../assets/CiLogo.svg";
-import history from "../utils/history";
 import { checkMobileDevice } from "../utils";
+import { signoutUser } from "../utils/axiosCalls";
 
 export default function Header(props) {
   const [showDropdown, setShowDropdown] = useState(false);
@@ -35,9 +35,11 @@ export default function Header(props) {
       };
     }
   }, [location.pathname]);
-  const logout = () => {
+  const logout = async () => {
+    await signoutUser();
     props.setUserDetails(null);
-    localStorage.removeItem("userDetails");
+    props.setToastData({ type: "success", heading: "Logged out" });
+    props.setShowToast(true);
   };
   return (
     <>
