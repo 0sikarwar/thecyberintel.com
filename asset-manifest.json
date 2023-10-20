@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "https://thecyberintel.com/static/css/main.48538267.css",
-    "main.js": "https://thecyberintel.com/static/js/main.00ef16eb.js",
+    "main.css": "https://thecyberintel.com/static/css/main.96fd9de2.css",
+    "main.js": "https://thecyberintel.com/static/js/main.3d1f6305.js",
     "static/media/wwd.png": "https://thecyberintel.com/static/media/wwd.84bdf8f852e0fd5e4f27.png",
     "static/media/letterHead.png": "https://thecyberintel.com/static/media/letterHead.fb89537bf56d46590b99.png",
     "static/media/cyberintelCover.jpg": "https://thecyberintel.com/static/media/cyberintelCover.ac234f6b8b404330c019.jpg",
@@ -24,11 +24,11 @@
     "static/media/email.svg": "https://thecyberintel.com/static/media/email.5c1d3bb019f332cda0759b592eb7cfea.svg",
     "static/media/phone.svg": "https://thecyberintel.com/static/media/phone.a6541346bd67ac829c0c7c527ee66d1e.svg",
     "static/media/location.svg": "https://thecyberintel.com/static/media/location.2f1761134dc3ebc9d58ed8661a400991.svg",
-    "main.48538267.css.map": "https://thecyberintel.com/static/css/main.48538267.css.map",
-    "main.00ef16eb.js.map": "https://thecyberintel.com/static/js/main.00ef16eb.js.map"
+    "main.96fd9de2.css.map": "https://thecyberintel.com/static/css/main.96fd9de2.css.map",
+    "main.3d1f6305.js.map": "https://thecyberintel.com/static/js/main.3d1f6305.js.map"
   },
   "entrypoints": [
-    "static/css/main.48538267.css",
-    "static/js/main.00ef16eb.js"
+    "static/css/main.96fd9de2.css",
+    "static/js/main.3d1f6305.js"
   ]
 }
