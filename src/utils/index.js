@@ -43,7 +43,7 @@ export const getGstDetails = (gstin) => {
   let gstVal = { SGST: 0, CGST: 0, IGST: 0 };
   if (stateCode === "03") {
     gstVal.CGST = 9;
-    gstVal.CGST = 9;
+    gstVal.SGST = 9;
   } else {
     gstVal.IGST = 18;
   }
