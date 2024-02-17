@@ -24,22 +24,20 @@ const GetInvoiceUsingNum = (props) => {
 
   return (
     <div>
-      <form>
-        <div className="flex flex-wrap ml-10">
-          <div className="wt-100p">
-            Enter <b>last digits </b> of Invoice Number
-          </div>
-          <div className="form-control wt-60">{"TCI" + new Date().getFullYear().toString().slice(2)}</div>
-          <input
-            className="form-control wt-180 bl-0"
-            type={props.fields[0].type}
-            name={props.fields[0].key}
-            placeholder={props.fields[0].name}
-            value={formData[props.fields[0].key]}
-            onChange={(e) => handelChange(e, true)}
-          />
+      <div className="flex flex-wrap ml-10">
+        <div className="wt-100p">
+          Enter <b>last digits </b> of Invoice Number
         </div>
-      </form>
+        <div className="form-control wt-60">{"TCI" + new Date().getFullYear().toString().slice(2)}</div>
+        <input
+          className="form-control wt-180 bl-0"
+          type={props.fields[0].type}
+          name={props.fields[0].key}
+          placeholder={props.fields[0].name}
+          value={formData[props.fields[0].key]}
+          onChange={(e) => handelChange(e, true)}
+        />
+      </div>
     </div>
   );
 };

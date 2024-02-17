@@ -27,14 +27,14 @@ const Invoice = (props) => {
   const TableTitle = () => {
     return (
       <div className="flex flex-wrap mb-5">
-        {`Invoice Details /${" Total Amount: " + props.invoiceData.totalAmount} ${
-          props.invoiceData.invoice_number ? "/ Invoice Number: " + props.invoiceData.invoice_number : ""
+        {`Invoice Details | ${" Total Amount: " + props.invoiceData.totalAmount} ${
+          props.invoiceData.invoice_number ? "| Invoice Number: " + props.invoiceData.invoice_number : ""
         }`}
       </div>
     );
   };
   return (
-    <div className="position-relative">
+    <div className="position-relative h-100">
       {props.invoiceData.docketList?.length ? (
         <>
           <div className="position-absolute z-1 p-2 t-60 r-32">
@@ -59,7 +59,7 @@ const Invoice = (props) => {
               </div>
             )}
           </div>
-          <div className="card px-16">
+          <div className="card px-16 h-100">
             <ReactDataTable
               title={<TableTitle />}
               columns={getFormattedColumns(props.invoiceData.docketList)}
