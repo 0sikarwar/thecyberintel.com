@@ -7,7 +7,7 @@
     "axios": "^1.5.1",
     "babel-eslint": "^10.1.0",
     "bootstrap": "^5.3.2",
-    "data-table-reactjs": "^0.2.32",
+    "data-table-reactjs": "^0.2.33",
     "history": "^5.3.0",
     "react": "^18.2.0",
     "react-bootstrap": "^2.9.0",
