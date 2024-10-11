@@ -33,6 +33,7 @@ function AppRouter() {
       const resp = await getuser();
       if (resp.status === 200) {
         setUserDetails(resp.data.user);
+        setModalType("");
       }
     } catch (error) {
       console.log("error", error);
@@ -68,7 +69,11 @@ function AppRouter() {
           <Route exact path="/about" element={<AboutUs />} />
           <Route exact path="/querylisting" element={<QueryListing />} />
           <Route exact path="/docketlisting" element={<DocketListing />} />
-          <Route exact path="/dataentry" element={<DataEntry />} />
+          <Route
+            exact
+            path="/dataentry"
+            element={<DataEntry setModalType={setModalType} userDetails={userDetails} />}
+          />
           <Route
             exact
             path="/verify/:token"

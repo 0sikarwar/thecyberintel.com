@@ -15,7 +15,7 @@ import Pageloader from "../components/Pageloader";
 import { getModalData, onFieldBlur, makeApiCallOnSubmit, validateBulkData } from "../utils/dataEntryModalHelper";
 import letterHead from "../assets/letterHead.png";
 
-const DataEntry = () => {
+const DataEntry = ({ userDetails, setModalType: setLoginModalType }) => {
   const [showModal, setShowModal] = useState(false);
   const [modalType, setModalType] = useState("");
   const [mainData, setMainData] = useState(null);
@@ -37,6 +37,9 @@ const DataEntry = () => {
     invoiceData && setInvoiceData(null);
   };
 
+  useEffect(() => {
+    if (!userDetails) setLoginModalType("login");
+  }, [userDetails]);
   const handleFiledBlur = (e, isNonArrElement) => {
     onFieldBlur(e, isNonArrElement, validationObj, companyList, setValidationObj, modalType);
   };
@@ -186,7 +189,7 @@ const DataEntry = () => {
     companyList,
     invoiceData
   );
-
+  if (!userDetails) return null;
   if (loadingType === "full") return <Pageloader title="Please wait" message="Getting initial data..." />;
   return (
     <>
