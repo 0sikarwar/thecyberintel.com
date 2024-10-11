@@ -16,6 +16,6 @@ export const registerUserUrl = `${authUrl}/register`;
 export const verifyEmailUrl = `${authUrl}/verify`;
 export const signinUserUrl = `${authUrl}/signin`;
 export const signoutUserUrl = `${authUrl}/signout`;
-export const getuserUrl = `${authUrl}/getuser`;
+export const getuserUrl = `${authUrl}/verifyLogin`;
 export const forgotPasswordUrl = `${authUrl}/forgotPassword`;
 export const updatePasswordUrl = `${authUrl}/updatePassword`;

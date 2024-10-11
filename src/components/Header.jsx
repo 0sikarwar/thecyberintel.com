@@ -93,7 +93,7 @@ export default function Header(props) {
               CONTACT US
             </Nav.Link>
             {!!props.userDetails ? (
-              <Nav.Link onClick={logout}>{props.userDetails.firstname} (Log out)</Nav.Link>
+              <Nav.Link onClick={logout}>{props.userDetails.firstname || props.userDetails.name} (Log out)</Nav.Link>
             ) : (
               <Nav.Link onClick={() => props.setModalType("login")}>Login/Signup</Nav.Link>
             )}

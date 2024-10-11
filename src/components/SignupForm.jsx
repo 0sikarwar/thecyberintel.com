@@ -44,7 +44,7 @@ const SignupForm = (props) => {
     }
     if (res.status === 200) {
       if (props.modalType === "login") {
-        props.setUserDetails(res.data.userDetails);
+        props.setUserDetails(res.data.user);
       }
       props.setModalType("");
     } else if (res.data.errField) {

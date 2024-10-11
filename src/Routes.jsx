@@ -32,7 +32,7 @@ function AppRouter() {
     try {
       const resp = await getuser();
       if (resp.status === 200) {
-        setUserDetails(resp.data.userDetails);
+        setUserDetails(resp.data.user);
       }
     } catch (error) {
       console.log("error", error);
