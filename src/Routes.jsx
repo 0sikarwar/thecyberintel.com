@@ -23,13 +23,16 @@ import RenderToast from "./components/Toast";
 import Verify from "./pages/Verify";
 import { getuser } from "./utils/axiosCalls";
 import ResetPassword from "./pages/ResetPassword";
+import Pageloader from "./components/Pageloader";
 function AppRouter() {
   const [modalType, setModalType] = useState("");
   const [showToast, setShowToast] = useState(false);
   const [toastData, setToastData] = useState({ type: "", heading: "", msg: "" });
   const [userDetails, setUserDetails] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
   const makeGetuseCall = async () => {
     try {
+      setIsLoading(true);
       const resp = await getuser();
       if (resp.status === 200) {
         setUserDetails(resp.data.user);
@@ -38,6 +41,7 @@ function AppRouter() {
     } catch (error) {
       console.log("error", error);
     }
+    setIsLoading(false);
   };
   useEffect(() => {
     window.addEventListener("afterprint", function () {
@@ -93,7 +97,7 @@ function AppRouter() {
       </div>
       <Footer />
       <RenderModal
-        show={!!modalType}
+        show={!!modalType & !isLoading}
         hidebuttons
         handleClose={() => setModalType("")}
         title={modalType === "login" ? "Log in" : modalType === "register" ? "Sign up" : "Reset Passowrd"}
@@ -108,6 +112,7 @@ function AppRouter() {
           setUserDetails={setUserDetails}
         />
       </RenderModal>
+      {isLoading && <Pageloader title="Please wait" message="Getting user data..." />};
       <RenderToast showToast={showToast} setShowToast={setShowToast} {...toastData} />
     </Router>
   );
