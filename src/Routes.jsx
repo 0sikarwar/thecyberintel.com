@@ -30,6 +30,7 @@ function AppRouter() {
   const [toastData, setToastData] = useState({ type: "", heading: "", msg: "" });
   const [userDetails, setUserDetails] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
+  const [modalQueryParam, setModalQueryParam] = useState("");
   const makeGetuseCall = async () => {
     try {
       setIsLoading(true);
@@ -43,24 +44,28 @@ function AppRouter() {
     }
     setIsLoading(false);
   };
+  const queryParamActionType = new URLSearchParams(window.location.href.split("?")[1]).get("action");
   useEffect(() => {
     window.addEventListener("afterprint", function () {
       document.getElementById("print-area").innerHTML = "";
       document.body.classList.remove("printing");
     });
     makeGetuseCall();
+    setModalQueryParam(queryParamActionType);
     // setUserDetails(localStorage.getItem("userDetails"));
   }, []);
 
   return (
     <Router history={history}>
-      <Header
-        setModalType={setModalType}
-        userDetails={userDetails}
-        setUserDetails={setUserDetails}
-        setShowToast={setShowToast}
-        setToastData={setToastData}
-      />
+      {!queryParamActionType && (
+        <Header
+          setModalType={setModalType}
+          userDetails={userDetails}
+          setUserDetails={setUserDetails}
+          setShowToast={setShowToast}
+          setToastData={setToastData}
+        />
+      )}
       <div>
         <Routes>
           <Route exact path="/" element={<Home />} />
@@ -95,13 +100,14 @@ function AppRouter() {
           <Route element={NotFound} />
         </Routes>
       </div>
-      <Footer />
+      {!queryParamActionType && <Footer />}
       <RenderModal
         show={!!modalType & !isLoading}
         hidebuttons
         handleClose={() => setModalType("")}
         title={modalType === "login" ? "Log in" : modalType === "register" ? "Sign up" : "Reset Passowrd"}
         dialogClassName="signup"
+        backdropClassName={!!modalQueryParam ? "full-page-solid-backdrop" : ""}
       >
         <SignupForm
           isLogin={modalType === "login"}

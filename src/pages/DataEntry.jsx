@@ -29,6 +29,7 @@ const DataEntry = ({ userDetails, setModalType: setLoginModalType }) => {
   const [printInvoiceFlag, setPrintInvoiceFlag] = useState(false);
   const [invoiceFuelCharge, setInvoiceFuelCharge] = useState(0);
   const [loadingType, setLoadingType] = useState("full");
+  const [modalQueryParam, setModalQueryParam] = useState("");
   const closeModal = () => {
     setShowModal(false);
     setMainData(null);
@@ -59,6 +60,7 @@ const DataEntry = ({ userDetails, setModalType: setLoginModalType }) => {
     }
     setLoadingType("");
   };
+  const handleShowModal = () => setShowModal(true);
 
   useEffect(() => {
     (async () => {
@@ -81,6 +83,22 @@ const DataEntry = ({ userDetails, setModalType: setLoginModalType }) => {
     })();
   }, []);
 
+  const queryParamActionType = new URLSearchParams(window.location.href.split("?")[1]).get("action");
+  useEffect(() => {
+    if (companyList && userDetails) {
+      if (queryParamActionType) {
+        let obj = dataEntryPrimaryBtns.find((item) => item.key === queryParamActionType);
+        if (!obj) {
+          obj = dataEntrySecondaryBtns.find((item) => item.key === queryParamActionType);
+        }
+        setShowModal(true);
+        setModalType(queryParamActionType);
+        setModalQueryParam(queryParamActionType);
+        setSectionData(obj);
+      }
+    }
+  }, [companyList, userDetails]);
+
   useEffect(() => {
     const validationValues = Object.values(validationObj).filter((item) => item && typeof item === "object");
     if (!mainData || validationValues.length) {
@@ -96,8 +114,6 @@ const DataEntry = ({ userDetails, setModalType: setLoginModalType }) => {
       closeModal();
     }
   };
-
-  const handleShowModal = () => setShowModal(true);
 
   const modalProps = {
     onFieldBlur: handleFiledBlur,
@@ -194,7 +210,7 @@ const DataEntry = ({ userDetails, setModalType: setLoginModalType }) => {
   return (
     <>
       {loadingType === "partial" && <Pageloader title="Please wait" message="Executing your query..." />}
-      <div className="data-entry bg-white">
+      <div className={`data-entry bg-white ${queryParamActionType ? "opacity-0" : ""}`}>
         <div className="btn-container p-12 wt-50p flex flex-wrap flex-around">
           <Button href="#/docketlisting" variant="warning">
             Display all dockets
@@ -219,6 +235,7 @@ const DataEntry = ({ userDetails, setModalType: setLoginModalType }) => {
         </div>
       </div>
       <RenderModal
+        fullModal={!!modalQueryParam}
         show={showModal}
         handleClose={handleCloseModal}
         handleSubmit={handleSubmitModal}

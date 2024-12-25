@@ -16,6 +16,8 @@ function RenderModal({
   dialogClassName,
   children,
   hidebuttons,
+  fullModal,
+  backdropClassName,
 }) {
   return (
     <>
@@ -24,20 +26,23 @@ function RenderModal({
         onHide={handleClose}
         backdrop="static"
         keyboard={false}
-        dialogClassName={`modal-container ${dialogClassName || ""}`}
+        dialogClassName={`modal-container ${dialogClassName || ""} ${fullModal ? "full-modal" : ""} `}
         contentClassName={contentClassName || ""}
+        backdropClassName={backdropClassName}
         centered
         autoFocus
       >
-        <Modal.Header closeButton>
+        <Modal.Header closeButton={!fullModal}>
           <Modal.Title>{title}</Modal.Title>
         </Modal.Header>
         <Modal.Body>{children}</Modal.Body>
         {!hidebuttons && (
           <Modal.Footer>
-            <Button variant="secondary" onClick={handleClose}>
-              Close
-            </Button>
+            {!fullModal && (
+              <Button variant="secondary" onClick={handleClose}>
+                Close
+              </Button>
+            )}
             <Button variant="primary" onClick={handleSubmit} disabled={disabledSubmit}>
               {submitButtonText || "Submit"}
             </Button>
