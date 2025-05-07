@@ -49,7 +49,7 @@ const FrontPage = (props) => {
         flexDirection: "column",
       }}
     >
-      <img src={letterHead} style={{ width: "21cm", display: "block" }} />
+      <img src={letterHead} style={{ width: "21cm", display: "block", borderBottom: "2px solid #0e2c53" }} />
       <table
         border={0}
         cellPadding={0}
@@ -138,9 +138,9 @@ const FrontPage = (props) => {
             <td colSpan={2} className="bb-1 bl-0 bt-0 br-0 px-4">
               Beneficiary Name: The Cyberintel <br />
               Bank Name: HDFC Bank Ltd. <br />
-              A/c No.: 50200057918781 <br />
+              A/c No.: 50200103165773 <br />
               Type: Current Account <br />
-              IFSC: HDFC0000108
+              IFSC: HDFC0000601
             </td>
           </tr>
         </tbody>
