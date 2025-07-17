@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "https://thecyberintel.com/static/css/main.58bf5891.css",
-    "main.js": "https://thecyberintel.com/static/js/main.b3639377.js",
+    "main.js": "https://thecyberintel.com/static/js/main.9ebfadfc.js",
     "static/media/wwd.png": "https://thecyberintel.com/static/media/wwd.84bdf8f852e0fd5e4f27.png",
     "static/media/cyberintelCover.jpg": "https://thecyberintel.com/static/media/cyberintelCover.ac234f6b8b404330c019.jpg",
     "static/media/worldMapGrayed.png": "https://thecyberintel.com/static/media/worldMapGrayed.1650b1e87de7d21b2270.png",
@@ -25,10 +25,10 @@
     "static/media/phone.svg": "https://thecyberintel.com/static/media/phone.a6541346bd67ac829c0c7c527ee66d1e.svg",
     "static/media/location.svg": "https://thecyberintel.com/static/media/location.2f1761134dc3ebc9d58ed8661a400991.svg",
     "main.58bf5891.css.map": "https://thecyberintel.com/static/css/main.58bf5891.css.map",
-    "main.b3639377.js.map": "https://thecyberintel.com/static/js/main.b3639377.js.map"
+    "main.9ebfadfc.js.map": "https://thecyberintel.com/static/js/main.9ebfadfc.js.map"
   },
   "entrypoints": [
     "static/css/main.58bf5891.css",
-    "static/js/main.b3639377.js"
+    "static/js/main.9ebfadfc.js"
   ]
 }
