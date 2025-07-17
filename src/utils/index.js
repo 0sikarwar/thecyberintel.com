@@ -38,10 +38,10 @@ export const getCompanyDetails = (id, list) => {
 };
 
 export const getGstDetails = (gstin) => {
-  const stateCode = gstin.slice(0, 2) || "03";
+  const stateCode = gstin.slice(0, 2) || "06";
   const stateName = gstStateCodes[stateCode];
   let gstVal = { SGST: 0, CGST: 0, IGST: 0 };
-  if (stateCode === "03") {
+  if (stateCode === "06") {
     gstVal.CGST = 9;
     gstVal.SGST = 9;
   } else {
