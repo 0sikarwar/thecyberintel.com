@@ -23,7 +23,9 @@ jobs:
         run: npm install
 
       - name: Build Project
-        run: npm run build # This generates the 'build' folder for standard React apps
+        run: npm run build
+        env:
+          CI: false
 
       - name: Deploy to Server
         uses: easingthemes/ssh-deploy@main
