@@ -124,6 +124,7 @@ export const getModalData = (modalType, sectionData, modalProps, companyList, in
           invoiceData={invoiceData}
           invoiceFuelCharge={modalProps.invoiceFuelCharge}
           setInvoiceFuelCharge={modalProps.setInvoiceFuelCharge}
+          companyList={companyList}
         />
       ) : null;
       submitButtonText = "Print";

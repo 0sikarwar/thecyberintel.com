@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { invoicePrintColumnHead } from "../../utils/dataEntryHelper";
 import { getCompanyDetails, getGstDetails } from "../../utils";
+import { INVOICE_STRINGS } from "../../utils/invoiceConstants";
 
 import PrintWrapper from "../PrintWrapper";
 import logo from "../../assets/CiLogo.png";
@@ -21,6 +22,7 @@ const InvoicePrint = (props) => {
   const cgst = gstDetails.CGST ? (gstDetails.CGST / 100) * totalAmount : 0.0;
   const igst = gstDetails.IGST ? (gstDetails.IGST / 100) * totalAmount : 0.0;
   const totalWithTax = sgst + cgst + igst + totalAmount;
+
   return (
     <PrintWrapper setPrintingFlag={props.setPrintInvoiceFlag} title={`${props.companyName}_${props.invoiceNumber}`}>
       <FrontPage
@@ -57,8 +59,8 @@ const InvoicePrint = (props) => {
                 <p className="m-0 mb-1 name">The Cyberintel</p>
               </div>
             </div>
-            <div className="fs-15 fw-bolder">SUMMARY</div>
-            <div className="fs-13 fw-bolder">www.thecyberintel.com</div>
+            <div className="fs-15 fw-bolder">{INVOICE_STRINGS.summaryHeader}</div>
+            <div className="fs-13 fw-bolder">{INVOICE_STRINGS.websiteUrl}</div>
           </div>
           <div className="flex flex-between mb-1 bg-silver py-1 px-2">
             <div className="mt-2">

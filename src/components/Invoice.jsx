@@ -1,8 +1,49 @@
 import React, { useState } from "react";
 import ReactDataTable from "data-table-reactjs";
 import Button from "react-bootstrap/Button";
+import { getCompanyDetails, getGstDetails } from "../utils";
+import { getInvoiceNumber } from "../utils/dataEntryHelper";
+import { exportInvoiceToExcel } from "../utils/excelExport";
+
 const Invoice = (props) => {
   const [fuelCharge, setFuelCharge] = useState("");
+
+  const handleExcelExport = () => {
+    const { invoiceData, companyList, invoiceFuelCharge } = props;
+    const companyData = getCompanyDetails(invoiceData.company_id, companyList);
+    const gstDetails = getGstDetails(companyData.company_gst || "");
+    let totalAmount = Number(invoiceData.totalAmount.replace(/^\D+/g, ""));
+    let fuelChargeVal = 0;
+    if (invoiceFuelCharge) {
+      fuelChargeVal = (Number(invoiceFuelCharge) / 100) * totalAmount;
+      totalAmount += fuelChargeVal;
+    }
+    const sgst = gstDetails.SGST ? (gstDetails.SGST / 100) * totalAmount : 0.0;
+    const cgst = gstDetails.CGST ? (gstDetails.CGST / 100) * totalAmount : 0.0;
+    const igst = gstDetails.IGST ? (gstDetails.IGST / 100) * totalAmount : 0.0;
+    const totalWithTax = sgst + cgst + igst + totalAmount;
+
+    exportInvoiceToExcel({
+      ...props,
+      invoiceData,
+      companyData,
+      gstDetails,
+      companyName: invoiceData.company_name,
+      fromDate: invoiceData.from,
+      toDate: invoiceData.to,
+      invoiceDate: invoiceData.invoice_date,
+      dueDate: invoiceData.due_date,
+      invoiceNumber: invoiceData.invoice_number ? getInvoiceNumber(invoiceData.invoice_number) : "",
+      total: invoiceData.totalAmount,
+      sgst: Math.ceil(sgst),
+      cgst: Math.ceil(cgst),
+      igst: Math.ceil(igst),
+      totalWithTax: Math.ceil(totalWithTax),
+      totalAmount: Math.ceil(totalAmount),
+      fuelCharge: Math.ceil(fuelChargeVal),
+    });
+  };
+
   const getFormattedColumns = (list) => {
     const firstRow = list[0];
     const columnsList = Object.keys(firstRow)
@@ -51,6 +92,9 @@ const Invoice = (props) => {
               />
               <Button variant="outline-primary" className="ml-2" onClick={() => props.setInvoiceFuelCharge(fuelCharge)}>
                 Add fuel Charge
+              </Button>
+              <Button variant="success" className="ml-2" onClick={handleExcelExport}>
+                Export to Excel
               </Button>
             </div>
             {!!props.invoiceFuelCharge && (

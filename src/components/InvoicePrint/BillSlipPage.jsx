@@ -1,8 +1,10 @@
 import React from "react";
 import { convertNumberToWords } from "../../utils";
+import { INVOICE_STRINGS, INVOICE_TABLE_HEADERS } from "../../utils/invoiceConstants";
 
 const BillSlipPage = (props) => {
   const { total, invoiceNumber, invoiceDate, companyData, totalWithTax, dueDate } = props;
+  const paHeaders = INVOICE_TABLE_HEADERS.paymentAdvice;
 
   return (
     <div
@@ -42,7 +44,7 @@ const BillSlipPage = (props) => {
           </tr>
           <tr height={26}>
             <td colSpan={8} height={26} className="fs-12pt border-1 fw-bolder t-center v-middle">
-              Payment Advice (Please detach and return with your payment)
+              {INVOICE_STRINGS.paymentAdviceHeader}
             </td>
           </tr>
           <tr height={29}>
@@ -58,7 +60,7 @@ const BillSlipPage = (props) => {
           </tr>
           <tr height={23}>
             <td colSpan={4} height={23} className="fs-12pt border-1 fw-bolder t-center v-middle">
-              Chanel Partner of DTDC Express Limited
+              {INVOICE_STRINGS.channelPartnerText}
             </td>
             <td colSpan={4} className="fs-12pt border-1 fw-bolder t-center v-middle bl-0">
               {companyData.company_name}
@@ -66,16 +68,16 @@ const BillSlipPage = (props) => {
           </tr>
           <tr height={29}>
             <td height={29} className="fs-12pt border-1 t-center v-middle bt-0">
-              Bank Name
+              {paHeaders[0]}
             </td>
             <td colSpan={2} className="fs-12pt border-1 t-center v-middle bl-0">
-              Cheque/DD/Ref. No.
+              {paHeaders[1]}
             </td>
-            <td className="fs-12pt border-1 t-center v-middle bl-0 bt-0">Payment Date</td>
-            <td className="fs-12pt border-1 t-center v-middle bl-0 bt-0">Invoice Amount</td>
-            <td className="fs-12pt border-1 t-center v-middle bl-0 bt-0">TDS</td>
+            <td className="fs-12pt border-1 t-center v-middle bl-0 bt-0">{paHeaders[2]}</td>
+            <td className="fs-12pt border-1 t-center v-middle bl-0 bt-0">{paHeaders[3]}</td>
+            <td className="fs-12pt border-1 t-center v-middle bl-0 bt-0">{paHeaders[4]}</td>
             <td colSpan={2} className="fs-12pt border-1 t-center v-middle bl-0">
-              Net Amount
+              {paHeaders[5]}
             </td>
           </tr>
           <tr height={35}>
@@ -146,7 +148,7 @@ const BillSlipPage = (props) => {
           </tr>
           <tr height={29}>
             <td colSpan={8} height={29} className="fs-12pt border-1 fw-bolder t-center v-middle">
-              BILL ACKNOWLEDGEMENT
+              {INVOICE_STRINGS.billAcknowledgementHeader}
             </td>
           </tr>
           <tr height={45}>
@@ -174,7 +176,7 @@ const BillSlipPage = (props) => {
               <br />
               Received Date
             </td>
-            <td colSpan={4} className="fs-12pt fw-bolder border-1 t-left v-top bl-0 pl-4">
+            <td colSpan={4} className="fs-12pt border-1 fw-bolder border-1 t-left v-top bl-0 pl-4">
               Sign &amp; Seal
             </td>
           </tr>

@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import letterHead from "../../assets/letterHead.png";
 import { convertNumberToWords } from "../../utils";
+import { INVOICE_STRINGS } from "../../utils/invoiceConstants";
+
 const highlightedText = ["Total Invoice Value (INR)", "Invoice No"];
 const FrontPage = (props) => {
   const {
@@ -104,18 +106,17 @@ const FrontPage = (props) => {
                 <br />
               </font>
               <font className="fs-12pt ">
-                1. PAN No.:<span></span>AUWPV4858K
+                {INVOICE_STRINGS.statutoryGuidelines[0]}
                 <br />
-                2. Payment Should be made ONLY by crossed cheque or DD in favour of THE CYBERINTEL after obtaining tax
-                invoice<span></span>positively OR NEFT to designated account OR pay with UPI using given QR Code.
+                {INVOICE_STRINGS.statutoryGuidelines[1]}
                 <br />
               </font>
               <font className="fs-12pt fw-bolder">
-                3. PAYMENT DUE DATE: {dueDate}
+                {INVOICE_STRINGS.statutoryGuidelines[2]} {dueDate}
                 <br />
               </font>
               <font className="fs-12pt ">
-                4. Any delay in payment after due date : will be charged 24% per annum on prorata basis.
+                {INVOICE_STRINGS.statutoryGuidelines[3]}
                 <br />
               </font>
               <font className="fs-12pt fw-bolder">
@@ -123,24 +124,20 @@ const FrontPage = (props) => {
                 <br />
               </font>
               <font className="fs-12pt">
-                1. Kindly acknowledge the receipt of the bill by handing over the bill acknowledgement. Duly filled up.
-                To our representive who delivers the bill to you.
-                <br />
-                3. While making the payment please handover the payment advice with full details.
-                <br />
-                4. Any mistakes/correction found in the invoice has to be reported in writing within 7 days from the
-                receipt of the invoice. <br />
-                4. This is a computer-generated invoice and hence does not require signature.
-                <br />
-                5. For any queries please mial to contact@thecyberintel.com.
+                {INVOICE_STRINGS.generalGuidelines.map((text, idx) => (
+                  <React.Fragment key={idx}>
+                    {text}
+                    <br />
+                  </React.Fragment>
+                ))}
               </font>
             </td>
             <td colSpan={2} className="bb-1 bl-0 bt-0 br-0 px-4">
-              Beneficiary Name: The Cyberintel <br />
-              Bank Name: HDFC Bank Ltd. <br />
-              A/c No.: 50200103165773 <br />
-              Type: Current Account <br />
-              IFSC: HDFC0000601
+              Beneficiary Name: {INVOICE_STRINGS.bankDetails.beneficiaryName} <br />
+              Bank Name: {INVOICE_STRINGS.bankDetails.bankName} <br />
+              A/c No.: {INVOICE_STRINGS.bankDetails.accountNo} <br />
+              Type: {INVOICE_STRINGS.bankDetails.accountType} <br />
+              IFSC: {INVOICE_STRINGS.bankDetails.ifsc}
             </td>
           </tr>
         </tbody>
