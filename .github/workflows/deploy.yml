@@ -1,9 +1,9 @@
-name: Deploy React to Ubuntu
+name: Deploy React to Oracle Linux
 
 on:
   push:
     branches:
-      - master # Your current default branch
+      - master # Your default branch
 
 jobs:
   build-and-deploy:
@@ -32,8 +32,10 @@ jobs:
         env:
           SSH_PRIVATE_KEY: ${{ secrets.SERVER_SSH_KEY }}
           ARGS: "-rlgoDzvc -i --delete"
-          SOURCE: "build/" # React builds to 'build/', not 'out/'
+          SOURCE: "build/"
           REMOTE_HOST: ${{ secrets.SERVER_IP }}
-          REMOTE_USER: ubuntu
-          TARGET: "/var/www/app_thecyberintel" # Your specified destination
+          REMOTE_USER: opc
+          TARGET: "/var/www/app.thecyberintel.com/html"
           EXCLUDE: "/node_modules/"
+          SCRIPT_AFTER: |
+            sudo chcon -Rt httpd_sys_content_t /var/www/app.thecyberintel.com/html
